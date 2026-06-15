@@ -85,7 +85,7 @@ const config = {
             label: '文件',
           },
           {
-            to: '/docs/guide',
+            to: '/docs/category/guide',
             label: '網頁操作',
             position: 'left',
           },
@@ -111,7 +111,7 @@ const config = {
               },
               {
                 label: '網頁操作',
-                to: '/docs/guide',
+                to: '/docs/category/guide',
               },
               {
                 label: 'API 概覽',
