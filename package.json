@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "generate:sop": "node scripts/generate-sop-manifest.js",
+    "prestart": "npm run generate:sop",
+    "prebuild": "npm run generate:sop",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",

@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-06-15T08:34:28.570Z",
+  "items": [
+    {
+      "id": "SOP_000_AGV%20%E7%95%B6%E6%A9%9F%E8%99%95%E7%90%86_2021_0507.pdf",
+      "filename": "SOP_000_AGV 當機處理_2021_0507.pdf",
+      "code": "SOP_000",
+      "title": "AGV 當機處理",
+      "date": "2021-05-07",
+      "category": "故障排除",
+      "categoryOrder": 1
+    },
+    {
+      "id": "SOP_000_AGV%20%E7%95%B6%E6%A9%9F%E8%99%95%E7%90%86-2%20(%E5%B7%A5%E7%A8%8B%E4%BA%BA%E5%93%A1)_2021_0617.pdf",
+      "filename": "SOP_000_AGV 當機處理-2 (工程人員)_2021_0617.pdf",
+      "code": "SOP_000",
+      "title": "AGV 當機處理-2 (工程人員)",
+      "date": "2021-06-17",
+      "category": "故障排除",
+      "categoryOrder": 1
+    },
+    {
+      "id": "SOP_000_AGV%20%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF%E6%96%B7%E7%B7%9A%E5%9B%9E%E5%BE%A9_2021_0429.pdf",
+      "filename": "SOP_000_AGV 無線網路斷線回復_2021_0429.pdf",
+      "code": "SOP_000",
+      "title": "AGV 無線網路斷線回復",
+      "date": "2021-04-29",
+      "category": "故障排除",
+      "categoryOrder": 1
+    },
+    {
+      "id": "SOP_010_AGV%20%E9%96%8B%E6%A9%9F%E9%97%9C%E6%A9%9F_2021_0603.pdf",
+      "filename": "SOP_010_AGV 開機關機_2021_0603.pdf",
+      "code": "SOP_010",
+      "title": "AGV 開機關機",
+      "date": "2021-06-03",
+      "category": "基本操作",
+      "categoryOrder": 2
+    },
+    {
+      "id": "SOP_100_AGV%20%E5%85%85%E9%9B%BB%E6%93%8D%E4%BD%9C_2021_0531.pdf",
+      "filename": "SOP_100_AGV 充電操作_2021_0531.pdf",
+      "code": "SOP_100",
+      "title": "AGV 充電操作",
+      "date": "2021-05-31",
+      "category": "充電作業",
+      "categoryOrder": 3
+    },
+    {
+      "id": "SOP_100_AGV_%E6%89%8B%E5%8B%95%E5%85%85%E9%9B%BB(%E9%9B%BB%E6%B1%A0%E5%96%9A%E9%86%92)_2021_0730.pdf",
+      "filename": "SOP_100_AGV_手動充電(電池喚醒)_2021_0730.pdf",
+      "code": "SOP_100",
+      "title": "AGV 手動充電(電池喚醒)",
+      "date": "2021-07-30",
+      "category": "充電作業",
+      "categoryOrder": 3
+    }
+  ]
+}

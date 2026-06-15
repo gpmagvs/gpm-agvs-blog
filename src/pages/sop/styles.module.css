@@ -1,0 +1,81 @@
+.pageHeader {
+  padding: 2rem 0 1rem;
+}
+
+.pageHeader p {
+  margin-bottom: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.categoryBlock {
+  margin-bottom: 2.5rem;
+}
+
+.categoryTitle {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.sopList {
+  display: grid;
+  gap: 1rem;
+}
+
+.sopCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-background-surface-color);
+}
+
+.sopCardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.sopCardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.viewerToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.viewerTitle {
+  margin: 0;
+}
+
+.viewerMeta {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.pdfFrame {
+  width: 100%;
+  height: calc(100vh - 280px);
+  min-height: 480px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-background-color);
+}
+
+.emptyState {
+  padding: 2rem;
+  text-align: center;
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+}

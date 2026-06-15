@@ -85,12 +85,18 @@ const config = {
             label: '文件',
           },
           {
+            to: '/docs/guide',
+            label: '網頁操作',
+            position: 'left',
+          },
+          {
             type: 'docSidebar',
             sidebarId: 'apiSidebar',
             position: 'left',
             label: 'API',
           },
           { to: '/blog', label: '更新履歷', position: 'left' },
+          { to: '/sop', label: 'SOP 手順', position: 'left' },
           { to: '/docs/faq', label: '常見問題', position: 'left' },
         ],
       },
@@ -105,12 +111,20 @@ const config = {
                 to: '/docs/architecture/overview',
               },
               {
+                label: '網頁操作',
+                to: '/docs/guide',
+              },
+              {
                 label: 'API 概覽',
                 to: '/docs/api/overview',
               },
               {
                 label: '常見問題',
                 to: '/docs/faq',
+              },
+              {
+                label: 'SOP 手順',
+                to: '/sop',
               },
             ],
           },
