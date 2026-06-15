@@ -124,7 +124,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} GPM AGV. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} GPM. INC. All rights reserved.`,
       },
       prism: {
         theme: prismThemes.github,
