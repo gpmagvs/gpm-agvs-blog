@@ -18,8 +18,8 @@ const config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+  url: 'https://gpmagvs.github.io',
+  baseUrl: '/gpm-agvs-blog/',
 
   organizationName: 'gpm',
   projectName: 'gpm-agvs-blog',
