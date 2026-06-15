@@ -74,21 +74,6 @@ const sidebars = {
       },
       items: ['api/agv-api'],
     },
-    {
-      type: 'category',
-      label: 'AGVS API（範本）',
-      link: {
-        type: 'generated-index',
-        title: 'AGVS RESTful API',
-        description: 'AGVS 對外 REST API 端點說明（待補充）。',
-        slug: '/category/api-endpoints',
-      },
-      items: [
-        'api/dispatch',
-        'api/vehicle',
-        'api/task',
-      ],
-    },
   ],
 };
 
