@@ -96,7 +96,6 @@ const config = {
             label: 'API',
           },
           { to: '/blog', label: '更新履歷', position: 'left' },
-          { to: '/sop', label: 'SOP 手順', position: 'left' },
           { to: '/docs/faq', label: '常見問題', position: 'left' },
         ],
       },
@@ -124,7 +123,7 @@ const config = {
               },
               {
                 label: 'SOP 手順',
-                to: '/sop',
+                to: '/docs/sop',
               },
             ],
           },
