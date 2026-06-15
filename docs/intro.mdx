@@ -1,0 +1,29 @@
+---
+sidebar_position: 1
+slug: /
+title: 文件首頁
+---
+
+# GPM 派車系統文件
+
+歡迎使用 **GPM 派車系統** 技術文件。本網站提供系統架構、RESTful API 說明、版本更新履歷與常見問題，協助您快速整合 AGV 派車功能。
+
+## 快速導覽
+
+| 區塊 | 說明 | 連結 |
+|------|------|------|
+| 系統架構 | 整體架構、網路拓樸、模組職責與派車資料流 | [開始閱讀](/docs/architecture/overview) |
+| RESTful API | 對外 API 端點、請求與回應格式 | [API 概覽](/docs/api/overview) |
+| 更新履歷 | AGVSystem、VMSystem 各專案版本更新 | [查看更新](/blog) |
+| 常見問題 | 整合與使用上的常見問答 | [FAQ](/docs/faq) |
+
+## 典型整合流程
+
+1. 向系統管理員取得 API 認證 Token
+2. 查詢可用車輛與站點資訊
+3. 建立派車任務並追蹤狀態
+4. 任務完成後接收回報或 Webhook 通知
+
+:::tip 開始整合
+建議先閱讀 [API 概覽](/docs/api/overview) 了解 Base URL 與認證方式，再參考 [建立派車任務](/docs/api/dispatch) 端點進行測試。
+:::

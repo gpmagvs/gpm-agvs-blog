@@ -1,0 +1,24 @@
+changelog:
+  label: 更新履歷
+  permalink: /changelog
+  description: 功能新增、修正與版本更新
+
+agvs-system:
+  label: AGVSystem
+  permalink: /agvs-system
+  description: AGVS 核心服務（AGVSystem）更新
+
+vms-system:
+  label: VMSystem
+  permalink: /vms-system
+  description: 車輛管理系統（VMSystem）更新
+
+feature:
+  label: 新功能
+  permalink: /feature
+  description: 新功能
+
+bugfix:
+  label: 問題修正
+  permalink: /bugfix
+  description: Bug 修正

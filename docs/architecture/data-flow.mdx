@@ -1,0 +1,66 @@
+---
+sidebar_position: 4
+title: 派車資料流
+---
+
+# 派車資料流
+
+以下說明一次完整派車請求從 MCS 下達到 AGV 執行完成的資料流，對應 **MCS → AGVS → AGV** 三層架構。
+
+## 序列圖
+
+```mermaid
+sequenceDiagram
+    participant MCS
+    participant SECS as SECS Middleware
+    participant AGVS as AGVS 核心服務
+    participant VMS
+    participant AGV as AGV 車輛
+
+    MCS->>SECS: SECS 任務下達
+    SECS->>AGVS: 建立任務（REST API）
+    AGVS->>AGVS: 儲存至資料庫
+    AGVS->>VMS: 請求派車（REST API）
+    VMS->>VMS: 車輛調度／交管
+    VMS->>AGV: 下達任務（RESTful API）
+    AGV->>VMS: 狀態／導航事件上報
+    VMS->>AGVS: 更新任務進度
+    AGV->>VMS: 任務完成
+    VMS->>AGVS: 標記 completed
+    AGVS->>SECS: 事件／上報數據
+    SECS->>MCS: SECS 完成回報
+```
+
+## 任務狀態流轉
+
+```mermaid
+stateDiagram-v2
+    [*] --> pending: AGVS 建立任務
+    pending --> assigned: VMS 分配 AGV
+    assigned --> in_progress: AGV 開始執行
+    in_progress --> completed: 抵達目的地
+    pending --> cancelled: 取消
+    assigned --> cancelled: 取消
+    in_progress --> failed: 執行失敗
+    failed --> pending: VMS 自動重派
+    completed --> [*]
+    cancelled --> [*]
+```
+
+## 各階段責任
+
+| 階段 | 負責服務 | 動作 |
+|------|----------|------|
+| 任務接收 | SECS Middleware → AGVS | MCS 任務轉換並寫入資料庫 |
+| 派車決策 | AGVS → VMS | AGVS 確認任務可執行，交由 VMS 調度 |
+| 車輛執行 | VMS ↔ AGV | 下達移動指令、交管、接收狀態回報 |
+| 結果回報 | AGVS → SECS Middleware → MCS | 任務完成事件沿原路徑回傳 |
+
+## 逾時處理
+
+- 任務在 `assigned` 狀態超過 **5 分鐘**未開始 → VMS 自動重派
+- 任務在 `in_progress` 超過 **30 分鐘**未完成 → 標記 `failed` 並通知管理員
+
+:::info 相關文件
+架構分層說明請參閱 [架構概覽](/docs/architecture/overview)，網路連線請參閱 [網路架構拓樸](/docs/architecture/network-topology)。
+:::

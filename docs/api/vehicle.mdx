@@ -1,0 +1,84 @@
+---
+sidebar_position: 3
+title: 車輛 API
+---
+
+# 車輛 API
+
+## 列出可用車輛
+
+`GET /vehicles`
+
+查詢目前系統中所有 AGV 車輛及其狀態。
+
+### Query 參數
+
+| 參數 | 類型 | 說明 |
+|------|------|------|
+| `status` | string | 篩選狀態：`idle`、`busy`、`charging`、`offline` |
+| `page` | number | 頁碼，預設 1 |
+| `pageSize` | number | 每頁筆數，預設 20 |
+
+### Response 範例
+
+```json
+{
+  "data": [
+    {
+      "vehicleId": "AGV-001",
+      "status": "idle",
+      "battery": 85,
+      "currentStation": "ST-A01",
+      "lastUpdated": "2025-06-15T10:28:00Z"
+    },
+    {
+      "vehicleId": "AGV-003",
+      "status": "busy",
+      "battery": 62,
+      "currentStation": null,
+      "lastUpdated": "2025-06-15T10:30:00Z"
+    }
+  ],
+  "meta": {
+    "page": 1,
+    "pageSize": 20,
+    "total": 2
+  }
+}
+```
+
+---
+
+## 查詢單一車輛
+
+`GET /vehicles/{vehicleId}`
+
+### Path 參數
+
+| 參數 | 說明 |
+|------|------|
+| `vehicleId` | 車輛 ID，如 `AGV-001` |
+
+### Response 範例
+
+```json
+{
+  "data": {
+    "vehicleId": "AGV-001",
+    "status": "idle",
+    "battery": 85,
+    "currentStation": "ST-A01",
+    "currentTask": null,
+    "lastUpdated": "2025-06-15T10:28:00Z"
+  }
+}
+```
+
+## 車輛狀態說明
+
+| 狀態 | 說明 |
+|------|------|
+| `idle` | 閒置，可接受新任務 |
+| `busy` | 執行任務中 |
+| `charging` | 充電中 |
+| `offline` | 離線或通訊中斷 |

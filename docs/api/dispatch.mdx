@@ -1,0 +1,100 @@
+---
+sidebar_position: 2
+title: 派車 API
+---
+
+# 派車 API
+
+## 建立派車任務
+
+`POST /dispatch/tasks`
+
+建立一筆新的派車任務，系統將自動分配可用 AGV 車輛。
+
+### Request Body
+
+| 參數 | 類型 | 必填 | 說明 |
+|------|------|:----:|------|
+| `origin` | string | ✓ | 起點站點 ID |
+| `destination` | string | ✓ | 終點站點 ID |
+| `priority` | number | | 優先級 1–5，預設 3 |
+| `payload` | object | | 附加資料（如貨物編號） |
+
+### Request 範例
+
+```json
+{
+  "origin": "ST-A01",
+  "destination": "ST-B03",
+  "priority": 3,
+  "payload": {
+    "cargoId": "BOX-001"
+  }
+}
+```
+
+### Response 範例（201 Created）
+
+```json
+{
+  "data": {
+    "taskId": "TASK-20250615-001",
+    "status": "pending",
+    "origin": "ST-A01",
+    "destination": "ST-B03",
+    "assignedVehicle": null,
+    "createdAt": "2025-06-15T10:30:00Z"
+  }
+}
+```
+
+---
+
+## 查詢任務狀態
+
+`GET /dispatch/tasks/{taskId}`
+
+### Path 參數
+
+| 參數 | 說明 |
+|------|------|
+| `taskId` | 任務 ID |
+
+### Response 範例
+
+```json
+{
+  "data": {
+    "taskId": "TASK-20250615-001",
+    "status": "in_progress",
+    "origin": "ST-A01",
+    "destination": "ST-B03",
+    "assignedVehicle": "AGV-003",
+    "createdAt": "2025-06-15T10:30:00Z",
+    "updatedAt": "2025-06-15T10:32:15Z"
+  }
+}
+```
+
+---
+
+## 取消任務
+
+`DELETE /dispatch/tasks/{taskId}`
+
+僅能在任務狀態為 `pending` 或 `assigned` 時取消。
+
+### Response 範例
+
+```json
+{
+  "data": {
+    "taskId": "TASK-20250615-001",
+    "status": "cancelled"
+  }
+}
+```
+
+:::caution 注意
+任務進入 `in_progress` 後無法透過 API 取消，需聯繫現場管理員人工介入。
+:::

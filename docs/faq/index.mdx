@@ -1,0 +1,220 @@
+---
+sidebar_position: 1
+slug: /faq
+title: 常見問題
+---
+
+# 常見問題（FAQ）
+
+整合 VMS 與 AGV RESTful API 時的常見問答。詳細端點規格請參閱 [VMS 提供的 API](/docs/api/vms-agv) 與 [AGV 提供的 API](/docs/api/agv-api)。
+
+---
+
+## VMS API（AGV 呼叫 VMS）
+
+<details>
+<summary>POST /OnlineReq 回傳「AGV上線之位置與圖資差距過大」</summary>
+
+VMS 要求 AGV 回報座標與上線 `tag` 的距離須 **≤ 1.50 m**。若超出此範圍，上線請求會被拒絕並新增 Warning Alarm。
+
+**建議排查：**
+
+1. 確認 `POST /AGVStatus` 回報的 `Coordination` 是否正確
+2. 確認 `tag` 參數與 AGV 實際停駐 Tag 一致
+3. 巡檢 AGV（`Model = 2`）會自動以 `Last_Visited_Node` 覆寫 `tag`，請確認該值有效
+
+詳見 [POST /OnlineReq](/docs/api/vms-agv#post-onlinereq)。
+</details>
+
+<details>
+<summary>POST /OnlineReq 回傳 ReturnCode 1 且 Message 為「AGV Not Found」</summary>
+
+可能原因：
+
+1. **`AGVName` 未在 VMS 註冊**，或名稱拼寫錯誤
+2. **IP 綁定驗證失敗**：請求來源 IP 須與 VMS 中 AGV 註冊 IP 一致（模擬模式或 IP 為 `gpm.agv.amc` 除外）
+3. **`tag` 不存在於目前地圖**
+
+請向管理員確認 AGV 註冊資訊與網路設定。
+</details>
+
+<details>
+<summary>POST /OfflineReq 回傳 ReturnCode 413</summary>
+
+表示 AGV 仍有任務執行中（`OrderExecuteState = EXECUTING`），此時不可下線。
+
+請等待任務完成或取消後再呼叫 `POST /OfflineReq`，或先透過 `POST /TaskFeedback` 確認任務已結束。
+
+詳見 [POST /OfflineReq](/docs/api/vms-agv#post-offlinereq)。
+</details>
+
+<details>
+<summary>POST /TaskFeedback 回傳 ReturnCode 2（Feedback Not Confirmed）</summary>
+
+VMS 的 `TaskExecuter` 未確認此次回饋。常見原因：
+
+- 回饋的 `Task Name`、`Task Sequence` 與 VMS 目前任務不一致
+- 任務狀態順序異常（如跳過必要狀態）
+
+請確認 Request Body 中 `Task Name`、`Task Simplex`、`Task Sequence`、`Task Status` 與實際執行情況一致。若持續失敗，VMS 會新增 `AGV_TaskFeedback_ERROR` Alarm。
+
+詳見 [POST /TaskFeedback](/docs/api/vms-agv#post-taskfeedback)。
+</details>
+
+<details>
+<summary>GET /OnlineMode 永遠回傳 Remote Mode = 0</summary>
+
+若 HTTP 200 但 `Remote Mode` 始終為 `0`（OFFLINE），表示 VMS **找不到該 AGV**（名稱错误或 IP 不匹配），仍回傳離線狀態。
+
+請確認 `AGVName`、`Model` 參數，以及 AGV 是否已在 VMS 完成註冊。
+
+詳見 [GET /OnlineMode](/docs/api/vms-agv#get-onlinemode)。
+</details>
+
+<details>
+<summary>GET /CarrierVirtualID 回傳 HTTP 500</summary>
+
+此端點在 AGV 不存在或 IP 驗證失敗時會**拋出例外**（非 ReturnCode 格式）。
+
+請確認 AGV 已註冊且從正確 IP 發起請求。若需 VCR 讀取失敗／不匹配情境，亦可使用 `GetReadFailCarrierVirtualID` 或 `GetReadMissMatchCarrierVirtualID`。
+</details>
+
+---
+
+## AGV API（VMS 呼叫 AGV）
+
+<details>
+<summary>GET /agv_online 回傳 Success = false，ReturnCode 412</summary>
+
+AGV 未停在 Tag 上（`AGV_Need_Park_Above_Tag`）。上線前 AGV 須先停駐在有效 Tag，且 Barcode Reader 讀值不為 0。
+
+請確認 AGV 物理位置與 Tag 讀取是否正常。
+
+詳見 [GET /agv_online](/docs/api/agv-api#get-agv_online)。
+</details>
+
+<details>
+<summary>GET /agv_online 回傳 ReturnCode 414 或 411</summary>
+
+| ReturnCode | 說明 | 處理方式 |
+|------------|------|----------|
+| 414 | AGV 尚未初始化 | 等待 AGV 完成初始化後再請求 |
+| 411 | 目前 Tag 禁止上線 | 移動至允許上線的 Tag |
+| 416 | 不可在設備點上線 | 移動至一般站點（Normal） |
+| 417 | 不可在虛擬點上線 | 移動至非虛擬點 |
+| 418 | 有 Carrier ID 但無載具 | 確認載具感測狀態 |
+
+詳見 [GET /agv_online](/docs/api/agv-api#get-agv_online) 常見失敗碼表。
+</details>
+
+<details>
+<summary>GET /agv_online 回傳 ReturnCode 100</summary>
+
+表示 AGV 正在進行**模式切換**（`RemoteModeRequestingflag = true`），請勿重複發送上線／下線請求。
+
+稍待數秒後再重試。
+</details>
+
+<details>
+<summary>POST /Localization 或 /LocalizationWithCurrentTag 回傳 Success = false</summary>
+
+常見錯誤訊息：
+
+| Message | 原因 |
+|---------|------|
+| `"車子在執行任務的過程中禁止執行定位動作"` | AGV 子狀態為 RUN 或 Action 進行中 |
+| `"車子不在Tag上 無法定位"` | Barcode Reader 讀值為 0 |
+| `"在圖資找不到Tag為 {tag} 的點"` | 目前 Tag 不在地圖中 |
+
+定位失敗時 AGV 會新增 `Localization_Fail` Warning。
+
+詳見 [POST /Localization](/docs/api/agv-api#post-localization)。
+</details>
+
+<details>
+<summary>GET /RunningState 與 POST /AGVStatus 有什麼差別？</summary>
+
+| 端點 | 方向 | 用途 |
+|------|------|------|
+| `GET /RunningState` | VMS → AGV | VMS **主動查詢** AGV 狀態 |
+| `POST /AGVStatus` | AGV → VMS | AGV **週期性上報**狀態至 VMS |
+
+兩者回傳的狀態模型皆為 `clsRunningStatus`，但呼叫方向相反。一般整合以 AGV 週期性呼叫 `POST /AGVStatus` 為主；VMS 需要即時快照時可呼叫 `GET /RunningState`。
+</details>
+
+---
+
+## 上線／下線流程
+
+<details>
+<summary>VMS 的 OnlineReq 與 AGV 的 agv_online 要呼叫哪一個？</summary>
+
+兩者屬於**不同方向**的 API，通常需配合使用：
+
+1. **AGV → VMS**：`POST /OnlineReq` — AGV 向 VMS 註冊上線點位，VMS 驗證 Tag 與座標
+2. **VMS → AGV**：`GET /agv_online` — VMS 請求 AGV 車載端切換至 ONLINE 模式
+
+實際流程依現場整合設計而定，兩邊都成功後 AGV 才會進入可派車狀態。可先以 `GET /OnlineMode`（VMS）與 `GET /OnlineState`（AGV）確認兩側模式是否一致。
+</details>
+
+<details>
+<summary>GET /OnlineMode（VMS）與 GET /OnlineState（AGV）讀值不一致</summary>
+
+- **VMS `/OnlineMode`**：VMS 視角下的遠端模式，並會將 AGV 標記為 `connected = true`
+- **AGV `/OnlineState`**：AGV 車載端實際的 `Remote_Mode`
+
+若兩者不一致，可能是上線流程只完成一半（例如 VMS 已 ONLINE 但 AGV 車載尚未切換）。請依序檢查 `OnlineReq`、`agv_online` 是否皆成功。
+</details>
+
+<details>
+<summary>POST /OfflineReq 與 GET /agv_offline 的關係？</summary>
+
+與上線類似，分別對應：
+
+- **AGV → VMS**：`POST /OfflineReq` — 通知 VMS AGV 下線
+- **VMS → AGV**：`GET /agv_offline` — 請求 AGV 車載端切換 OFFLINE
+
+任務執行中兩側都可能拒絕下線（VMS ReturnCode `413` 或 AGV ReturnCode `413`）。
+</details>
+
+---
+
+## 狀態上報與通知
+
+<details>
+<summary>POST /AGVStatus 應以多高的頻率呼叫？</summary>
+
+文件未規定固定間隔，依現場網路與 VMS 負載調整。建議：
+
+- 正常運行：**1–3 秒**一次
+- 網路不穩時可適度降頻，但須在 VMS 逾時設定內維持連線
+
+`GET /OnlineMode` 亦會更新 AGV 連線狀態，可與 `AGVStatus` 搭配使用。
+</details>
+
+<details>
+<summary>POST /LeaveWorkStationRequest 回傳 confirm = false</summary>
+
+VMS 交管模組（`TrafficControlCenter`）拒絕 AGV 離開工作站。`message` 欄位會說明原因（如路徑衝突、其他 AGV 占用等）。
+
+請依 `message` 內容調整等待或重新請求。
+
+詳見 [POST /LeaveWorkStationRequest](/docs/api/vms-agv#post-leaveworkstationrequest)。
+</details>
+
+<details>
+<summary>GET /Notification 與 GET /ClearNotification 沒有回應 Body 是正常的嗎？</summary>
+
+正常。這兩個端點透過 SignalR 推送訊息至 AGV **前端畫面**，HTTP 回應通常為空。
+
+- `GET /Notification?message=...` — 顯示通知
+- `GET /ClearNotification` — 清除通知
+
+詳見 [GET /Notification](/docs/api/agv-api#get-notification)。
+</details>
+
+---
+
+:::tip 仍有問題？
+請聯繫 GPM 技術支援，並提供 AGV 名稱、API 端點、ReturnCode／Message 及發生時間，以便追查。
+:::

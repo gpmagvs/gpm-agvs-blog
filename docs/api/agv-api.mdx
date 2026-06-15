@@ -1,0 +1,371 @@
+---
+sidebar_position: 2
+title: AGV 提供的 API
+---
+
+# AGV 提供的 RESTful API
+
+AGV 車載系統（GPMVehicleControlSystem）對外提供的 API，供 **VMS** 呼叫。Base URL 為 `http://{AGV_HOST}/api/AGV`，原始碼對應 `GPMVehicleControlSystem.Controllers.AGVController`。
+
+---
+
+## GET /RunningState
+
+取得 AGV 即時運行狀態（`clsRunningStatus`）。
+
+**請求**
+
+```
+GET /api/AGV/RunningState
+```
+
+無 Query 參數。
+
+**回應**
+
+回傳 `clsRunningStatus` JSON 物件，主要欄位如下：
+
+```json
+{
+  "Time_Stamp": "20250615103000000",
+  "Coordination": { "X": 1.23, "Y": 4.56, "Theta": 90.0 },
+  "Last_Visited_Node": 1001,
+  "AGV_Status": 1,
+  "Escape_Flag": false,
+  "Sensor_Status": { "Barcode Reader": 0, "Guide Sensor": 0 },
+  "CPU_Usage_Percent": 25.5,
+  "RAM_Usage_Percent": 40.0,
+  "Electric_Volume": [80.0, 80.0],
+  "Cargo_Status": 0,
+  "CSTID": [],
+  "Alarm_Code": [],
+  "IsCharging": false,
+  "AppVersion": "1.0.0.0"
+}
+```
+
+`AGV_Status`：0=Initializing、1=IDLE、2=RUN、3=DOWN、4=Charging。
+
+---
+
+## GET /OnlineState
+
+查詢 AGV 目前遠端模式（Online / Offline）。
+
+**請求**
+
+```
+GET /api/AGV/OnlineState
+```
+
+**回應**
+
+回傳 `REMOTE_MODE` 整數值：
+
+| 值 | 名稱 | 說明 |
+|----|------|------|
+| 0 | OFFLINE | 離線 |
+| 1 | ONLINE | 上線 |
+| 2 | SWITCHING | 切換中 |
+
+範例：`1`（ONLINE）
+
+---
+
+## GET /agv_online
+
+由 VMS 請求 AGV 切換至 **ONLINE** 模式。
+
+**請求**
+
+```
+GET /api/AGV/agv_online
+```
+
+**回應**
+
+```json
+{
+  "ReturnCode": 0,
+  "Message": "",
+  "Success": true
+}
+```
+
+| 欄位 | 說明 |
+|------|------|
+| `Success` | 是否切換成功 |
+| `ReturnCode` | 結果碼，`0` 表示成功 |
+
+常見失敗 `ReturnCode`（`RETURN_CODE`）：
+
+| ReturnCode | 說明 |
+|------------|------|
+| 100 | 模式切換進行中（重複請求） |
+| 412 | AGV 未停在 Tag 上（`AGV_Need_Park_Above_Tag`） |
+| 411 | 目前 Tag 不可上線（`Current_Tag_Cannot_Online`） |
+| 414 | AGV 尚未初始化（`AGV_Not_Initialized`） |
+| 416 | 不可在設備點上線（`Current_Tag_Cannot_Online_In_Equipment`） |
+| 417 | 不可在虛擬點上線（`Current_Tag_Cannot_Online_At_Virtual_Point`） |
+| 418 | 有 ID 但無載具（`AGV_HasIDBut_No_Cargo`） |
+| 413 | 任務執行中不可切換（`Cannot_Switch_Remote_Mode_When_Task_Executing`） |
+
+---
+
+## GET /agv_offline
+
+由 VMS 請求 AGV 切換至 **OFFLINE** 模式。
+
+**請求**
+
+```
+GET /api/AGV/agv_offline
+```
+
+**回應**
+
+```json
+{
+  "ReturnCode": 0,
+  "Success": true,
+  "Message": ""
+}
+```
+
+`ReturnCode` 與 `Success` 意義同 [agv_online](#get-agv_online)。
+
+---
+
+## POST /Localization
+
+指定 Tag 與座標，對 AGV 進行定位。
+
+**請求**
+
+```
+POST /api/AGV/Localization
+Content-Type: application/json
+```
+
+**Request Body**
+
+```json
+{
+  "currentID": 1001,
+  "x": 1.23,
+  "y": 4.56,
+  "theata": 90.0
+}
+```
+
+| 欄位 | 類型 | 說明 |
+|------|------|------|
+| `currentID` | int | Tag 編號 |
+| `x` | double | X 座標 |
+| `y` | double | Y 座標 |
+| `theata` | double | 角度（Theta） |
+
+**回應**
+
+```json
+{
+  "Success": true,
+  "Message": ""
+}
+```
+
+定位失敗時 `Success = false`，`Message` 為錯誤說明，並新增 `Localization_Fail` Warning。
+
+---
+
+## POST /LocalizationWithCurrentTag
+
+以 AGV 目前所在 Tag 的圖資座標進行定位。
+
+**請求**
+
+```
+POST /api/AGV/LocalizationWithCurrentTag
+```
+
+**回應**
+
+```json
+{
+  "Success": true,
+  "Message": ""
+}
+```
+
+限制與錯誤：
+
+| 情境 | Message 範例 |
+|------|--------------|
+| 執行任務中 | `"車子在執行任務的過程中禁止執行定位動作"` |
+| 不在 Tag 上 | `"車子不在Tag上 無法定位"` |
+| Tag 不在圖資 | `"在圖資找不到Tag為 {tag} 的點"` |
+
+---
+
+## POST /SwitchCSTReader
+
+開啟或關閉 CST Reader（載具讀取器）。
+
+**請求**
+
+```
+POST /api/AGV/SwitchCSTReader?enable={enable}
+```
+
+| 參數 | 類型 | 必填 | 說明 |
+|------|------|:----:|------|
+| `enable` | bool | | 預設 `false`；`true` 為開啟 |
+
+**回應**
+
+```json
+{
+  "Item1": true,
+  "Item2": ""
+}
+```
+
+`Item1` 為是否成功（`confirm`），`Item2` 為訊息（`message`）。成功時會更新 AGV 參數 `CST_READER_TRIGGER` 並儲存。
+
+---
+
+## POST /AGVSTrafficControllingNotify
+
+VMS 通知 AGV 進入**交管控制**狀態，AGV 方向燈閃爍提示。
+
+**請求**
+
+```
+POST /api/AGV/AGVSTrafficControllingNotify
+```
+
+**回應**
+
+無回應 Body（HTTP 200）。僅在 AGV 子狀態為 `IDLE` 時觸發方向燈閃爍（`TrafficControllingLightsFlash`）。
+
+---
+
+## GET /UpdateCarrierID
+
+更新 AGV 上載具的 Carrier ID（VCR 讀取結果）。
+
+**請求**
+
+```
+GET /api/AGV/UpdateCarrierID?carrierID={carrierID}
+```
+
+| 參數 | 類型 | 必填 | 說明 |
+|------|------|:----:|------|
+| `carrierID` | string | ✓ | 載具 ID |
+
+**回應**
+
+無回應 Body。若 AGV 上無載具（`HasAnyCargoOnAGV = false`），直接返回不更新。
+
+成功時寫入 `CSTReader.ValidCSTID`。
+
+---
+
+## POST /WaitingPartsAreaRegistNotify
+
+通知 AGV 正在等待**零件系統登記區域**，播放等待音效。
+
+**請求**
+
+```
+POST /api/AGV/WaitingPartsAreaRegistNotify
+```
+
+**回應**
+
+無回應 Body。觸發蜂鳴器播放 `WaitingPartsSysAcceptAreaRegist` 音效。
+
+---
+
+## POST /WaitingPartsAreaRegistFinishNotify
+
+通知 AGV 零件系統登記區域**已完成**，停止等待音效。
+
+**請求**
+
+```
+POST /api/AGV/WaitingPartsAreaRegistFinishNotify
+```
+
+**回應**
+
+無回應 Body。停止蜂鳴器（`SOUNDS.Stop`）。
+
+---
+
+## POST /WaitingElevatorArriveNotify
+
+通知 AGV 正在**等待電梯到達**，播放等待音效。
+
+**請求**
+
+```
+POST /api/AGV/WaitingElevatorArriveNotify
+```
+
+**回應**
+
+無回應 Body。觸發蜂鳴器播放 `WaitingElevetorArrive` 音效。
+
+---
+
+## POST /ElevatorArrivedNotify
+
+通知 AGV **電梯已抵達**，停止等待音效。
+
+**請求**
+
+```
+POST /api/AGV/ElevatorArrivedNotify
+```
+
+**回應**
+
+無回應 Body。停止蜂鳴器（`SOUNDS.Stop`）。
+
+---
+
+## GET /Notification
+
+VMS 推送通知訊息至 AGV 前端畫面。
+
+**請求**
+
+```
+GET /api/AGV/Notification?message={message}
+```
+
+| 參數 | 類型 | 必填 | 說明 |
+|------|------|:----:|------|
+| `message` | string | ✓ | 通知內容 |
+
+**回應**
+
+無回應 Body。訊息透過 SignalR 推送至前端（`Notification` 事件）。
+
+---
+
+## GET /ClearNotification
+
+清除 AGV 前端目前顯示的通知訊息。
+
+**請求**
+
+```
+GET /api/AGV/ClearNotification
+```
+
+**回應**
+
+無回應 Body。推送空字串至前端以清除通知。

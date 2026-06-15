@@ -1,0 +1,404 @@
+---
+sidebar_position: 2
+title: VMS → AGV API
+---
+
+# VMS 提供給 AGV 的 RESTful API
+
+VMS 提供給 AGV 端呼叫的 API，Base URL 為 `http://{VMS_HOST}/api/AGV`。
+
+---
+
+## GET /OnlineMode
+
+查詢 AGV 目前遠端模式，同時將 AGV 標記為已連線（`connected = true`）。
+
+**請求**
+
+```
+GET /api/AGV/OnlineMode?AGVName={AGVName}&Model={Model}&isRestartFlag={isRestartFlag}
+```
+
+| 參數            | 類型   | 必填 | 說明                                     |
+| --------------- | ------ | :--: | ---------------------------------------- |
+| `AGVName`       | string |  ✓   | AGV 名稱                                 |
+| `Model`         | int    |      | AGV 車型，預設 `999`（Any）              |
+| `isRestartFlag` | bool   |      | 預設 `false`；為 `true` 時重置為 OFFLINE |
+
+**回應**
+
+```json
+{
+  "Time Stamp": "20250615103000000",
+  "Remote Mode": 1
+}
+```
+
+| Remote Mode | 值  | 說明   |
+| ----------- | --- | ------ |
+| OFFLINE     | 0   | 離線   |
+| ONLINE      | 1   | 上線   |
+| SWITCHING   | 2   | 切換中 |
+
+AGV 不存在時仍回傳 HTTP 200，`Remote Mode = 0`。
+
+---
+
+## POST /OnlineReq
+
+AGV 請求上線。VMS 驗證 Tag 位置後，將 AGV 標記為 ONLINE。
+
+**請求**
+
+```
+POST /api/AGV/OnlineReq?AGVName={AGVName}&tag={tag}
+```
+
+| 參數      | 類型   | 必填 | 說明          |
+| --------- | ------ | :--: | ------------- |
+| `AGVName` | string |  ✓   | AGV 名稱      |
+| `tag`     | int    |  ✓   | 上線 Tag 編號 |
+
+驗證條件：
+
+1. AGV 須已於 VMS 註冊，且請求來源 IP 與註冊 IP 一致
+2. `tag` 須存在於目前地圖
+3. AGV 座標與 Tag 點距離須 ≤ **1.50 m**
+4. 若車型為 `INSPECTION_AGV`（2），系統會以 `Last_Visited_Node` 覆寫 `tag`
+
+**回應**
+
+```json
+{ "ReturnCode": 0, "Message": "" }
+```
+
+| ReturnCode | Message 範例                             |
+| ---------- | ---------------------------------------- |
+| 0          | 成功                                     |
+| 1          | `"AGV上線之位置與圖資差距過大"`          |
+| 1          | `"{tag}不存在於目前的地圖"`              |
+| 1          | `"{AGVName} Not Registed In ASGVSystem"` |
+
+失敗時 VMS 會新增 Warning Alarm。
+
+---
+
+## POST /OfflineReq
+
+AGV 請求下線，VMS 將 AGV 標記為 OFFLINE。
+
+**請求**
+
+```
+POST /api/AGV/OfflineReq?AGVName={AGVName}
+```
+
+| 參數      | 類型   | 必填 | 說明     |
+| --------- | ------ | :--: | -------- |
+| `AGVName` | string |  ✓   | AGV 名稱 |
+
+若 AGV 處於 `IDLE` 或 `RUN` 且任務仍在執行中（`OrderExecuteState = EXECUTING`），不可下線。
+
+**回應**
+
+```json
+{ "ReturnCode": 0, "Message": "" }
+```
+
+| ReturnCode | Message                        |
+| ---------- | ------------------------------ |
+| 0          | 成功                           |
+| 413        | `"AGV 執行任務中不可進行下線"` |
+| 1          | `"AGV Not Found"`              |
+
+---
+
+## POST /AGVStatus
+
+週期性上報 AGV 即時運行狀態，VMS 更新該 AGV 的 `states`。
+
+**請求**
+
+```
+POST /api/AGV/AGVStatus?AGVName={AGVName}&Model={Model}
+Content-Type: application/json
+```
+
+| 參數      | 類型   | 必填 | 說明                                                       |
+| --------- | ------ | :--: | ---------------------------------------------------------- |
+| `AGVName` | string |  ✓   | AGV 名稱                                                   |
+| `Model`   | int    |  ✓   | AGV 車型（0=FORK, 1=YUNTECH_FORK_AGV, 2=INSPECTION_AGV …） |
+
+**Request Body**
+
+```json
+{
+  "Time_Stamp": "20250615103000000",
+  "Coordination": { "X": 1.23, "Y": 4.56, "Theta": 90.0 },
+  "Last_Visited_Node": 1001,
+  "AGV_Status": 1,
+  "Escape_Flag": false,
+  "Sensor_Status": {
+    "Barcode Reader": 0,
+    "Guide Sensor": 0,
+    "LiDAR Sensor": 0,
+    "Driver": 0,
+    "Tag_Reader": 0,
+    "G-Sensor": 0
+  },
+  "CPU_Usage_Percent": 25.5,
+  "RAM_Usage_Percent": 40.0,
+  "AvailableDiskSpace": 10240,
+  "AGV_Reset_Flag": false,
+  "Signal_Strength": 85.0,
+  "Cargo_Status": 0,
+  "CSTID": [],
+  "Odometry": 1234.5,
+  "Electric_Volume": [80.0, 80.0],
+  "Electric_Temperatures": [23.0, 23.0],
+  "Electric_Voltages": [24000, 24000],
+  "Electric_ChargeCurrents": [0, 0],
+  "Electric_DischargeCurrents": [100, 100],
+  "Alarm_Code": [],
+  "Fork_Height": 0.0,
+  "CargoType": 0,
+  "IsCharging": false,
+  "DriversStatus": [],
+  "ForkStatus": { "VerticalPose": 0, "HorizonPose": 0, "Tile": 0 },
+  "TotalTime": 0,
+  "TotalDistance": 0,
+  "AppVersion": "1.0.0.0",
+  "IsLocatingError": false
+}
+```
+
+`AGV_Status` 主要值：0=Initializing、1=IDLE、2=RUN、3=DOWN、4=Charging。
+
+**回應**
+
+```json
+{ "ReturnCode": 0, "Message": "" }
+```
+
+| ReturnCode | Message                                           |
+| ---------- | ------------------------------------------------- |
+| 0          | 成功                                              |
+| 1          | `"VMS System Not Found AGV With Name ={AGVName}"` |
+
+---
+
+## POST /TaskFeedback
+
+上報任務執行狀態。VMS 依序由 `TaskExecuter` 與 `taskDispatchModule` 處理。
+
+**請求**
+
+```
+POST /api/AGV/TaskFeedback?AGVName={AGVName}&Model={Model}
+Content-Type: application/json
+```
+
+| 參數      | 類型   | 必填 | 說明     |
+| --------- | ------ | :--: | -------- |
+| `AGVName` | string |  ✓   | AGV 名稱 |
+| `Model`   | int    |  ✓   | AGV 車型 |
+
+**Request Body**
+
+```json
+{
+  "Time Stamp": "20250615103000000",
+  "Task Name": "TASK-001",
+  "Task Simplex": "SIMPLEX-A",
+  "Task Sequence": 1,
+  "Point Index": 0,
+  "Task Status": 2,
+  "Coordination": { "X": 1.23, "Y": 4.56, "Theta": 90.0 },
+  "Last Visited Node": 1001
+}
+```
+
+`Task Status` 主要值：0=NO_MISSION、1=NAVIGATING、2=REACH_POINT_OF_TRAJECTORY、3=ACTION_START、4=ACTION_FINISH。
+
+**回應**
+
+```json
+{ "ReturnCode": 0, "Message": "" }
+```
+
+| ReturnCode | 說明                                                        |
+| ---------- | ----------------------------------------------------------- |
+| 0          | 成功                                                        |
+| 1          | AGV 不存在或例外（VMS 新增 `AGV_TaskFeedback_ERROR` Alarm） |
+| 2          | Feedback Not Confirmed                                      |
+
+---
+
+## POST /ReportMeasure
+
+上報巡檢量測結果，由 `MeasureOrderHandler` 處理。
+
+**請求**
+
+```
+POST /api/AGV/ReportMeasure?AGVName={AGVName}&Model={Model}
+Content-Type: application/json
+```
+
+| 參數      | 類型   | 必填 | 說明     |
+| --------- | ------ | :--: | -------- |
+| `AGVName` | string |  ✓   | AGV 名稱 |
+| `Model`   | int    |  ✓   | AGV 車型 |
+
+**Request Body**
+
+```json
+{
+  "TagID": 1001,
+  "TaskName": "MEASURE-001",
+  "AGVName": "AGV-01",
+  "BayName": "BAY-A",
+  "StartTime": "2025-06-15T10:30:00",
+  "result": "done",
+  "location": "ST-A01",
+  "illuminance": 500,
+  "decibel": 45,
+  "temperature": 25.5,
+  "humudity": 60.0,
+  "IPA": 0,
+  "Acetone": 0,
+  "TVOC": 0.5,
+  "time": "20250615103000",
+  "partical_03um": 0,
+  "partical_05um": 0,
+  "partical_10um": 0,
+  "partical_30um": 0,
+  "partical_50um": 0,
+  "partical_100um": 0,
+  "PID": 0
+}
+```
+
+`result` 為 `"done"` 表示量測完成。
+
+**回應**
+
+```json
+{ "ReturnCode": 0, "Message": "" }
+```
+
+---
+
+## GET /CarrierVirtualID
+
+取得 Carrier Virtual ID（VCR 讀取失敗等情境）。
+
+**請求**
+
+```
+GET /api/AGV/CarrierVirtualID?AGVName={AGVName}&Model={Model}&CstType={CstType}
+```
+
+| 參數      | 類型   | 必填 | 說明                                     |
+| --------- | ------ | :--: | ---------------------------------------- |
+| `AGVName` | string |  ✓   | AGV 名稱                                 |
+| `Model`   | int    |      | 預設 `999`（Any）                        |
+| `CstType` | int    |      | 載具類型，預設 `200`（Tray）；`201`=Rack |
+
+**回應**
+
+```json
+{
+  "TimeStamp": "2025-06-15T10:30:00.123",
+  "VirtualID": "UN250615103000123"
+}
+```
+
+`Tray` / `Rack` 分別從 AGVS 設定取得 Unknown Flow ID。AGV 不存在時拋出例外（HTTP 500）。
+
+---
+
+## GET /GetReadFailCarrierVirtualID
+
+VCR **讀取失敗**時，向 VMS 取得 Virtual ID。
+
+**請求**
+
+```
+GET /api/AGV/GetReadFailCarrierVirtualID?AGVName={AGVName}&CargoType={CargoType}
+```
+
+| 參數        | 類型   | 必填 | 說明                                 |
+| ----------- | ------ | :--: | ------------------------------------ |
+| `AGVName`   | string |  ✓   | AGV 名稱                             |
+| `CargoType` | int    |      | 預設 `200`（Tray）；非 200 視為 Rack |
+
+**回應**
+
+```json
+{
+  "TimeStamp": "2025-06-15T10:30:00.123",
+  "VirtualID": "UN250615103000123"
+}
+```
+
+使用 AGVS 設定的 Unknown Flow ID。
+
+---
+
+## GET /GetReadMissMatchCarrierVirtualID
+
+VCR **讀取不匹配**時，向 VMS 取得 Virtual ID。
+
+**請求**
+
+```
+GET /api/AGV/GetReadMissMatchCarrierVirtualID?AGVName={AGVName}&CargoType={CargoType}
+```
+
+| 參數        | 類型   | 必填 | 說明                                 |
+| ----------- | ------ | :--: | ------------------------------------ |
+| `AGVName`   | string |  ✓   | AGV 名稱                             |
+| `CargoType` | int    |      | 預設 `200`（Tray）；非 200 視為 Rack |
+
+**回應**
+
+```json
+{
+  "TimeStamp": "2025-06-15T10:30:00.123",
+  "VirtualID": "UN250615103000123"
+}
+```
+
+使用 AGVS 設定的 MissMatch Flow ID。
+
+---
+
+## POST /LeaveWorkStationRequest
+
+AGV 請求離開工作站，由 `TrafficControlCenter` 審核是否放行。
+
+**請求**
+
+```
+POST /api/AGV/LeaveWorkStationRequest?AGVName={AGVName}&EQTag={EQTag}
+```
+
+| 參數      | 類型   | 必填 | 說明          |
+| --------- | ------ | :--: | ------------- |
+| `AGVName` | string |  ✓   | AGV 名稱      |
+| `EQTag`   | int    |  ✓   | 設備 Tag 編號 |
+
+**回應**
+
+```json
+{
+  "confirm": true,
+  "message": ""
+}
+```
+
+| 欄位      | 說明               |
+| --------- | ------------------ |
+| `confirm` | 是否允許離開       |
+| `message` | 拒絕原因或補充說明 |
