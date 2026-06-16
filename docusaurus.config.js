@@ -18,8 +18,8 @@ const config = {
     v4: true,
   },
 
-  url: 'https://gpmagvs.github.io',
-  baseUrl: '/gpm-agvs-blog/',
+  url: 'https://agvsdocs.gwtech.org',
+  baseUrl: '/',
 
   organizationName: 'gpm',
   projectName: 'gpm-agvs-blog',
