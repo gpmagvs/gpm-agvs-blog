@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "generate:sop": "node scripts/generate-sop-manifest.js",
-    "prestart": "npm run generate:sop",
-    "prebuild": "npm run generate:sop",
+    "generate:alarm-codes": "node scripts/generate-dispatch-alarm-codes.js && node scripts/generate-vehicle-alarm-codes.js",
+    "prestart": "npm run generate:sop && npm run generate:alarm-codes",
+    "prebuild": "npm run generate:sop && npm run generate:alarm-codes",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",

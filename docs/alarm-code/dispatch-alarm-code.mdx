@@ -1,0 +1,214 @@
+---
+sidebar_position: 1
+title: 派車系統 Alarm Code
+---
+
+# 派車系統 Alarm Code
+
+對應後端模組：`AGVSystemCommonNet6.Alarm.AlarmCodeTable`（AGVS／VMS）
+
+## 功能概述
+
+派車系統 Alarm Code 定義於 `AlarmCodeTable.cs`，供 VMS／AGVS 在任務派工、交管、設備交握與充電站等流程中產生 **Alarm** 或 **Warning**。現場可於 [實時警報](/docs/guide/realtime-alarm/overview) 或 [警報歷史查詢](/docs/guide/data-query/alarm-history-query) 對照 **異常碼** 欄位。
+
+## 資料版本
+
+| 項目 | 值 |
+|------|-----|
+| AlarmCodeTable.VERSION | **1.3.24** |
+| 異常碼筆數 | **180** |
+
+:::info 自動產生
+本頁異常碼表格由 `scripts/generate-dispatch-alarm-codes.js` 自 `AGVSystemCommonNet6/Alarm/AlarmCodeTable.cs` 產生，並依列舉數值 **由小至大** 排序。修改原始碼後請執行 `npm run generate:alarm-codes`。
+:::
+
+## 異常碼一覽
+
+| 異常碼 | 中文描述 | 英文 Description |
+|--------|----------|------------------|
+| 0 | 無 | None |
+| 1 | 找不到註冊碼 | License Err |
+| 2 | 執行階段錯誤 | Run Time Err |
+| 10 | 載入主設定檔時發生錯誤 | Reload Logic.ini Err |
+| 11 | 沒有選擇或是無法辨識任務命令類別 | NoActionType |
+| 12 | 沒有選擇任務起點 | EmptySourcePort |
+| 13 | 沒有定義或無法辨識任務起點點位 | NoDefineSourcePort |
+| 14 | 沒有選擇任務終點 | EmptyDestPort |
+| 15 | 沒有定義或無法辨識任務終點點位 | NoDefineDestPort |
+| 16 | 起點的站點種類與任務命令類別匹配錯誤 | WrongTypeOfSourcePort |
+| 17 | 起點無法找到有效之二次定位點 | WrongTargetOfSourcePort |
+| 19 | 終點的站點種類與任務命令類別匹配錯誤 | WrongTypeOfDestPort |
+| 20 | 找不到異常碼設定檔 | Miss Alarm.ini |
+| 21 | 設定檔找不到指定的異常碼 | Not Found Alarm Code |
+| 22 | 設定檔找不到指定的異常碼描述 | Not Found Alarm Text |
+| 26 | 起點指定的車子與任務指定的車子不同 | WrongAssignVehilceID |
+| 28 | 起點為車子但無卡匣存在 | WrongVehicleCSTStatus |
+| 29 | 檢查任務資料異常 | DownloadTaskDataWrong |
+| 50 | 沒有指定或指定的車子ID不存在 | NoAssignVehicle |
+| 55 | 任務沒有指定的CarrierID | DownloadTaskNoCarrierID |
+| 60 | 交管系統註冊路徑回傳參數找不到指定車載 | Traffic Booking Task Cannot Find Vehicle |
+| 61 | 系統在地圖上找不到充電站 | Cannot Find Charge Station In Map |
+| 62 | 系統在地圖上找不到 Idle Point | Cannot Find Idle Point In Map |
+| 64 | 系統在地圖上找不到 Parking Point | Cannot Find Parking Point In Map |
+| 100 | 交管異常停止 | Task Failure Because Traffic Error |
+| 132 | AGV貨物狀態與目前任務不符 | AGV Cargo Status Not Match With Current Task |
+| 140 | AGV與VMS斷線 | AGV Disconnect |
+| 145 | 等待車輛上報Action Finish 逾時 | Wait Action Finish Reported By Vehicle Timeout |
+| 210 | 派車系統發生程式上的Crash造成 | CreateCommandFail |
+| 220 | 終點無法找到有效之二次定位點 | WrongTargetOfDestPort |
+| 221 | 任務資料儲存至資料庫錯誤 | SaveDBFail |
+| 260 | 於資料庫中找不到指定欲取消的任務 | CannotFindCommand |
+| 262 | 於錯誤的狀態下取消任務 | WrongStatus |
+| 500 | Host連線異常 | Host Communication Error |
+| 603 | 交管請求車輛避讓但找不到避讓點 | No available avoid point for traffic control request |
+| 604 | 等待其他車輛釋放取放貨Port位逾時 | Wait Other Vehicle Release Port TIMOUT |
+| 605 | 產生避讓任務時發生寫入資料庫異常 | Add Avoid Task To Database ERROR |
+| 606 | 交管請求車輛釋放取放貨Port位但該車未上線 | Cannot Release Port When Vehicle Not ONLINE |
+| 607 | 交管請求車輛釋放取放貨Port位但該車已無法離開 | Cannot Release Port When Vehicle Down |
+| 608 | 等待車輛釋放取放貨Port的過程中被手動取消任務 | Task Canceled By Manual When Leave Vehicles Release Ports |
+| 1003 | AGVS 與 VMS 斷開連接 | AGVS Disconnect With VMS |
+| 1004 | 收到AGV上線請求但AGV已斷線 | Get Online Req But AGV Disconnect |
+| 1005 | 收到AGV下線請求但AGV已斷線 | Get Offline Req But AGV Disconnect |
+| 1006 | 收到AGV上線請求但AGV狀態為DOWN | Get Online Req But AGV State Error |
+| 1007 | 交通阻塞沒有路線可供AGV行走 | Traffic Blocked No Path For Navigator |
+| 1008 | 沒有可用的充電樁 | No Available Charge Pile |
+| 1009 | 檢查導航路徑時交通控制中心異常 | Traffic Control Center Exception When Check Navigator Path |
+| 1010 | 收到充電任務但 AGV 已在充電 | Get Charge Task But AGV Charging Already |
+| 1011 | CST狀態檢查失敗 | CST Status Check Fail |
+| 1012 | 與終端設備的連線尚未建立 | Endpoint EQ Not Connected |
+| 1014 | 設備沒有入料請求 | EQ Load Request Is Not On |
+| 1015 | 設備沒有出料請求 | EQ Unload Request Is Not On |
+| 1016 | 轉移任務到 VMS 時發生錯誤 | Transfer Task To VMS But Error Occur |
+| 1017 | 目的地TAG設置格式錯誤 | Destin Tag Is Invalid Format |
+| 1018 | 無法自動搜索出非充電站或停車點的目的地 | Station Type Cannot Use Auto Search |
+| 1019 | 沒有可用的停車點 | No Available Park Station |
+| 1020 | 創建導航任務鏈接時出錯 | Error When Create Navigation Jobs Link |
+| 1021 | 設備出料請求但所設定的TAG在圖資中不存在 | EQ Unload Request On But Tag Not Exist On Map |
+| 1022 | 設備發起取貨請求但在圖資中被非設為設備 | EQ Unload Request On But Station Type Setting Is Not EQ |
+| 1023 | 查找站點TAG時發生錯誤 | Error When Find Tag Of Station |
+| 1024 | 站點沒有可行走的下一點 | Map Point No Targets |
+| 1025 | 將AGV狀態寫入資料庫時發生錯誤 | Error When AGV Status Write To DB |
+| 1026 | 交通中止 | Traffic Abort |
+| 1027 | 收到AGV上線請求但AGV位置距離過遠 | Get Online Req But AGV Location Is Too Far From Point |
+| 1028 | 收到AGV上線請求但AGV所在位置不存在於當前地圖 | Get Online Req But AGV Location Is Not Exist On Map |
+| 1036 | AGV回報的任務ID與執行中任務ID不匹配 | AGV Task Feedback But Task Name Not Match |
+| 1037 | 系統錯誤 | System Error |
+| 1038 | 當 AGV 有貨物時無法調度進入工作站的任務 | Cannot Dispatch Into Workstation Task When AGV Has Cargo |
+| 1039 | 當目的地是工作站時無法調度正常移動任務 | Cannot Dispatch Normal Move Task When Destine Is Workstation |
+| 1040 | 設備標籤在當前地圖中不存在 | EQ Tag Not Exist In Current Map |
+| 1041 | 子任務隊列為空但嘗試下載任務到 AGV | SubTask Queue Empty But Try Download Task To AGV |
+| 1042 | AGV 狀態異常 | AGV Status Down |
+| 1043 | 無法調度非法狀態的任務 | Cannot Dispatch Task With Illegal Status |
+| 1044 | AGV電量過低 | AGV Battery Low Level |
+| 1045 | AGV工作站數據未設置 | AGV Workstation Data Not Setting |
+| 1046 | AGV位於位知的TAG位置 | AGV At Unknown Tag Location |
+| 1047 | 無法將任務狀態變更結果儲存至資料庫 | Task Status Can't Save To Database |
+| 1048 | 任務取消失敗 | Task Cancel Fail |
+| 1049 | 將任務新增到資料庫失敗 | Task Add To Database Fail |
+| 1050 | AGV TCP/IP 斷開連接 | AGV TCP/IP Disconnect |
+| 1051 | 儲存測量數據至資料庫失敗 | Save Measure Data to DB Fail |
+| 1052 | 區域內沒有AGV可被指派任務 | Region Has No AGV To Dispatch Task |
+| 1053 | 當AGV車上有貨物時無法指派搬運任務 | Cannot Dispatch Carry Task When AGV Has Cargo |
+| 1054 | 無法調度本地自動轉移任務 | Cannot Dispatch Local Auto Transfer Task |
+| 1055 | 來源設備出料請求已關閉 | Source EQ Unload Request Off |
+| 1056 | 目的地設備入料請求已關閉 | Destine EQ Load Request Off |
+| 1057 | 來源設備狀態為當機 | Source EQ Status Down |
+| 1058 | 目的地設備狀態為當機 | Destine EQ Status Down |
+| 1059 | 當AGV有貨物時無法自動停車 | Cannot Auto Parking When AGV Has Cargo |
+| 1060 | 目的地設備已經有任務執行 | Destine EQ Already Has Task To Execute |
+| 1061 | 目的地設備已有AGV停駐 | Destine EQ Has AGV |
+| 1062 | 目的地設備已被註冊 | Destine EQ Has Registered |
+| 1063 | AGV已取貨但在席檢知無貨物 | Unload But AGV No Cargo Mounted |
+| 1064 | AGV已取貨但在席檢知無貨物 | Unload But Cargo ID Empty |
+| 1065 | AGV已取貨但回報之貨物ID與任務指派的ID不匹配 | Unload But Cargo ID Not Matched |
+| 1066 | 任務下載數據非法 | Task Download Data Illegal |
+| 1067 | AGV 任務回報錯誤 | AGV TaskFeedback Error |
+| 1068 | 設備斷開連接 | EQ Disconnect |
+| 1069 | 任務狀態變更修改資料庫時發生錯誤 | Error When Task Status Change DB |
+| 1070 | 目的地點位已指派AGV前往 | Destine Normal Station Has Task To Reach |
+| 1071 | 目的地設備已指派AGV前往停車 | Destine EQ Station Has Task To Park |
+| 1072 | 目的地充電站有 AGV | Destine Charge Station Has AGV |
+| 1074 | 下載任務到 AGV 失敗 | Download Task To AGV Fail |
+| 1075 | 設備入料請求但設備有貨物 | EQ Load Request On But Has Cargo |
+| 1076 | 設備出料請求但設備沒有貨物 | EQ Unload Request On But No Cargo |
+| 1077 | 設備出料請求但框為滿框或空框狀態未知 | EQ Unload Req But Rack Full Or Empty Is Unknown |
+| 1078 | 設備入料請求但框為滿框或空框狀態未知 | EQ Load Req But Rack Full Or Empty Is Unknown |
+| 1079 | 來源設備不允許該AGV車款執行任務 | AGV Type Is Not Allow To Execute Task At Source Equipment |
+| 1080 | 目的地設備不允許該AGV車款執行任務 | AGV Type Is Not Allow To Execute Task At Destine Equipment |
+| 1081 | 設備狀態訊號INPUT輸入長度不足 | EQ Input Data Not Enough |
+| 1082 | AGV已經有充電任務 | AGV Already Has Charge Task |
+| 1083 | 充電站已經有任務分配 | Charge Station Already Has Task Assigned |
+| 1084 | 充電站已經有AGV停駐 | Charge Station Already Has AGV Parked |
+| 1085 | 站點已禁用 | Station Disabled |
+| 1086 | 下載任務到 AGV 失敗-AGV狀態Down | TASK DOWNLOAD TO AGV FAIL AGV STATUS DOWN |
+| 1087 | 下載任務到 AGV 失敗 | TASK DOWNLOAD TO AGV FAIL |
+| 1088 | 下載任務到 AGV 失敗-AGV當前位置不在TAG上 | TASK DOWNLOAD TO AGV FAIL AGV NOT ON TAG |
+| 1089 | 下載任務到 AGV 失敗-工作站尚未設置 | TASK DOWNLOAD TO AGV FAIL WORKSTATION NOT SETTING YET |
+| 1090 | 下載任務到 AGV 失敗-AGV電量過低 | TASK DOWNLOAD TO AGV FAIL AGV BATTERY LOW LEVEL |
+| 1091 | 下載任務到 AGV 失敗-不可使用一般走行命令AGV移動至工作站 | TASK DOWNLOAD TO AGV FAIL AGV CANNOT GO TO WORKSTATION WITH NORMAL MOVE ACTION |
+| 1092 | 下載任務到 AGV 失敗-任務數據包含不合法的內容 | TASK DOWNLOAD TO AGV FAIL TASK DOWNLOAD DATA ILLEGAL |
+| 1093 | 下載任務到 AGV 失敗-系統異常 | TASK DOWNLOAD TO AGV FAIL SYSTEM EXCEPTION |
+| 1094 | 下載任務到 AGV 失敗-無路徑可供AGV行走 | TASK DOWNLOAD TO AGV FAIL NO PATH FOR NAVIGATION |
+| 1095 | 下載任務到 AGV 失敗-任務已取消 | TASK DOWNLOAD TO AGV FAIL TASK CANCEL |
+| 1096 | 下載任務到 AGV 失敗-任務下載超時 | TASK DOWNLOAD TO AGV FAIL TASK DOWN LOAD TIMEOUT |
+| 1097 | 任務已取消 | Task Canceled |
+| 1098 | 無法為巡檢AGV搜尋充電站 | CANT AUTO SEARCH STATION TYPE IS NOT EXCHANGE FOR INSPECTION AGV |
+| 1099 | 沒有可用的電池交換站 | NO AVAILABLE BAT EXCHANGER USABLE |
+| 1100 | 將區域註冊到 PARTS 系統失敗 | REGIST REGIONS TO PARTS SYSTEM FAIL |
+| 1101 | 設備管理模組初始化失敗並出現異常 | SYSTEM EQP MANAGEMENT INITIALIZE FAIL WITH EXCEPTION |
+| 1102 | 無效的充電站 | INVALID CHARGE STATION |
+| 1103 | 無法在 AGV OFFLINE 狀態下派送命令給AGV | Commands won't send while AGV is offline |
+| 1200 | VMS向AGVS上報搬運任務狀態Timeout | VMS Report Order Status Timeout |
+| 1201 | VMS向AGVS上報搬運任務狀態失敗 | VMS Report Order Status Fail |
+| 1202 | VMS向AGVS上報搬運任務狀態但AGVS發生錯誤例外 | VMS Report Order Status But AGVS Has Exception |
+| 1203 | 儲格已被禁用 | Port Of Rack is Disabled |
+| 2000 | 來源Rack儲位沒有貨物 | Source Rack Port Not Has Cargo |
+| 2001 | 目標Rack儲位有貨物 | Destine Rack Port Has Cargo |
+| 2002 | 目標儲架已滿 | Destine Rack Is Full |
+| 2003 | 來源Rack儲位的在席Sensor並未全部觸發 | Source Rack Port Not all cargo sensors are triggered |
+| 2004 | 來源Rack儲位無法確認貨物為Tray或是Rack | Source Rack Port Cannot identify if cargo is Tray or Rack |
+| 2005 | RACK 架內有障礙物 | Obstacle detected inside the rack |
+| 2006 | 來源料架找不到該 Carrier ID | Can not found carrier in the rack |
+| 2007 | 儲架來源儲格存在重複載具ID | Rack Source Port Exis _Multipl _Same Carrier Id |
+| 2009 | 儲格有帳無料 | Rack Port Has ID But No Cargo Exist |
+| 3029 | 收到AGV上線請求但該AGV尚未被派車系統綁定 | Get Online Req But AGV Is Not Registered |
+| 3030 | 當AGV位於工作站時無法指派移動任務 | Cannot Dispatch Move Task In Workstation |
+| 3031 | 站點非設備將無法指派放貨任務 | Cannot Dispatch Load Task To Not EQ Station |
+| 3032 | 當AGV沒有貨物時無法指派放貨任務 | Cannot Dispatch Load Task When AGV No Cargo |
+| 3033 | 當AGV有貨物時無法指派取貨任務 | Cannot Dispatch Unload Task When AGV Has Cargo |
+| 3034 | 站點非設備將無法指派取貨任務 | Cannot Dispatch Unload Task To Not EQ Station |
+| 3035 | 站點非充電站將無法指派充電任務 | Cannot Dispatch Charge Task To Not Chargeable Station |
+| 3036 | 因AGV電量異常無法指派任務 | Cannot Dispatch Order By AGV BAT Status Check |
+| 3037 | 電池未連接 | Battery Not Connect |
+| 3038 | 料架 Sensor 閃爍 | Rack Port Sensor Flash |
+| 3039 | 未找到轉換站TAG | Transfer Tags Not Found |
+| 3040 | 無轉換站可供使用 | No Transfer Station To Work |
+| 3041 | 任務中止 | Task Aborted |
+| 3043 | 車輛軌跡衝突 | Vehicles Trajectory Conflict |
+| 3044 | 區域不可進入 | REGION_NOT_ENTERABLE |
+| 3045 | 轉移任務的起點和終點錯誤 | From_To_Of_Transfer_Task_Is_Incorrectly |
+| 3046 | AGV 無貨物，無法從 AGV 轉移貨物至目標 | AGV_NO_Carge_Cannot_Transfer_Cargo_From_AGV_To_Desinte |
+| 3052 | 導航路徑包含被設為禁止通行或抵達的點位 | Navigation Path Contain Forbidden Point |
+| 3053 | AGV貨物ID不存在，無法指派來源為AGV的搬運任務 | Carrier ID not exist on AGV, cannot assign a transport task with AGV as the source |
+| 3054 | 派車因 AGV遇障礙物停止過久而終止任務 | Order Aborted Because AGV Stopped For Too Long Due To Obstacle Detection |
+| 7000 | 充電站EMO | Charger EMO |
+| 7001 | 充電站氣壓異常 | Charger Air Pressure Abnormal |
+| 7002 | 充電站偵煙異常 | Charger Smoke Detected |
+| 7003 | 充電樁溫度過高 | Charge Station Temperature Too High |
+| 7004 | 充電站極頭伸出異常 | Charger Connector Reach Out Error |
+| 7005 | 充電站極頭縮回異常 | Charger Connector Back To Error |
+| 7010 | 充電站IO模組連線異常 | Charger IO Moduble Connection Error |
+| 7011 | 充電站未正常對電池進行充電 | Charging station not charging the battery |
+| 7012 | 充電器嘗試重啟後仍未正常對電池進行充電 | Charger still not charging after restart |
+| 7013 | 充電站因 EMO 觸發中無法為 AGV 充電 | Charge station cannot charge the AGV because the EMO is active |
+| 9000 | GPM SECS Platform 運轉異常 | GPM SECS Platform Is Not Running |
+| 10761 | 設備出料請求但撈爪非位於上點位 | EQ Unload Request On But Pose Not Up |
+| 10762 | 設備入料請求但撈爪非位於下點位 | EQ Load Request On But Pose Not Down |
+| 10769 | AGV取貨完成後貨物ID讀取失敗 | Cargo ID Read Fail When Unload |
+| 10770 | 派車輸出訊號寫入設備IO模組失敗 | Write AGVS Signal To IO Module Of Equipment Fail |
+
+## 注意事項
+
+- 表格僅包含 `AlarmCodeTable.Table` 已定義的異常碼；`ALARMS` 列舉中其他未列入表格的項目不在此頁
+- 排除方法欄位（TroubleShooting）於原始碼多為空字串，現場請依 SOP 或聯繫 GPM 技術支援
+- 與 [車載系統 Alarm Code](/docs/alarm-code/vehicle-alarm-code) 為不同命名空間，請勿混用

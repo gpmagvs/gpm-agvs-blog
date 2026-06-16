@@ -101,6 +101,7 @@ const config = {
             label: 'API',
           },
           { to: '/blog', label: '更新履歷', position: 'left' },
+          { to: '/docs/alarm-code', label: 'Alarm Code', position: 'left' },
           { to: '/docs/faq', label: '常見問題', position: 'left' },
         ],
       },
@@ -125,6 +126,10 @@ const config = {
               {
                 label: 'API 概覽',
                 to: '/docs/api/overview',
+              },
+              {
+                label: 'Alarm Code',
+                to: '/docs/alarm-code',
               },
               {
                 label: '常見問題',

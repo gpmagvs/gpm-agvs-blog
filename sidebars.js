@@ -50,6 +50,18 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Alarm Code',
+      link: {
+        type: 'doc',
+        id: 'alarm-code/index',
+      },
+      items: [
+        'alarm-code/dispatch-alarm-code',
+        'alarm-code/vehicle-alarm-code',
+      ],
+    },
+    {
+      type: 'category',
       label: '常見問題',
       link: {
         type: 'generated-index',

@@ -1,0 +1,490 @@
+---
+sidebar_position: 2
+title: 車載系統 Alarm Code
+---
+
+# 車載系統 Alarm Code
+
+對應後端模組：`GPMVehicleControlSystem` 車載 Alarm Table（`AlarmList.json`）
+
+## 功能概述
+
+車載系統 Alarm Code 定義於 `AlarmList.json`，供 VCS 在 EMS、安全模組、I/O、導航、牙叉與 AGVS 交握等流程中產生警報。現場可於 [即時警報顯示](/docs/vehicle-guide/realtime-alarm-display) 或 [異常紀錄](/docs/vehicle-guide/alarm-records) 對照 **異常碼** 欄位。
+
+## 資料版本
+
+| 項目 | 值 |
+|------|-----|
+| 資料來源 | `GPMVehicleControlSystem/GPMVehicleControlSystem/src/AlarmList.json` |
+| 異常碼筆數 | **456** |
+
+:::info 自動產生
+本頁異常碼表格由 `scripts/generate-vehicle-alarm-codes.js` 自 `GPMVehicleControlSystem/GPMVehicleControlSystem/src/AlarmList.json` 產生，並依 **Code** 數值 **由小至大** 排序。修改原始檔後請執行 `npm run generate:alarm-codes`。
+:::
+
+## 異常碼一覽
+
+| 異常碼 | 中文（CN） | 英文 Description |
+|--------|------------|------------------|
+| 0 |  |  |
+| 10 | 軟體EMS | SoftwareEMS |
+| 20 | EMS觸發 | EMS |
+| 30 | 安全模組觸發 | Safety Relays |
+| 31 | EMO按鈕按壓 | EMO Button |
+| 40 | AGV衝撞(前後膠條) | Bumper |
+| 50 | 垂直馬達超過上硬體極限 | Zaxis Up Limit |
+| 60 | 垂直馬達超過下硬體極限 | Zaxis Down Limit |
+| 100 | Wago IO連線異常 | Wago IO Disconnect |
+| 120 | Wago IO讀取異常 | Wago IO Read Fail |
+| 130 | Wago IO寫入異常 | Wago IO Write Fail |
+| 200 | 尚未初始化 | Not Yet Initial |
+| 220 | 電池未Lock | Battery Not Lock |
+| 221 | 電池1未Lock | Battery1 Not Lock |
+| 222 | 電池2未Lock | Battery2 Not Lock |
+| 223 | 電池未解鎖 | Battery Not UnLock |
+| 224 | 電池1未解鎖 | Battery1 Not UnLock |
+| 225 | 電池2未解鎖 | Battery2 Not UnLock |
+| 250 | 機構動作逾時 | Action Timeout |
+| 251 | 牙叉動作中止 | Fork Action Aborted |
+| 260 | 自動復歸逾時 | Auto Reset Timeout |
+| 270 | Lock機構動作逾時 | Lock Action Timeout |
+| 271 | Lock1機構動作逾時 | Lock1 Action Timeout |
+| 272 | Lock2機構動作逾時 | Lock2 Action Timeout |
+| 280 | Unlock機構動作逾時 | Unlock Action Timeout |
+| 281 | Unlock1機構動作逾時 | Unlock1 Action Timeout |
+| 282 | Unlock2機構動作逾時 | Unlock2 Action Timeout |
+| 300 | 走行馬達IO異常 | Wheel Motor IO Error |
+| 301 | 走行馬達IO異常(左) | Wheel Motor IO Error(Left) |
+| 302 | 走行馬達IO異常(右) | Wheel Motor IO Error(Right) |
+| 303 | 走行馬達IO異常(左前) | Wheel Motor IO Error(Left Front) |
+| 304 | 走行馬達IO異常(右前) | Wheel Motor IO Error(Right Front) |
+| 305 | 走行馬達IO異常(左後) | Wheel Motor IO Error(Left Rear) |
+| 306 | 走行馬達IO異常(右後) | Wheel Motor IO Error(Right Rear) |
+| 310 | 走行馬達Alarm | Wheel Motor Alarm |
+| 400 | 垂直馬達IO異常 | Vertical Motor IO Error |
+| 410 | 垂直馬達 Alarm | Vertical Motor Alarm |
+| 500 | 條碼機模組異常 | Barcode Module Error |
+| 510 | 陀螺儀模組異常 | IMU Module Error |
+| 511 | AGV[X方向]碰撞偵測 | Impacting_Detection_XDir |
+| 512 | AGV[Y方向]碰撞偵測 | Impacting_Detection_YDir |
+| 513 | AGV碰撞偵測 | Impacting_Detection |
+| 514 | AGV俯仰角異常 | AGV Pitch State Error |
+| 520 | 磁條模組異常 | Guide Module Error |
+| 530 | 定位Pin通訊異常 | Pin Module Communication Error |
+| 531 | 前定位Pin通訊異常 | Front Pin Module Communication Error |
+| 532 | 後定位Pin通訊異常 | Back Pin Module Communication Error |
+| 540 | 定位Pin過負載 | Pin Module Pos Check Fail |
+| 541 | 前定位Pin過負載 | Front Pin Module Pos Check Fail |
+| 542 | 後定位Pin過負載 | Back Pin Module Pos Check Fail |
+| 550 | 定位Pin動作異常 | Pin Action Error |
+| 560 | 定位Pin位置錯誤，請確認Pin位置並初始化 | Pin Pose Fail |
+| 561 | 前定位Pin位置不在up，請確認Pin位置並初始化 | Front Pin Pose not up |
+| 562 | 後定位Pin位置不在up，請確認Pin位置並初始化 | Back Pin Pose not up |
+| 563 | 前定位Pin位置不在down，請確認Pin位置並初始化 | Front Pin Pose not down |
+| 564 | 後定位Pin位置不在down，請確認Pin位置並初始化 | Back Pin Pose not down |
+| 600 | 皮帶Sensor異常 | Belt Sensor Error |
+| 601 | 皮帶Sensor異常_1 | Belt Sensor Error_1 |
+| 602 | 皮帶Sensor異常_2 | Belt Sensor Error_2 |
+| 603 | 皮帶Sensor異常_3 | Belt Sensor Error_3 |
+| 604 | 皮帶Sensor異常_4 | Belt Sensor Error_4 |
+| 610 | 定位缸IO異常 | Pin IO Error |
+| 620 | 夾爪過負載 | Oh Over Load |
+| 630 | 夾爪搖晃異常 | Oh Sway Error |
+| 640 | 夾爪開合位置異常 | Oh Pos Check Fail |
+| 700 | 牙叉IO異常 | Fork IO Error |
+| 710 | 牙叉 Bumper Sensor防壓偵測觸發 | Fork Bumper Error |
+| 711 | 牙叉前障礙Sensor偵測異常(上牙叉) | Fork Bumper Error(Up) |
+| 712 | 牙叉前障礙Sensor偵測異常(下牙叉) | Fork Bumper Error(Down) |
+| 713 | 牙叉高度參數異常 | Fork Height Setting Error |
+| 714 | 牙叉姿態變化過大 | Fork Pose Change Too Large |
+| 715 | 抵達二次定位點時牙叉動作失敗 | Fork Action Fail When Reach Secondary Point |
+| 716 | Unload 任務牙叉應上升至Down_Pose | Unload Action But Fork Pose Not DOWN |
+| 717 | Load 任務牙叉應上升至Up_Pose | Load Action But Fork Pose Not UP |
+| 800 | 地洞Sensor異常 | Ground Hole Sensor Error |
+| 801 | 地洞Sensor異常(左前) | Ground Hole Sensor Error(Left Front) |
+| 802 | 地洞Sensor異常(右前) | Ground Hole Sensor Error(Right Front) |
+| 803 | 地洞Sensor異常(左後) | Ground Hole Sensor Error(Left Rear) |
+| 804 | 地洞Sensor異常(右後) | Ground Hole Sensor Error(Right Rear) |
+| 810 | 地洞CCD異常 | Ground Hole CCD Error |
+| 811 | 地洞CCD異常(左前) | Ground Hole CCD Error(Left Front) |
+| 812 | 地洞CCD異常(右前) | Ground Hole CCD Error(Right Front) |
+| 813 | 地洞CCD異常(左後) | Ground Hole CCD Error(Left Rear) |
+| 814 | 地洞CCD異常(右後) | Ground Hole CCD Error(Right Rear) |
+| 820 | 煙霧偵測IO異常 | Smoke IO Error |
+| 830 | N2偵測IO異常 | N2 IO Error |
+| 840 | 電池在席異常 | Battery Exist Error |
+| 841 | 電池1在席異常 | Battery1 Exist Error |
+| 842 | 電池2在席異常 | Battery2 Exist Error |
+| 850 | 電池低電量 | Battery Low Volume |
+| 851 | 電池1低電量 | Battery1 Low Volume |
+| 852 | 電池2低電量 | Battery2 Low Volume |
+| 860 | 電池電量差距過大 | Battery Volume Gap |
+| 861 | 電池1電量差距過大 | Battery1 Volume Gap |
+| 862 | 電池2電量差距過大 | Battery2 Volume Gap |
+| 870 | 超音波Sensor異常 | Ultrasonic Sensor Error |
+| 871 | 超音波Sensor異常(前) | Ultrasonic Sensor Error(Front) |
+| 872 | 超音波Sensor異常(後) | Ultrasonic Sensor Error(Rear) |
+| 873 | 超音波Sensor異常(左) | Ultrasonic Sensor Error(Left) |
+| 874 | 超音波Sensor異常(右) | Ultrasonic Sensor Error(Right) |
+| 880 | 超音波Sensor遠處障礙物 | Ultrasonic Sensor Error |
+| 881 | 超音波Sensor遠處障礙物(前) | Ultrasonic Sensor Error(Front) |
+| 882 | 超音波Sensor遠處障礙物(後) | Ultrasonic Sensor Error(Rear) |
+| 883 | 超音波Sensor遠處障礙物(左) | Ultrasonic Sensor Error(Left) |
+| 884 | 超音波Sensor遠處障礙物(右) | Ultrasonic Sensor Error(Right) |
+| 1000 | AGV煞車旋鈕狀態異常 | Switch Type Error |
+| 1001 | Z軸解煞車旋鈕異常 | Vertical Switch Type Error |
+| 1010 | AGV前方近處障礙物 | FrontProtection_Area3 |
+| 1020 | AGV後方近處障礙物 | BackProtection_Area3 |
+| 1030 | AGV左方近處障礙物 | LeftProtection_Area3 |
+| 1040 | AGV右方近處障礙物 | RightProtection_Area3 |
+| 1050 | 錯誤的狀態無法進行切換 | Cant Change With Wrong State |
+| 1060 | 螢幕開關異常 | Monitor Switch Error |
+| 1070 | 無法進行Online, AGV須停在Tag上 | Cant Online Without Tag |
+| 1071 | 無法進行Online, 目前Tag已設為禁止上線 | Can't 'Online With Forbid Tag |
+| 1072 | 無法在設備內上線 | Cant Online In Equipment |
+| 1073 | 無法在虛擬點上線 | Cant Online At Virtual Point |
+| 1110 | AGV前方遠處障礙物 | FrontProtection_Area2 |
+| 1120 | AGV後方遠處障礙物 | BackProtection_Area2 |
+| 1130 | AGV左方遠處障礙物 | LeftProtection_Area2 |
+| 1140 | AGV右方遠處障礙物 | RightProtection_Area2 |
+| 1150 | AGV下方遠處障礙物 | BotProtection_Area2 |
+| 1200 | 側板未偵測 | Side Sensor Undetected |
+| 1500 | 車子狀態無法執行此任務 | AGV State Cant do this Action |
+| 1501 | 車子狀態不該移動 | AGV State Cant Move |
+| 1510 | 車子無法在工作站點內移動 | Cant Move in Work Station |
+| 1520 | 工作站點設定錯誤 | Work Station Setting Fail |
+| 1530 | 車子無法在有異物侵入時初始化 | Cant Initial when Obstacle Invade |
+| 1540 | 車子狀態不可自動復歸 | AGV State Cant Auto Reset |
+| 1550 | 移動完成但位置錯誤 | Secondary Done But is Wrong Pos |
+| 1551 | AGV位置不在二次定位點 | AGV Location Not Secondary |
+| 1560 | 無法進行手動操作 | Cant Manual Action |
+| 1561 | 無法進行手動操作_1 | Cant Manual Action_1 |
+| 1562 | 無法進行手動操作_2 | Cant Manual Action_2 |
+| 1563 | 無法進行手動操作_3 | Cant Manual Action_3 |
+| 1600 | 無法確認垂直馬達位置 | Cant Check ZaxisPos |
+| 1601 | 無法確認垂直馬達位置(IO) | Cant Check ZaxisPos(IO) |
+| 1602 | 無法確認垂直馬達位置(Encoder) | Cant Check ZaxisPos(Encoder) |
+| 1603 | 無法確認垂直馬達位置(Laser) | Cant Check ZaxisPos(Laser) |
+| 1604 | 無法確認垂直馬達位置_1 | Cant Check ZaxisPos_1 |
+| 1605 | 無法確認垂直馬達位置_2 | Cant Check ZaxisPos_2 |
+| 1606 | 無法確認垂直馬達位置_3 | Cant Check ZaxisPos_3 |
+| 1610 | 貨物傾斜異常 | Cst Slope Error |
+| 1611 | 貨物傾斜異常_1 | Cst Slope Error_1 |
+| 1612 | 貨物傾斜異常_2 | Cst Slope Error_2 |
+| 1613 | 貨物傾斜異常_3 | Cst Slope Error_3 |
+| 1614 | 貨物傾斜異常_4 | Cst Slope Error_4 |
+| 1615 | 貨物傾斜異常_5 | Cst Slope Error_5 |
+| 1616 | 貨物傾斜異常_6 | Cst Slope Error_6 |
+| 1620 | 夾爪與在席異常 | Oh Cst Error |
+| 1621 | 夾爪與在席異常_1 | Oh Cst Error |
+| 1630 | 無法確認電池狀況 | Cant Check Battery |
+| 1640 | 無法確認移動路徑 | Cant Check Move Path |
+| 1700 | 應該要有料卻無料 | Has Job Without Cst |
+| 1701 | 應該要有料卻無料_1 | Has Job Without Cst_1 |
+| 1702 | 應該要有料卻無料_2 | Has Job Without Cst_2 |
+| 1703 | 應該要有料卻無料_3 | Has Job Without Cst_3 |
+| 1704 | 應該要有料卻無料_4 | Has Job Without Cst_4 |
+| 1710 | 有料時不能清帳 | Delete Job Data With Cst |
+| 1711 | 有料時不能清帳_1 | Delete Job Data With Cst_1 |
+| 1712 | 有料時不能清帳_2 | Delete Job Data With Cst_2 |
+| 1713 | 有料時不能清帳_3 | Delete Job Data With Cst_3 |
+| 1714 | 有料時不能清帳_4 | Delete Job Data With Cst_4 |
+| 1720 | 不該有料卻有料 | Has Cst Without Job |
+| 1721 | 不該有料卻有料_1 | Has Cst Without Job_1 |
+| 1722 | 不該有料卻有料_2 | Has Cst Without Job_2 |
+| 1723 | 不該有料卻有料_3 | Has Cst Without Job_3 |
+| 1724 | 不該有料卻有料_4 | Has Cst Without Job_4 |
+| 1750 | 夾爪空取 | Oh Action but Empty Take |
+| 1800 | 放貨目的地被侵佔 | Load But Occupy |
+| 1850 | 卡夾ID讀取失敗 | Read Cst ID Fail |
+| 1851 | 讀取卡夾ID失敗,服務完成但主題無CSTID | Read Cst ID Fail Service Done But Topic No CSTID |
+| 1852 | 讀取卡夾ID但貨物類型已知 | Read Cst ID But Cargo Type Known |
+| 1860 | 卡夾ID不相符 | Cst ID Not Match |
+| 1900 | 儀器異常 | Instrument Error |
+| 1901 | 儀器IO異常 | Instrument IO Error |
+| 1902 | 儀器模組異常 | Instrument Module Error |
+| 1903 | 儀器模組斷線 | Instrument Module Disconnect |
+| 1910 | 檢測失敗 | Detection Fail |
+| 1920 | Bay封鎖 | Bay Block |
+| 1921 | Bay封鎖_1 | Bay Block_1 |
+| 1922 | Bay封鎖_2 | Bay Block_2 |
+| 1950 | 退出Bay失敗 | Bay Move Out Fail |
+| 1960 | 避災中 | Escape |
+| 2000 | GPM控車迷航 | GPM Motion control Tracking Error |
+| 2010 | 控車任務訊息格式錯誤 | Motion control Wrong Received Msg |
+| 2020 | 控車派車生成路徑錯誤 | Motion control Wrong Extend Path |
+| 2030 | 控車轉向端點中脫離設定路徑 | Motion control Out Of Line While Forwarding End |
+| 2040 | 控車追端點中脫離設定路徑 | Motion control Out Of Line While Tracking End Point |
+| 2050 | 控車行進間脫離設定路徑 | Motion control Out Of Line While Moving |
+| 2060 | 控車二次定位中脫離設定路徑 | Motion control Out Of Line While Secondary |
+| 2070 | 控車端點上未掃描到QR Code | Motion control Missing Tag On End Point |
+| 2080 | 控車行進間未掃描到QR Code | Motion control Missing Tag While Moving |
+| 2090 | 控車二次定位中未掃描到QR Code | Motion control Missing Tag While Secondary |
+| 2100 | 控車二次定位起始位置錯誤 | Motion control Wrong Initial Position In Secondary |
+| 2110 | 控車二次定位起始角度錯誤 | Motion control Wrong Initial Angle In Secondary |
+| 2120 | 控車原地旋轉目標點錯誤 | Motion control Wrong Target To Pirouette |
+| 2130 | 地圖辨識率過低 | Map Recognition Rate Too Low |
+| 2200 | 控車修正位置未讀到Tag與Tap | Motion control Tracking Tag Not On Tag Or Tap |
+| 2210 | 控車修正位置起始位置錯誤 | Motion control Wrong Position To Tracking Tag |
+| 2220 | 控車修正位置失敗 | Motion control Tracking Tag Fail |
+| 2400 | GPM控車異常Abort | GPM Motion control RunMove Abort |
+| 2401 | 無法將任務傳遞給運動控制 | Can not Pass Task to Motion Control |
+| 2410 | Action Server連線逾時 | Action Server Not Ready |
+| 2411 | 運動控制斷開連接 | Motion control Disconnected |
+| 2500 | 任務路徑道路封閉 | Task Path Road Closed |
+| 3000 | AGV Alive異常 | AGV Alive Check Fail |
+| 3040 | 向派車上線失敗 | Registration Reject |
+| 3050 | 向派車上線逾時 | Registration Timeout |
+| 3070 | 向派車下線失敗 | Unregistration Reject |
+| 3080 | 向派車下線逾時 | Unregistration Timeout |
+| 3200 | 交握失敗 | Handshake Fail |
+| 3201 | 交握失敗-EQ_L_REQ 訊號逾時 | Handshake Fail(EQ_L_REQ) |
+| 3202 | 交握失敗-EQ_U_REQ 訊號逾時 | Handshake Fail(EQ_U_REQ) |
+| 3203 | 交握失敗-EQ_READY 訊號關閉 | Handshake Fail(EQ_READY) |
+| 3204 | 交握失敗(EQ_READY_UP) | Handshake Fail(EQ_READY_UP) |
+| 3205 | 交握失敗(EQ_READY_LOW) | Handshake Fail(EQ_READY_LOW) |
+| 3206 | 交握失敗(EQ_GO) | Handshake Fail(EQ_GO) |
+| 3207 | 因人為交握失敗(EQ_GO) | Handshake Fail Because Person(EQ_GO) |
+| 3208 | 機台內交握失敗(EQ_GO) | Handshake Fail Inside EQ(EQ_GO) |
+| 3210 | 交握逾時 | Handshake Timeout |
+| 3211 | 交握逾時 TA2 EQ READY 未開啟 | Handshake Timeout TA2 EQ READY Not On |
+| 3212 | 交握逾時 TA3 EQ BUSY 未開啟 | Handshake Timeout TA3 EQ BUSY Not ON |
+| 3213 | 交握逾時 TA5 EQ READY 未關閉 | Handshake Timeout TA5 EQ READY Not OFF |
+| 3214 | 交握逾時 TA1 EQ L REQ 未開啟 | Handshake Timeout TA1 EQ L REQ Not On |
+| 3215 | 交握逾時 TA1 EQ U REQ 未開啟 | Handshake Timeout TA1 EQ U REQ Not On |
+| 3216 | 交握逾時 TA4 EQ BUSY 未關閉 | Handshake Timeout TA4 EQ BUSY Not OFF |
+| 3217 | 交握逾時 TA5 EQ L REQ 未關閉 | Handshake Timeout TA5 EQ L REQ Not OFF |
+| 3218 | 交握逾時 TA5 EQ U REQ 未關閉 | Handshake Timeout TA5 EQ U REQ Not OFF |
+| 3219 | 交握失敗 AGV DOWN | Handshake Fail AGV DOWN |
+| 3220 | 交握事前檢查訊號錯誤(X20~X28) | Precheck IO Fail(X20~X28) |
+| 3221 | 交握事前檢查訊號錯誤(EQ_L_REQ) | Precheck IO Fail(EQ_L_REQ) |
+| 3222 | 交握事前檢查訊號錯誤(EQ_U_REQ) | Precheck IO Fail(EQ_U_REQ) |
+| 3223 | 交握事前檢查訊號錯誤(EQ_READY) | Precheck IO Fail(EQ_READY) |
+| 3224 | 交握事前檢查訊號錯誤(EQ_READY_UP) | Precheck IO Fail(EQ_READY_UP) |
+| 3225 | 交握事前檢查訊號錯誤(EQ_READY_LOW) | Precheck IO Fail(EQ_READY_LOW) |
+| 3226 | 交握事前檢查訊號錯誤(EQ_GO) | Precheck IO Fail(EQ_GO) |
+| 3227 | 設備PIO狀態尚未復歸 | Precheck IO Fail(STATE IO NOT RESET) |
+| 3231 | 交握失敗-等待設備_EQ_BUSY OFF逾時 | Handshake_Fail_EQ_BUSY_OFF |
+| 3232 | 交握失敗-AGV發生異常 | Handshake_Fail_AGV_DOWN |
+| 3235 | 交握失敗-等待設備_EQ_BUSY ON逾時 | Handshake_Fail_EQ_BUSY_NOT_ON |
+| 3236 | 交握失敗-等待設備_EQ_BUSY ON逾時 | Handshake_Fail_EQ_BUSY_NOT_OFF |
+| 3280 | 交握失敗 BAT EXG EQ VALID 訊號未開啟 | Handshake_Fail_BAT_EXG_EQ_VALID_NOT_ON |
+| 3281 | 交握失敗 BAT EXG EQ VALID 訊號未關閉 | Handshake_Fail_BAT_EXG_EQ_VALID_NOT_OFF |
+| 3282 | 交握失敗 BAT EXG EQ TR_REQ 訊號未開啟 | Handshake_Fail_BAT_EXG_EQ_TRREQ_NOT_ON |
+| 3283 | 交握失敗 BAT EXG EQ TR_REQ 訊號未關閉 | Handshake_Fail_BAT_EXG_EQ_TRREQ_NOT_OFF |
+| 3284 | 交握失敗 BAT EXG EQ COMPT 信號未開啟 | Handshake_Fail_BAT_EXG_EQ_COMPT_NOT_ON |
+| 3285 | 交握失敗 BAT EXG EQ COMPT 信號未關閉 | Handshake_Fail_BAT_EXG_EQ_COMPT_NOT_OFF |
+| 3286 | 交握失敗 BAT EXG EQ 檢查結果未開啟 | Handshake Fail BAT EXG EQ Check Result NOT ON |
+| 3287 | 交握失敗 BAT EXG EQ 檢查結果未關閉 | Handshake Fail BAT EXG EQ Check Result NOT OFF |
+| 3288 | 交握失敗 BAT EXG EQ 檢查準備未開啟 | Handshake Fail BAT EXG EQ Check Ready NOT ON |
+| 3289 | 交握失敗 BAT EXG EQ 檢查準備未關閉 | Handshake Fail BAT EXG EQ Check Ready NOT OFF |
+| 3290 | 交握失敗 BAT EXG EQ BUSY 關閉超時 | Handshake Fail BAT EXG EQ BUSY OFF TIMEOUT |
+| 3291 | 交握失敗 BAT 移除超時 | Handshake Fail BAT Remove Timeout |
+| 3292 | 交握失敗 BAT 安裝超時 | Handshake Fail BAT Install Timeout |
+| 3293 | 交握失敗 BAT EXG EQ VALID 在交握時關閉 | Handshake Fail BAT EXG EQ VALID OFF WHEN HANDSHAKING |
+| 3300 | 詢問機台在席狀況失敗 | Ask Remote Cst Status Fail |
+| 3310 | 詢問機台在席狀況逾時 | Ask Remote Cst Status Timeout |
+| 3500 | 派車取消任務即停 | AGVs Abort Task |
+| 3501 | 與派車Alive Check 逾時 | AGVS_ALIVE_CHECK_TIMEOUT |
+| 3502 | 與派車系統斷線 | AGVs_Disconnected |
+| 3503 | 與派車系統通訊Ping失敗 | AGVS_PING_FAIL |
+| 3504 | 向派車上報任務狀態逾時(T1) | Task Status Feedback To AGVS T1 Timeout |
+| 3505 | 向派車查詢上線狀態逾時(T1) | Online Mode Query From AGVS T1 Timeout |
+| 3506 | AGV狀態上報派車逾時(T1) | Running Status Report To AGVS T1 Timeout |
+| 3507 | AGVS 離開工作站響應超時 | AGVS Leave Workstation Response Timeout |
+| 4010 | 馬達低電壓保護 | Under-voltage protection |
+| 4011 | 垂直馬達低電壓保護 | Under-voltage protection_Action |
+| 4012 | 輪子馬達低電壓保護_1 | Under-voltage protection_1 |
+| 4013 | 輪子馬達低電壓保護_2 | Under-voltage protection_2 |
+| 4014 | 輪子馬達低電壓保護_3 | Under-voltage protection_3 |
+| 4015 | 輪子馬達低電壓保護_4 | Under-voltage protection_4 |
+| 4020 | 馬達低電流保護 | Under-current protection |
+| 4021 | 垂直馬達低電流保護 | Under-current protection_Action |
+| 4022 | 輪子馬達低電流保護_1 | Under-current protection_1 |
+| 4023 | 輪子馬達低電流保護_2 | Under-current protection_2 |
+| 4024 | 輪子馬達低電流保護_3 | Under-current protection_3 |
+| 4025 | 輪子馬達低電流保護_4 | Under-current protection_4 |
+| 4030 | 馬達過電壓保護 | Over-voltage protection |
+| 4031 | 垂直馬達過電壓保護 | Over-voltage protection_Action |
+| 4032 | 輪子馬達過電壓保護_1 | Over-voltage protection_1 |
+| 4033 | 輪子馬達過電壓保護_2 | Over-voltage protection_2 |
+| 4034 | 輪子馬達過電壓保護_3 | Over-voltage protection_3 |
+| 4035 | 輪子馬達過電壓保護_4 | Over-voltage protection_4 |
+| 4040 | 馬達過電流保護 | Over-current protection |
+| 4041 | 垂直馬達過電流保護 | Over-current protection_Action |
+| 4042 | 輪子馬達過電流保護_1 | Over-current protection_1 |
+| 4043 | 輪子馬達過電流保護_2 | Over-current protection_2 |
+| 4044 | 輪子馬達過電流保護_3 | Over-current protection_3 |
+| 4045 | 輪子馬達過電流保護_4 | Over-current protection_4 |
+| 4050 | 馬達過熱保護 | Over-heat protection |
+| 4051 | 垂直馬達過熱保護 | Over-heat protection_Action |
+| 4052 | 輪子馬達過熱保護_1 | Over-heat protection_1 |
+| 4053 | 輪子馬達過熱保護_2 | Over-heat protection_2 |
+| 4054 | 輪子馬達過熱保護_3 | Over-heat protection_3 |
+| 4055 | 輪子馬達過熱保護_4 | Over-heat protection_4 |
+| 4060 | 馬達過負載保護 | Over-load protection |
+| 4061 | 垂直馬達過負載保護 | Over-load protection_Action |
+| 4062 | 輪子馬達過負載保護_1 | Over-load protection_1 |
+| 4063 | 輪子馬達過負載保護_2 | Over-load protection_2 |
+| 4064 | 輪子馬達過負載保護_3 | Over-load protection_3 |
+| 4065 | 輪子馬達過負載保護_4 | Over-load protection_4 |
+| 4070 | 馬達再生過負載保護 | Over-regeneration load protection |
+| 4071 | 垂直馬達再生過負載保護 | Over-regeneration load protection_Action |
+| 4072 | 輪子馬達再生過負載保護_1 | Over-regeneration load protection_2 |
+| 4073 | 輪子馬達再生過負載保護_2 | Over-regeneration load protection_3 |
+| 4074 | 輪子馬達再生過負載保護_3 | Over-regeneration load protection_4 |
+| 4075 | 輪子馬達再生過負載保護_4 | Over-regeneration load protection_5 |
+| 4080 | 馬達過速度保護 | Over-speed protection |
+| 4081 | 垂直馬達過速度保護 | Over-speed protection_Action |
+| 4082 | 輪子馬達過速度保護_1 | Over-speed protection_1 |
+| 4083 | 輪子馬達過速度保護_2 | Over-speed protection_2 |
+| 4084 | 輪子馬達過速度保護_3 | Over-speed protection_3 |
+| 4085 | 輪子馬達過速度保護_4 | Over-speed protection_4 |
+| 4090 | 馬達偏差過大保護 | Deviation excess protection |
+| 4091 | 垂直馬達偏差過大保護 | Deviation excess protection_Action |
+| 4092 | 輪子馬達偏差過大保護_1 | Deviation excess protection_1 |
+| 4093 | 輪子馬達偏差過大保護_2 | Deviation excess protection_2 |
+| 4094 | 輪子馬達偏差過大保護_3 | Deviation excess protection_3 |
+| 4095 | 輪子馬達偏差過大保護_4 | Deviation excess protection_4 |
+| 4100 | 馬達線路異常 | Connection error protection |
+| 4101 | 垂直馬達線路異常 | Connection error protection_Action |
+| 4102 | 輪子馬達線路異常_1 | Connection error protection_1 |
+| 4103 | 輪子馬達線路異常_2 | Connection error protection_2 |
+| 4104 | 輪子馬達線路異常_3 | Connection error protection_3 |
+| 4105 | 輪子馬達線路異常_4 | Connection error protection_4 |
+| 4110 | 馬達運轉狀態錯誤 | Status Error |
+| 4111 | 垂直馬達運轉狀態錯誤 | Status Error_Action |
+| 4112 | 輪子馬達運轉狀態錯誤_1 | Status Error_1 |
+| 4113 | 輪子馬達運轉狀態錯誤_2 | Status Error_2 |
+| 4114 | 輪子馬達運轉狀態錯誤_3 | Status Error_3 |
+| 4115 | 輪子馬達運轉狀態錯誤_4 | Status Error_4 |
+| 4120 | 馬達通訊異常 | Communication error |
+| 4121 | 垂直馬達通訊異常 | Communication error_Action |
+| 4122 | 輪子馬達通訊異常_1 | Communication error_1 |
+| 4123 | 輪子馬達通訊異常_2 | Communication error_2 |
+| 4124 | 輪子馬達通訊異常_3 | Communication error_3 |
+| 4125 | 輪子馬達通訊異常_4 | Communication error_4 |
+| 4130 | 馬達強制警報輸入 | Alarm input protection |
+| 4131 | 垂直馬達強制警報輸入 | Alarm input protection_Action |
+| 4132 | 輪子馬達強制警報輸入_1 | Alarm input protection_1 |
+| 4133 | 輪子馬達強制警報輸入_2 | Alarm input protection_2 |
+| 4134 | 輪子馬達強制警報輸入_3 | Alarm input protection_3 |
+| 4135 | 輪子馬達強制警報輸入_4 | Alarm input protection_4 |
+| 4140 | 馬達指令異常 | Command error |
+| 4141 | 垂直馬達指令異常 | Command error_Action |
+| 4142 | 輪子馬達指令異常_1 | Command error_1 |
+| 4143 | 輪子馬達指令異常_2 | Command error_2 |
+| 4144 | 輪子馬達指令異常_3 | Command error_3 |
+| 4145 | 輪子馬達指令異常_4 | Command error_4 |
+| 4150 | 馬達過重異常 | Overtorque |
+| 4151 | 垂直馬達過重異常 | Overtorque_Action |
+| 4152 | 輪子馬達過重異常_1 | Overtorque_1 |
+| 4153 | 輪子馬達過重異常_2 | Overtorque_2 |
+| 4154 | 輪子馬達過重異常_3 | Overtorque_3 |
+| 4155 | 輪子馬達過重異常_4 | Overtorque_4 |
+| 4160 | 馬達其他異常 | Other error |
+| 4161 | 垂直馬達其他異常 | Other error_Action |
+| 4162 | 輪子馬達其他異常_1 | Other error_1 |
+| 4163 | 輪子馬達其他異常_2 | Other error_2 |
+| 4164 | 輪子馬達其他異常_3 | Other error_3 |
+| 4165 | 輪子馬達其他異常_4 | Other error_4 |
+| 4166 | 馬達無法起動 | Motor Activ Error |
+| 4167 | 馬達回授訊號錯誤 | Motor Feedback Signal Error |
+| 4168 | 馬達資料錯誤 EEP 內部資料錯誤 | Motor EEP Error |
+| 4169 | 馬達驅動器的溫度高於可承受的上限 | Motor Driver Over Heat |
+| 4170 | 馬達轉速超過所設定的上限 | Motor Over Speed Error |
+| 4171 | 馬達Encoder訊號錯誤 | Motor Encoder Error |
+| 4172 | 馬達初期運轉禁止 | Motor Run Forbid |
+| 4173 | 馬達外部停止 | Motor Extern Stop |
+| 4174 | 馬達霍爾序列錯誤 | Motor Hall Sequence Error |
+| 4175 | 馬達參數設定錯誤 | Motor Parameters Error |
+| 5000 | 電池狀態異常 | Battery Status Error |
+| 5001 | 電池狀態異常_1 | Battery Status Error_1 |
+| 5002 | 電池狀態異常_2 | Battery Status Error_2 |
+| 5010 | 電池過壓 | Over Voltage |
+| 5011 | 電池過壓_1 | Over Voltage_1 |
+| 5012 | 電池過壓_2 | Over Voltage_2 |
+| 5020 | 電池欠壓 | Under Voltage |
+| 5021 | 電池欠壓_1 | Under Voltage_1 |
+| 5022 | 電池欠壓_2 | Under Voltage_2 |
+| 5030 | 電池充電過電流 | Over Current Charge |
+| 5031 | 電池充電過電流_1 | Over Current Charge_1 |
+| 5032 | 電池充電過電流_2 | Over Current Charge_2 |
+| 5040 | 電池放電過電流 | Over Current Discharge |
+| 5041 | 電池放電過電流_1 | Over Current Discharge_1 |
+| 5042 | 電池放電過電流_2 | Over Current Discharge_2 |
+| 5050 | 電池充電低電流 | Under Current Charge |
+| 5051 | 電池充電低電流_1 | Under Current Charge_1 |
+| 5052 | 電池充電低電流_2 | Under Current Charge_2 |
+| 5060 | 電池放電低電流 | Under Current Discharge |
+| 5061 | 電池放電低電流_1 | Under Current Discharge_1 |
+| 5062 | 電池放電低電流_2 | Under Current Discharge_2 |
+| 5070 | 電池過溫 | Over Temperature |
+| 5071 | 電池過溫_1 | Over Temperature_1 |
+| 5072 | 電池過溫_2 | Over Temperature_2 |
+| 5080 | 電池低溫 | Under Temperature |
+| 5081 | 電池低溫_1 | Under Temperature_1 |
+| 5082 | 電池低溫_2 | Under Temperature_2 |
+| 5083 | 電池短路 | Battery Short Circuit |
+| 7000 | 雷射偵測到設備Port內有障礙物 | EQP_PORT_HAS_OBSTACLE_BY_LSR |
+| 8000 | 自動門輸出未定義 | Auto Door Ouput Not Defined |
+| 9990 | 授權碼錯誤 | License Error |
+| 9991 | 授權碼錯誤(0x0000NOF) | License Error(0x0000NOF) |
+| 9992 | 授權碼錯誤(0x0000NRD) | License Error(0x0000NRD) |
+| 9993 | 授權碼錯誤(0x00000M1) | License Error(0x00000M1) |
+| 9994 | 授權碼錯誤(0x00000D1) | License Error(0x00000D1) |
+| 10000 | 等待機台端交握訊號 | Waiting EQ Handshake |
+| 10010 | 雷射組數數值錯誤(雷射IN/CIN Output數值寫入錯誤) | Laser Mode value fail |
+| 10011 | 系統代碼錯誤 | Code Error In System |
+| 10012 | 訂閱 ROS 主題錯誤 | Subscribe ROS Topic Err |
+| 10013 | ROS Bridge Server 斷開 | ROS Bridge server Disconnect |
+| 10014 | AGV 姿態角度與 Sick 角度不匹配 | AGV Pose Angle Not Match To Sick Angle |
+| 10015 | 用戶按下 SoftwareEMO 但發生異常 | USER Press SoftwareEMO But Exception Occur |
+| 10016 | 準備向設備載入貨物但有障礙物 | EQP LOAD BUT EQP HAS OBSTACLE |
+| 10017 | 準備從設備取出貨物但設備無貨物 | EQP UNLOAD BUT EQP HAS NO CARGO |
+| 10018 | 變更ONLINE模式時發生程式內部錯誤 | Cant Change Online Mode Code Error |
+| 10019 | 無法將任務轉移到 AGVC | Cant TransferTask TO AGVC |
+| 10020 | 車控Motion Control發生未知代碼 | Motion control Wrong Unknown Code |
+| 10021 | 用戶中止初始化過程 | UserAbort Initialize Process |
+| 10022 | Sick 雷射雷達通信錯誤 | Sick Lidar Communication Error |
+| 10023 | Tag未定義牙叉高度教點數據 | Fork WorkStation Teach Data Not Found Tag |
+| 10024 | 未定義的牙叉高度層 | Fork WorkStation Teach Data Not Found layer |
+| 10025 | 牙叉伸縮臂位置錯誤 | Fork Arm Pose Error |
+| 10026 | 目標點是虛擬點 | Destine Point Is Virtual Point |
+| 10027 | 牙叉前端有障礙物 | Fork Frontend has Obstacle |
+| 10028 | 牙叉有貨物但初始化正在運行 | Fork Has Cargo But Initialize Running |
+| 10029 | 牙叉已禁用 | Fork Disabled |
+| 10030 | 牙叉禁用時 AGV 無法前往工作站 | AGV Cant Goto Workstation When Fork Is Disabled |
+| 10031 | 牙叉初始化過程中斷 | Fork Initialize Process Interupt |
+| 10032 | 牙叉初始化過程發生錯誤 | Fork Initialize Process Error Occur |
+| 10033 | 牙叉初始化完成但Z軸原點檢知訊號未ON | Fork Initialized But Home Input Not ON |
+| 10034 | 牙叉回原點但Z軸原點檢知訊號錯誤 | Fork Go Home But Home Sensor Signal Error |
+| 10035 | 牙叉已初始化但驅動器位置不為零 | Fork Initialized But Driver Position Not ZERO |
+| 10036 | 雷射模式切換失敗 DO 寫入失敗 | Laser Mode Switch Fail DO Write Fail |
+| 10037 | 雷射模式切換失敗異常 | Laser Mode Switch Fail Exception |
+| 10038 | 雷射模式切換超時 | Laser Mode Switch Fail Timeout |
+| 10039 | 雷射模式切換但 SICK 輸出未更新 | Laser Mode Switch But SICK OUPUT NOT UPDATE |
+| 10040 | 定位失敗 | Localization Fail |
+| 10041 | 測量結果上報失敗 | Measure Result Data Report Fail |
+| 10042 | AGVC AGVS 任務重置中止時發生異常 | Exception When AGVC AGVS Task Reset Abort |
+| 10043 | AGVC AGVS 任務重置循環停止時發生異常 | Exception When AGVC AGVS Task Reset CycleStop |
+| 10044 | 獲取虛擬 ID 失敗 | GetVirtualIDFail |
+| 10045 | AGV Barcode Reader讀值與目的地Tag不匹配 | AGV BarcodeReader Not Match Tag of Destination |
+| 10046 | AGV 停車位置離目的地Tag太遠 | AGV Park Position Too Far From Tag Of Destination |
+| 10047 | 牙叉動作超時 | Fork Arm Action Timeout |
+| 10048 | 牙叉動作錯誤 | Fork Arm Action Error |
+| 10049 | 重新規劃路徑 | Replan |
+| 10050 | 車體限位開關感應器觸發 | Limit Switch Sensor Trigger |
+| 10051 | 向AGV發送走行任務但AGV正在取消任務 | Send Goal to AGV But AGVS Cancel Req Raised |
+| 10052 | 牙叉教點數據錯誤 | Fork Slot Teach Data ERROR |
+| 10053 | 電池電量低車載電腦自動關機 | Battery Low Level Auto PC Shutdown |
+| 10054 | 充電時電池過壓 | Battery Over Voltage When Charging |
+| 10055 | 拒絕 AGVS 任務 | Reject AGVS Task |
+| 10056 | 牙叉無法於非主幹道TAG位置進行回原點動作 | Fork Cannot Go Home At Non Normal Point |
+| 40400 | 未知錯誤 | Unknown |
+
+## 注意事項
+
+- 表格欄位對應 `AlarmList.json` 的 `Code`、`CN`、`Description`
+- 現場可透過 `param/AlarmList.json` 覆寫預設表；本頁反映專案內建 `src/AlarmList.json`
+- 與 [派車系統 Alarm Code](/docs/alarm-code/dispatch-alarm-code) 為不同命名空間，請勿混用
