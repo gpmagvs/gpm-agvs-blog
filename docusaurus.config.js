@@ -102,7 +102,7 @@ const config = {
           },
           { to: '/blog', label: '更新履歷', position: 'left' },
           { to: '/docs/alarm-code', label: 'Alarm Code', position: 'left' },
-          { to: '/docs/spec', label: '規範書', position: 'left' },
+          { to: '/docs/spec', label: '規範書/手冊', position: 'left' },
           { to: '/docs/faq', label: '常見問題', position: 'left' },
         ],
       },
@@ -133,7 +133,7 @@ const config = {
                 to: '/docs/alarm-code',
               },
               {
-                label: '規範書',
+                label: '規範書/手冊',
                 to: '/docs/spec',
               },
               {

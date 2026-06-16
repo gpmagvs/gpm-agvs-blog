@@ -62,12 +62,17 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '規範書',
+      label: '規範書/手冊',
       link: {
         type: 'doc',
         id: 'spec/index',
       },
-      items: ['spec/equipment-io-handshake'],
+      items: [
+        'spec/amhs-secs',
+        'spec/rack-label-color-report',
+        'spec/equipment-io-handshake',
+        'spec/ghtc-charger-c36500z1e-manual',
+      ],
     },
     {
       type: 'category',
