@@ -1,0 +1,95 @@
+---
+title: 設備 IO 交握流程規範書
+sidebar_label: 設備 IO 交握流程規範書
+---
+
+import PdfViewer from '@site/src/components/Spec/PdfViewer';
+
+<PdfViewer
+  filename="[GPM SPEC] [新版] IO交握流程規範_V1.2.pdf"
+  title="設備 IO 交握流程規範書"
+  version="V1.2"
+/>
+
+## 注意事項
+
+以下為規範書重點整理，供現場整合與除錯參考。完整時序與訊號定義請以上方 PDF 為準。
+
+### 適用範圍
+
+- 本規範針對 **AGV 進入設備後，由設備進行升降取放貨**（例如 Tray 搬運設備）的 Load / Unload 傳輸動作。
+- 交握包含 **DIO**（派車預約、上下層選擇）與 **PIO**（E84 平行 I/O 取放交握）兩部分，須同時符合規範。
+
+### DIO 訊號互斥與限制
+
+| 訊號 | 注意事項 |
+|------|----------|
+| Load Request / Unload Request | 兩者 **不可同時 ON** |
+| UP_POS / DOWN_POS | 頂升機構上、下定位 **不可同時 ON** |
+| To EQ Up / To EQ Low | 預計與 EQ 上、下層進行 PIO 取放時 **不可同時 ON** |
+| EQP Status Down | 設備正常時常 ON，Down 時為 OFF |
+
+:::info 單層設備
+若設備 **無上下層**，僅使用 **DI0（To EQ Up）** 與 **DI2（CMD reserve Up）**，且派車下達任務時統一 Turn On CMD reserve Up；AGV 開始 PIO 交握前統一 Turn On To EQ Up。
+:::
+
+### PIO 訊號重點
+
+| 訊號 | 方向 | 重點 |
+|------|------|------|
+| L_REQ / U_REQ | EQ → AGV | Load / Unload 請求；異常發生於 READY 亮起前須 Turn OFF |
+| VALID | AGV → EQ | CS 資料有效；COMPT 結束或異常時 Turn OFF |
+| TR_REQ | AGV → EQ | AGV 嘗試存取 CS；須待 EQ READY ON 後 AGV 才 Turn ON BUSY 開始傳輸 |
+| READY | EQ → AGV | EQ 可進行傳輸；有 Shutter 時須 **Shutter 開啟後** 才 ON；異常時 Turn OFF |
+| BUSY | AGV → EQ | EQ READY ON 後 AGV 開始傳輸時 ON；完成後 Turn OFF |
+| COMPT | AGV → EQ | AGV 完成動作後 Turn ON，告知設備 **AGV 已完成動作** |
+| EQ_BUSY | EQ → AGV | 設備動作中須 Turn ON |
+| AGV_READY | AGV → EQ | AGV 就緒訊號 |
+
+:::caution COMPT 與設備動作
+設備在確認 **COMPT 為 ON** 之前，**不得** 在交握區域（interactive zone）執行任何機械動作。
+:::
+
+### 正常流程要點
+
+**Load**
+
+1. 派車下達任務 → Turn On **CMD reserve Up/Low**（命令預約）。
+2. AGV 準備 PIO 交握 → Turn On **To EQ Up/Low**。
+3. 依規範書時序完成 DIO 與 PIO 交握（Load Request、L_REQ、VALID、TR_REQ、BUSY、COMPT 等）。
+
+**Unload**
+
+- 流程與 Load 類似，改以 **Unload Request**、**U_REQ** 等 Unload 方向訊號為主，其餘 PIO 交握邏輯一致。
+
+### 異常流程要點
+
+異常發生時，AGV 與 EQ 須 **依序復歸** 各交握訊號，雙方狀態皆復歸後才可開始下一次交握。
+
+| 情境 | 處理要點 |
+|------|----------|
+| AGV 動作中 AGV 異常 | AGV 先將 **TR_REQ OFF** 通知 EQ → AGV 復歸後才可 **BUSY OFF** → EQ 確認 AGV 已退出設備後才可復歸 |
+| EQ 動作中 AGV 異常 | AGV 先 **TR_REQ OFF** → EQ 復歸後才可 **EQ_BUSY OFF** → AGV 才可復歸 |
+| AGV 動作中 EQ 異常 | EQ 先 **EQ_READY OFF** 通知 AGV → AGV 復歸後才可 **BUSY OFF** → EQ 確認 AGV 已退出後才可復歸 |
+| EQ 動作中 EQ 異常 | EQ 先 **EQ_READY OFF** → EQ 復歸後才可 **EQ_BUSY OFF** → AGV 才可復歸 |
+
+:::warning 任務取消
+當異常導致派車 **取消該筆任務** 時，須將 **CMD reserve Up/Low** 與 **To EQ Up/Low** 一併 Turn OFF。
+:::
+
+### 交握 Timeout
+
+- Timeout 時間 **須可設定調整**。
+- 須支援 PIO 交握 **過程中斷訊 Alarm** 的偵測時間設定。
+- **TA**：AGV 偵測 EQ 訊號 Timeout（TA1～TA5，預設多為 5 秒，TA4 預設 90 秒）。
+- **TP**：EQ 偵測 AGV 訊號 Timeout（TP1～TP6，TP3 / TP5 預設 90 秒，其餘多為 5 秒）。
+- 各 Timer 可設定範圍：**1～999 秒**。
+
+| Timer | 預設值（秒） | Timer | 預設值（秒） |
+|-------|-------------|-------|-------------|
+| TA1 | 5 | TP1 | 5 |
+| TA2 | 5 | TP2 | 5 |
+| TA3 | 5 | TP3 | 90 |
+| TA4 | 90 | TP4 | 5 |
+| TA5 | 5 | TP5 | 90 |
+| — | — | TP6 | 5 |

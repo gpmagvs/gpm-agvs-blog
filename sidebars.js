@@ -62,6 +62,15 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '規範書',
+      link: {
+        type: 'doc',
+        id: 'spec/index',
+      },
+      items: ['spec/equipment-io-handshake'],
+    },
+    {
+      type: 'category',
       label: '常見問題',
       link: {
         type: 'generated-index',
