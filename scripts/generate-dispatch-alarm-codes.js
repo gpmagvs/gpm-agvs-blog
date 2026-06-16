@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-
+const {toTraditional} = require('./traditional');
 const OUTPUT = path.join(__dirname, '..', 'docs', 'alarm-code', 'dispatch-alarm-code.mdx');
+const JSON_OUTPUT = path.join(__dirname, '..', 'src', 'data', 'dispatch-alarm-codes.json');
 
 const ALARM_SOURCE_CANDIDATES = [
   path.join(__dirname, '..', '..', '..', 'Programming', 'AGV', 'AGVSystemCommonNet6', 'Alarm'),
@@ -57,59 +58,28 @@ function parseAlarmTable(tableSource, enumValues) {
   return entries.sort((a, b) => a.code - b.code || a.enumName.localeCompare(b.enumName));
 }
 
-function escapeMdCell(text) {
-  return text.replace(/\|/g, '\\|').replace(/\n/g, ' ');
-}
-
-function parseVersion(tableSource) {
-  const match = tableSource.match(/public const string VERSION = "([^"]+)"/);
-  return match ? match[1] : 'unknown';
-}
-
-function buildMdx(version, entries) {
-  const rows = entries
-    .map(
-      (entry) =>
-        `| ${entry.code} | ${escapeMdCell(entry.descriptionZh)} | ${escapeMdCell(entry.descriptionEn)} |`,
-    )
-    .join('\n');
-
+function buildMdx() {
   return `---
 sidebar_position: 1
 title: 派車系統 Alarm Code
 ---
 
+import DispatchAlarmCodeTable from '@site/src/components/AlarmCode/DispatchAlarmCodeTable';
+
 # 派車系統 Alarm Code
 
-對應後端模組：\`AGVSystemCommonNet6.Alarm.AlarmCodeTable\`（AGVS／VMS）
-
-## 功能概述
-
-派車系統 Alarm Code 定義於 \`AlarmCodeTable.cs\`，供 VMS／AGVS 在任務派工、交管、設備交握與充電站等流程中產生 **Alarm** 或 **Warning**。現場可於 [實時警報](/docs/guide/realtime-alarm/overview) 或 [警報歷史查詢](/docs/guide/data-query/alarm-history-query) 對照 **異常碼** 欄位。
-
-## 資料版本
-
-| 項目 | 值 |
-|------|-----|
-| AlarmCodeTable.VERSION | **${version}** |
-| 異常碼筆數 | **${entries.length}** |
-
-:::info 自動產生
-本頁異常碼表格由 \`scripts/generate-dispatch-alarm-codes.js\` 自 \`AGVSystemCommonNet6/Alarm/AlarmCodeTable.cs\` 產生，並依列舉數值 **由小至大** 排序。修改原始碼後請執行 \`npm run generate:alarm-codes\`。
-:::
-
-## 異常碼一覽
-
-| 異常碼 | 中文描述 | 英文 Description |
-|--------|----------|------------------|
-${rows}
-
-## 注意事項
-
-- 表格僅包含 \`AlarmCodeTable.Table\` 已定義的異常碼；\`ALARMS\` 列舉中其他未列入表格的項目不在此頁
-- 排除方法欄位（TroubleShooting）於原始碼多為空字串，現場請依 SOP 或聯繫 GPM 技術支援
-- 與 [車載系統 Alarm Code](/docs/alarm-code/vehicle-alarm-code) 為不同命名空間，請勿混用
+<DispatchAlarmCodeTable />
 `;
+}
+
+function buildJson(entries) {
+  return {
+    entries: entries.map((entry) => ({
+      code: entry.code,
+      descriptionZh: toTraditional(entry.descriptionZh),
+      descriptionEn: entry.descriptionEn,
+    })),
+  };
 }
 
 function main() {
@@ -117,13 +87,15 @@ function main() {
   const tableSource = fs.readFileSync(path.join(alarmDir, 'AlarmCodeTable.cs'), 'utf8');
   const enumSource = fs.readFileSync(path.join(alarmDir, 'AlarmEnums.cs'), 'utf8');
 
-  const version = parseVersion(tableSource);
+  const versionMatch = tableSource.match(/public const string VERSION = "([^"]+)"/);
+  const version = versionMatch ? versionMatch[1] : 'unknown';
   const enumValues = parseEnumValues(enumSource);
   const entries = parseAlarmTable(tableSource, enumValues);
 
-  fs.writeFileSync(OUTPUT, buildMdx(version, entries), 'utf8');
+  fs.writeFileSync(OUTPUT, buildMdx(), 'utf8');
+  fs.writeFileSync(JSON_OUTPUT, `${JSON.stringify(buildJson(entries), null, 2)}\n`, 'utf8');
   console.log(
-    `Generated ${entries.length} dispatch alarm codes (v${version}) -> ${OUTPUT}`,
+    `Generated ${entries.length} dispatch alarm codes (v${version}) -> ${OUTPUT}, ${JSON_OUTPUT}`,
   );
 }
 

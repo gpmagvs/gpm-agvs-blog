@@ -16,7 +16,7 @@ date: 2026-06-11
 
 - Assembly / File Version 更新至 **2.9.48**
 - 改善 AGV 派車邏輯中的**點位註冊**處理
-- `OrderHandlerBase` 優化任務失敗原因（`failure reason`）格式化
+- `OrderHandlerBase` 最佳化任務失敗原因（`failure reason`）格式化
 
 ## 2026-06-10
 
@@ -39,18 +39,18 @@ date: 2026-06-11
 
 ## 2026-06-03
 
-### AGV 模擬器貨物類型上報
+### AGV 模擬器貨物型別上報
 
-- 模擬器上報的貨物類型改依**任務指定類型**回報
+- 模擬器上報的貨物型別改依**任務指定型別**回報
 
 ### 換車服務與充電指派修正
 
-- 優化換車服務模組的車輛過濾邏輯
+- 最佳化換車服務模組的車輛過濾邏輯
 - 修正 AGV 在**中低電量充電**時仍被指派任務的問題
 
 ## 2026-05-26
 
-### 電池狀態可執行任務判斷優化
+### 電池狀態可執行任務判斷最佳化
 
 - `clsAGV.CheckOutOrderExecutableByBatteryStatusAndChargingStatus` 方法邏輯改善
 
@@ -61,9 +61,9 @@ date: 2026-06-11
 - `AGVProgramUpdateHelper` 將 `VMSHostUrl` 中 `localhost` 替換為 `127.0.0.1`
 - `SystemController` 新增 **DatabaseSyncConfigReloadInvoke** 端點，支援重新載入 DB 同步設定
 
-### 派車優化例外處理
+### 派車最佳化例外處理
 
-- `clsOptimizeAGVDispatcher` 改為記錄例外而非重新拋出，提升穩定性
+- `clsOptimizeAGVDispatcher` 改為記錄例外而非重新丟擲，提升穩定性
 
 ## 2026-05-21
 

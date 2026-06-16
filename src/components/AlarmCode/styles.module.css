@@ -1,0 +1,101 @@
+.wrapper {
+  margin-top: 1rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-background-surface-color);
+}
+
+.searchField {
+  display: flex;
+  flex: 1 1 280px;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.searchLabel {
+  flex: 0 0 auto;
+  font-weight: 600;
+}
+
+.searchInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(46, 133, 85, 0.15);
+}
+
+.resultCount {
+  margin-left: auto;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.tableScroll {
+  overflow-x: auto;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+}
+
+.table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  z-index: 1;
+  background: var(--ifm-background-surface-color);
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.table th,
+.table td {
+  padding: 0.65rem 0.85rem;
+  vertical-align: top;
+}
+
+.table tbody tr:nth-child(even) {
+  background: var(--ifm-table-stripe-background);
+}
+
+.codeColumn {
+  width: 7rem;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.emptyState {
+  padding: 2rem;
+  text-align: center;
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  color: var(--ifm-color-emphasis-700);
+}
+
+@media (max-width: 996px) {
+  .resultCount {
+    width: 100%;
+    margin-left: 0;
+  }
+}

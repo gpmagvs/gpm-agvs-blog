@@ -1,34 +1,33 @@
 ---
 sidebar_position: 9
-title: 設備交握
+title: 裝置交握
 ---
 
-# 設備交握
+# 裝置交握
 
-對應前端模組：`EQHandshakeView`、`DJM_PIO`、`EQHandshakingNotify`
 
 ## 功能概述
 
-**設備交握 (E84)** 分頁用於監控 AGV 與設備（EQ）之間 **SEMI E84 平行 I/O（PIO）** 交握訊號狀態，並顯示交握流程計時器（T1～T5）的設定值與當前累計時間。取放貨或電池交換作業進行中，畫面可能另以 `EQHandshakingNotify` 浮層提示交握進度或失敗原因。
+**裝置交握 (E84)** 分頁用於監控 AGV 與裝置（EQ）之間 **SEMI E84 平行 I/O（PIO）** 交握訊號狀態，並顯示交握流程計時器（T1～T5）的設定值與當前累計時間。取放貨或電池交換作業進行中，畫面可能另以交握提示浮層顯示進度或失敗原因。
 
 ## 進入方式
 
 1. 進入 [主畫面](/docs/vehicle-guide/main-screen)
-2. 點選中央頁籤 **設備交握(E84)**
+2. 點選中央頁籤 **裝置交握(E84)**
 3. 切換至該頁籤時即時更新 PIO 訊號與 Timer
 
 ## 畫面說明
 
-![設備交握 PIO 訊號狀態](/img/vcs_webui/E84-EQ-Handshake-Signal-Status.png)
+![裝置交握 PIO 訊號狀態](/img/vcs_webui/E84-EQ-Handshake-Signal-Status.png)
 
-頁面標題區顯示連線類型（截圖為 **PIO**）。中央 **PIO** 區塊包含 **訊號狀態指示** 與 **Timer 表格** 兩部分。
+頁面標題區顯示連線型別（截圖為 **PIO**）。中央 **PIO** 區塊包含 **訊號狀態指示** 與 **Timer 表格** 兩部分。
 
-### 連線類型
+### 連線型別
 
-| 類型 | 說明 |
+| 型別 | 說明 |
 |------|------|
 | PIO | 標準 E84 平行 I/O 交握（截圖所示） |
-| ModbusTcp | 顯示 **設備選擇** 下拉、**IO測試** 按鈕與連線狀態 Tag |
+| ModbusTcp | 顯示 **裝置選擇** 下拉、**IO測試** 按鈕與連線狀態 Tag |
 | Emulation | 頁面頂部顯示紅字 **模擬模式!** |
 
 ### AGV 訊號（左欄）
@@ -45,11 +44,11 @@ title: 設備交握
 
 | 訊號 | 截圖範例 | 說明 |
 |------|----------|------|
-| EQ_L_REQ | OFF | 設備 Load 請求 |
-| EQ_U_REQ | OFF | 設備 Unload 請求 |
-| EQ_READY | OFF | 設備就緒 |
-| EQ_BUSY | OFF | 設備忙碌 |
-| EQ_GO | **ON**（綠） | 設備 GO 訊號 |
+| EQ_L_REQ | OFF | 裝置 Load 請求 |
+| EQ_U_REQ | OFF | 裝置 Unload 請求 |
+| EQ_READY | OFF | 裝置就緒 |
+| EQ_BUSY | OFF | 裝置忙碌 |
+| EQ_GO | **ON**（綠） | 裝置 GO 訊號 |
 
 每個訊號以 **ON**（綠底）或 **OFF**（灰底）方塊顯示即時狀態。
 
@@ -63,14 +62,14 @@ title: 設備交握
 | T4 | 90 | 0 | 等待 EQ BUSY OFF |
 | T5 | 15 | 0 | 等待 L/U REQ OFF |
 
-- **設定值**：系統參數 `EQHSTimeouts` 中的逾時秒數
+- **設定值**：系統設定的逾時秒數
 - **當前值**：交握流程進行中的累計秒數；逾時可能觸發 Alarm
 
 ### 提示訊息
 
 | 訊息 | 條件 |
 |------|------|
-| 僅GPM權限使用者可手動變更AGV交握訊號 | 未登入（Visitor）時顯示 |
+| 僅GPM許可權使用者可手動變更AGV交握訊號 | 未登入（Visitor）時顯示 |
 | 模擬模式! | E84 使用 Emulator 時顯示 |
 
 截圖中使用者為 **ENG**，故無登入限制提示。
@@ -79,14 +78,14 @@ title: 設備交握
 
 ### 監控交握狀態
 
-1. 進入 **設備交握(E84)** 頁籤
-2. 確認連線類型（PIO／ModbusTcp／Emulation）
+1. 進入 **裝置交握(E84)** 頁籤
+2. 確認連線型別（PIO／ModbusTcp／Emulation）
 3. 對照 AGV 與 EQ 訊號 ON／OFF 組合，判斷目前交握階段
 4. 觀察 Timer **當前值** 是否接近 **設定值**（逾時風險）
 
 ### 取放貨作業中的浮層
 
-交握進行中若發生 Alarm，`EQHandshakingNotify` 可能顯示：
+交握進行中若發生 Alarm，交握提示浮層可能顯示：
 
 | 標題 | 說明 |
 |------|------|
@@ -98,7 +97,7 @@ title: 設備交握
 
 ### ModbusTcp IO 測試
 
-1. 連線類型為 ModbusTcp 時，於 **設備選擇** 下拉選取站點
+1. 連線型別為 ModbusTcp 時，於 **裝置選擇** 下拉選取站點
 2. 點選 **IO測試**
 3. 依結果 Tag 顯示 **已連線** 或錯誤訊息
 
@@ -106,8 +105,8 @@ title: 設備交握
 
 | 操作 | 說明 |
 |------|------|
-| 點選 PIO 訊號方塊 | God 可手動 Toggle AGV／EQ 訊號（除錯用） |
-| 點選 Timer 表格 | 開啟系統設定中的 **設備交握設定** 頁籤 |
+| 點選 PIO 訊號方塊 | God 可手動切換 AGV／EQ 訊號（維護用） |
+| 點選 Timer 表格 | 開啟系統設定中的 **裝置交握設定** 頁籤 |
 | 交握測試（隱藏） | God 模式下的異常模擬與復歸 |
 
 ## 注意事項
@@ -118,4 +117,4 @@ title: 設備交握
 - 交握異常時請先查 [即時警報顯示](/docs/vehicle-guide/realtime-alarm-display) 與 [異常紀錄](/docs/vehicle-guide/alarm-records)，再依 PIO 狀態排查
 - **模擬模式** 下訊號來源為 Emulator，不代表現場真實 EQ 狀態
 - 取放貨前請確認 [側邊操作區](/docs/vehicle-guide/side-panel) **IO 模組** 為綠燈（已連線）
-- Timer 設定值修改請透過 God 使用者 **系統設定 → 設備交握設定**，勿在現場随意變更
+- Timer 設定值修改請透過 God 使用者 **系統設定 → 裝置交握設定**，勿在現場隨意變更

@@ -5,14 +5,13 @@ title: 異常紀錄
 
 # 異常紀錄
 
-對應前端模組：`AlarmWarningTable`、`AlarmTableAPI`
 
 ## 功能概述
 
-**異常紀錄** 分頁提供車載端 Alarm／Warning **歷史列表** 的查詢、篩選與分頁瀏覽。與 [即時警報顯示](/docs/vehicle-guide/realtime-alarm-display) 不同，本頁可回溯過去數月紀錄，並支援依類型、時間區間、異常碼篩選；登入使用者可清除紀錄或編輯 Alarm Table。
+**異常紀錄** 分頁提供車載端 Alarm／Warning **歷史列表** 的查詢、篩選與分頁瀏覽。與 [即時警報顯示](/docs/vehicle-guide/realtime-alarm-display) 不同，本頁可回溯過去數月紀錄，並支援依型別、時間區間、異常碼篩選；登入使用者可清除紀錄或編輯 Alarm Table。
 
 :::tip 派車系統警報歷史
-若需查詢 **全場 AGV、充電站、VMS** 等跨設備警報歷史（含任務名稱、發生地點、CSV 匯出），請使用派車系統 [警報歷史查詢](/docs/guide/data-query/alarm-history-query)。
+若需查詢 **全場 AGV、充電站、VMS** 等跨裝置警報歷史（含任務名稱、發生地點、CSV 匯出），請使用派車系統 [警報歷史查詢](/docs/guide/data-query/alarm-history-query)。
 :::
 
 ## 進入方式
@@ -29,11 +28,11 @@ title: 異常紀錄
 
 ### 工具列
 
-| 項目 | 說明 |
+| 專案 | 說明 |
 |------|------|
 | ⚙（滑桿圖示） | 開啟右側 **篩選設定** 抽屜 |
-| 異常類型 | 下拉選單：ALL／Alarm／Warning |
-| 刷新 | 重新向後端查詢目前條件下的資料 |
+| 異常型別 | 下拉選單：ALL／Alarm／Warning |
+| 重新整理 | 重新載入目前條件下的資料 |
 | 清除異常紀錄 | 登入後可見；清除車載端全部 Alarm 紀錄（需確認） |
 | 編輯 Alarm Table | 登入後可見；前往 Alarm Table 編輯頁 |
 
@@ -62,21 +61,21 @@ title: 異常紀錄
 
 點選 ⚙ 開啟右側抽屜，可設定：
 
-| 項目 | 說明 |
+| 專案 | 說明 |
 |------|------|
-| 顯示警報類型 | ALL／Alarm／Warning |
+| 顯示警報型別 | ALL／Alarm／Warning |
 | 時間區間設定 | **不限時間**（預設近三個月）或 **指定時間**（日期時間區間選擇器） |
 | 異常碼 | 依 Alarm Table 分類篩選特定 Code |
 
-快捷時間：前一周、前一個月、前三個月。
+快捷時間：前一週、前一個月、前三個月。
 
 ## 操作步驟
 
 ### 查詢異常紀錄
 
 1. 進入 **異常紀錄** 頁籤
-2. 選擇 **異常類型**（如 Alarm）
-3. 點選 **刷新**
+2. 選擇 **異常型別**（如 Alarm）
+3. 點選 **重新整理**
 4. 使用分頁瀏覽結果
 
 ### 依時間或異常碼篩選
@@ -90,7 +89,7 @@ title: 異常紀錄
 
 1. 確認已 [登入](/docs/vehicle-guide/user-login)
 2. 點選 **清除異常紀錄**
-3. 在確認對話框中選 **OK**
+3. 在確認對話方塊中選 **OK**
 4. 紀錄清除後表格重新載入
 
 :::warning
@@ -100,14 +99,14 @@ title: 異常紀錄
 ### 對照即時警報
 
 1. 右下方 [即時警報顯示](/docs/vehicle-guide/realtime-alarm-display) 記下 Alarm Code
-2. 至本頁以 **異常碼** 篩選或翻頁查找
+2. 至本頁以 **異常碼** 篩選或翻頁查詢
 3. 確認發生時間與 Level
 
 ## 注意事項
 
 - 預設 **不限時間** 實際查詢近 **三個月** 資料；更早紀錄請指定時間區間
 - **清除異常紀錄** 僅登入使用者可見；訪客（OPERATOR）無法清除
-- 本頁為 **車載本地** Alarm 紀錄；派車系統彙整的跨設備歷史見 [警報歷史查詢](/docs/guide/data-query/alarm-history-query)
+- 本頁為 **車載本地** Alarm 紀錄；派車系統彙整的跨裝置歷史見 [警報歷史查詢](/docs/guide/data-query/alarm-history-query)
 - 清除紀錄不會自動解除 [即時警報顯示](/docs/vehicle-guide/realtime-alarm-display) 中仍作用中的警報
 - 異常復歸請使用 [側邊操作區](/docs/vehicle-guide/side-panel) 的 **異常排除** 按鈕
 - **編輯 Alarm Table** 為 God／維護功能，修改前請依變更流程操作

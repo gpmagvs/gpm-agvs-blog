@@ -120,7 +120,7 @@ function generateManifest() {
   const files = fs
     .readdirSync(SOP_DIR)
     .filter((file) => file.toLowerCase().endsWith('.pdf'))
-    .sort((a, b) => a.localeCompare(b, 'zh-Hans'));
+    .sort((a, b) => a.localeCompare(b, 'zh-Hant'));
 
   const items = files.map(parsePdfFilename);
   generateDocPages(items);

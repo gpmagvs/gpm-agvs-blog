@@ -63,7 +63,7 @@ export default function SopList() {
   if (groups.length === 0) {
     return (
       <div className={styles.emptyState}>
-        <p>目前尚無 SOP 文件。請將 PDF 放入 <code>static/sop/</code> 後重新建置網站。</p>
+        <p>目前尚無 SOP 檔案。請將 PDF 放入 <code>static/sop/</code> 後重新建置網站。</p>
       </div>
     );
   }

@@ -9,9 +9,9 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        了解派車系統整體架構、模組職責與 AGV 派車資料流。
+        瞭解派車系統整體架構、模組職責與 AGV 派車資料流。
         <br />
-        <Link to="/docs/architecture/overview">查看架構 →</Link>
+        <Link to="/docs/architecture/overview">檢視架構 →</Link>
       </>
     ),
   },
@@ -20,7 +20,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        完整的 API 端點說明，含請求參數、回應格式與範例。
+        完整的 API 端點說明，含請求引數、回應格式與範例。
         <br />
         <Link to="/docs/api/overview">API 文件 →</Link>
       </>
@@ -31,9 +31,9 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        各版本新增功能、修正項目與破壞性變更說明。
+        各版本新增功能、修正專案與破壞性變更說明。
         <br />
-        <Link to="/blog">查看更新 →</Link>
+        <Link to="/blog">檢視更新 →</Link>
       </>
     ),
   },

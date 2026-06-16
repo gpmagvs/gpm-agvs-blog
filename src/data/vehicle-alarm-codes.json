@@ -1,0 +1,2284 @@
+{
+  "entries": [
+    {
+      "code": 0,
+      "descriptionZh": "",
+      "descriptionEn": ""
+    },
+    {
+      "code": 10,
+      "descriptionZh": "軟體EMS",
+      "descriptionEn": "SoftwareEMS"
+    },
+    {
+      "code": 20,
+      "descriptionZh": "EMS觸發",
+      "descriptionEn": "EMS"
+    },
+    {
+      "code": 30,
+      "descriptionZh": "安全模組觸發",
+      "descriptionEn": "Safety Relays"
+    },
+    {
+      "code": 31,
+      "descriptionZh": "EMO按鈕按壓",
+      "descriptionEn": "EMO Button"
+    },
+    {
+      "code": 40,
+      "descriptionZh": "AGV衝撞(前後膠條)",
+      "descriptionEn": "Bumper"
+    },
+    {
+      "code": 50,
+      "descriptionZh": "垂直馬達超過上硬體極限",
+      "descriptionEn": "Zaxis Up Limit"
+    },
+    {
+      "code": 60,
+      "descriptionZh": "垂直馬達超過下硬體極限",
+      "descriptionEn": "Zaxis Down Limit"
+    },
+    {
+      "code": 100,
+      "descriptionZh": "Wago IO連線異常",
+      "descriptionEn": "Wago IO Disconnect"
+    },
+    {
+      "code": 120,
+      "descriptionZh": "Wago IO讀取異常",
+      "descriptionEn": "Wago IO Read Fail"
+    },
+    {
+      "code": 130,
+      "descriptionZh": "Wago IO寫入異常",
+      "descriptionEn": "Wago IO Write Fail"
+    },
+    {
+      "code": 200,
+      "descriptionZh": "尚未初始化",
+      "descriptionEn": "Not Yet Initial"
+    },
+    {
+      "code": 220,
+      "descriptionZh": "電池未Lock",
+      "descriptionEn": "Battery Not Lock"
+    },
+    {
+      "code": 221,
+      "descriptionZh": "電池1未Lock",
+      "descriptionEn": "Battery1 Not Lock"
+    },
+    {
+      "code": 222,
+      "descriptionZh": "電池2未Lock",
+      "descriptionEn": "Battery2 Not Lock"
+    },
+    {
+      "code": 223,
+      "descriptionZh": "電池未解鎖",
+      "descriptionEn": "Battery Not UnLock"
+    },
+    {
+      "code": 224,
+      "descriptionZh": "電池1未解鎖",
+      "descriptionEn": "Battery1 Not UnLock"
+    },
+    {
+      "code": 225,
+      "descriptionZh": "電池2未解鎖",
+      "descriptionEn": "Battery2 Not UnLock"
+    },
+    {
+      "code": 250,
+      "descriptionZh": "機構動作逾時",
+      "descriptionEn": "Action Timeout"
+    },
+    {
+      "code": 251,
+      "descriptionZh": "牙叉動作中止",
+      "descriptionEn": "Fork Action Aborted"
+    },
+    {
+      "code": 260,
+      "descriptionZh": "自動復歸逾時",
+      "descriptionEn": "Auto Reset Timeout"
+    },
+    {
+      "code": 270,
+      "descriptionZh": "Lock機構動作逾時",
+      "descriptionEn": "Lock Action Timeout"
+    },
+    {
+      "code": 271,
+      "descriptionZh": "Lock1機構動作逾時",
+      "descriptionEn": "Lock1 Action Timeout"
+    },
+    {
+      "code": 272,
+      "descriptionZh": "Lock2機構動作逾時",
+      "descriptionEn": "Lock2 Action Timeout"
+    },
+    {
+      "code": 280,
+      "descriptionZh": "Unlock機構動作逾時",
+      "descriptionEn": "Unlock Action Timeout"
+    },
+    {
+      "code": 281,
+      "descriptionZh": "Unlock1機構動作逾時",
+      "descriptionEn": "Unlock1 Action Timeout"
+    },
+    {
+      "code": 282,
+      "descriptionZh": "Unlock2機構動作逾時",
+      "descriptionEn": "Unlock2 Action Timeout"
+    },
+    {
+      "code": 300,
+      "descriptionZh": "走行馬達IO異常",
+      "descriptionEn": "Wheel Motor IO Error"
+    },
+    {
+      "code": 301,
+      "descriptionZh": "走行馬達IO異常(左)",
+      "descriptionEn": "Wheel Motor IO Error(Left)"
+    },
+    {
+      "code": 302,
+      "descriptionZh": "走行馬達IO異常(右)",
+      "descriptionEn": "Wheel Motor IO Error(Right)"
+    },
+    {
+      "code": 303,
+      "descriptionZh": "走行馬達IO異常(左前)",
+      "descriptionEn": "Wheel Motor IO Error(Left Front)"
+    },
+    {
+      "code": 304,
+      "descriptionZh": "走行馬達IO異常(右前)",
+      "descriptionEn": "Wheel Motor IO Error(Right Front)"
+    },
+    {
+      "code": 305,
+      "descriptionZh": "走行馬達IO異常(左後)",
+      "descriptionEn": "Wheel Motor IO Error(Left Rear)"
+    },
+    {
+      "code": 306,
+      "descriptionZh": "走行馬達IO異常(右後)",
+      "descriptionEn": "Wheel Motor IO Error(Right Rear)"
+    },
+    {
+      "code": 310,
+      "descriptionZh": "走行馬達Alarm",
+      "descriptionEn": "Wheel Motor Alarm"
+    },
+    {
+      "code": 400,
+      "descriptionZh": "垂直馬達IO異常",
+      "descriptionEn": "Vertical Motor IO Error"
+    },
+    {
+      "code": 410,
+      "descriptionZh": "垂直馬達 Alarm",
+      "descriptionEn": "Vertical Motor Alarm"
+    },
+    {
+      "code": 500,
+      "descriptionZh": "條碼機模組異常",
+      "descriptionEn": "Barcode Module Error"
+    },
+    {
+      "code": 510,
+      "descriptionZh": "陀螺儀模組異常",
+      "descriptionEn": "IMU Module Error"
+    },
+    {
+      "code": 511,
+      "descriptionZh": "AGV[X方向]碰撞偵測",
+      "descriptionEn": "Impacting_Detection_XDir"
+    },
+    {
+      "code": 512,
+      "descriptionZh": "AGV[Y方向]碰撞偵測",
+      "descriptionEn": "Impacting_Detection_YDir"
+    },
+    {
+      "code": 513,
+      "descriptionZh": "AGV碰撞偵測",
+      "descriptionEn": "Impacting_Detection"
+    },
+    {
+      "code": 514,
+      "descriptionZh": "AGV俯仰角異常",
+      "descriptionEn": "AGV Pitch State Error"
+    },
+    {
+      "code": 520,
+      "descriptionZh": "磁條模組異常",
+      "descriptionEn": "Guide Module Error"
+    },
+    {
+      "code": 530,
+      "descriptionZh": "定位Pin通訊異常",
+      "descriptionEn": "Pin Module Communication Error"
+    },
+    {
+      "code": 531,
+      "descriptionZh": "前定位Pin通訊異常",
+      "descriptionEn": "Front Pin Module Communication Error"
+    },
+    {
+      "code": 532,
+      "descriptionZh": "後定位Pin通訊異常",
+      "descriptionEn": "Back Pin Module Communication Error"
+    },
+    {
+      "code": 540,
+      "descriptionZh": "定位Pin過負載",
+      "descriptionEn": "Pin Module Pos Check Fail"
+    },
+    {
+      "code": 541,
+      "descriptionZh": "前定位Pin過負載",
+      "descriptionEn": "Front Pin Module Pos Check Fail"
+    },
+    {
+      "code": 542,
+      "descriptionZh": "後定位Pin過負載",
+      "descriptionEn": "Back Pin Module Pos Check Fail"
+    },
+    {
+      "code": 550,
+      "descriptionZh": "定位Pin動作異常",
+      "descriptionEn": "Pin Action Error"
+    },
+    {
+      "code": 560,
+      "descriptionZh": "定位Pin位置錯誤，請確認Pin位置並初始化",
+      "descriptionEn": "Pin Pose Fail"
+    },
+    {
+      "code": 561,
+      "descriptionZh": "前定位Pin位置不在up，請確認Pin位置並初始化",
+      "descriptionEn": "Front Pin Pose not up"
+    },
+    {
+      "code": 562,
+      "descriptionZh": "後定位Pin位置不在up，請確認Pin位置並初始化",
+      "descriptionEn": "Back Pin Pose not up"
+    },
+    {
+      "code": 563,
+      "descriptionZh": "前定位Pin位置不在down，請確認Pin位置並初始化",
+      "descriptionEn": "Front Pin Pose not down"
+    },
+    {
+      "code": 564,
+      "descriptionZh": "後定位Pin位置不在down，請確認Pin位置並初始化",
+      "descriptionEn": "Back Pin Pose not down"
+    },
+    {
+      "code": 600,
+      "descriptionZh": "皮帶Sensor異常",
+      "descriptionEn": "Belt Sensor Error"
+    },
+    {
+      "code": 601,
+      "descriptionZh": "皮帶Sensor異常_1",
+      "descriptionEn": "Belt Sensor Error_1"
+    },
+    {
+      "code": 602,
+      "descriptionZh": "皮帶Sensor異常_2",
+      "descriptionEn": "Belt Sensor Error_2"
+    },
+    {
+      "code": 603,
+      "descriptionZh": "皮帶Sensor異常_3",
+      "descriptionEn": "Belt Sensor Error_3"
+    },
+    {
+      "code": 604,
+      "descriptionZh": "皮帶Sensor異常_4",
+      "descriptionEn": "Belt Sensor Error_4"
+    },
+    {
+      "code": 610,
+      "descriptionZh": "定位缸IO異常",
+      "descriptionEn": "Pin IO Error"
+    },
+    {
+      "code": 620,
+      "descriptionZh": "夾爪過負載",
+      "descriptionEn": "Oh Over Load"
+    },
+    {
+      "code": 630,
+      "descriptionZh": "夾爪搖晃異常",
+      "descriptionEn": "Oh Sway Error"
+    },
+    {
+      "code": 640,
+      "descriptionZh": "夾爪開合位置異常",
+      "descriptionEn": "Oh Pos Check Fail"
+    },
+    {
+      "code": 700,
+      "descriptionZh": "牙叉IO異常",
+      "descriptionEn": "Fork IO Error"
+    },
+    {
+      "code": 710,
+      "descriptionZh": "牙叉 Bumper Sensor防壓偵測觸發",
+      "descriptionEn": "Fork Bumper Error"
+    },
+    {
+      "code": 711,
+      "descriptionZh": "牙叉前障礙Sensor偵測異常(上牙叉)",
+      "descriptionEn": "Fork Bumper Error(Up)"
+    },
+    {
+      "code": 712,
+      "descriptionZh": "牙叉前障礙Sensor偵測異常(下牙叉)",
+      "descriptionEn": "Fork Bumper Error(Down)"
+    },
+    {
+      "code": 713,
+      "descriptionZh": "牙叉高度引數異常",
+      "descriptionEn": "Fork Height Setting Error"
+    },
+    {
+      "code": 714,
+      "descriptionZh": "牙叉姿態變化過大",
+      "descriptionEn": "Fork Pose Change Too Large"
+    },
+    {
+      "code": 715,
+      "descriptionZh": "抵達二次定位點時牙叉動作失敗",
+      "descriptionEn": "Fork Action Fail When Reach Secondary Point"
+    },
+    {
+      "code": 716,
+      "descriptionZh": "Unload 任務牙叉應上升至Down_Pose",
+      "descriptionEn": "Unload Action But Fork Pose Not DOWN"
+    },
+    {
+      "code": 717,
+      "descriptionZh": "Load 任務牙叉應上升至Up_Pose",
+      "descriptionEn": "Load Action But Fork Pose Not UP"
+    },
+    {
+      "code": 800,
+      "descriptionZh": "地洞Sensor異常",
+      "descriptionEn": "Ground Hole Sensor Error"
+    },
+    {
+      "code": 801,
+      "descriptionZh": "地洞Sensor異常(左前)",
+      "descriptionEn": "Ground Hole Sensor Error(Left Front)"
+    },
+    {
+      "code": 802,
+      "descriptionZh": "地洞Sensor異常(右前)",
+      "descriptionEn": "Ground Hole Sensor Error(Right Front)"
+    },
+    {
+      "code": 803,
+      "descriptionZh": "地洞Sensor異常(左後)",
+      "descriptionEn": "Ground Hole Sensor Error(Left Rear)"
+    },
+    {
+      "code": 804,
+      "descriptionZh": "地洞Sensor異常(右後)",
+      "descriptionEn": "Ground Hole Sensor Error(Right Rear)"
+    },
+    {
+      "code": 810,
+      "descriptionZh": "地洞CCD異常",
+      "descriptionEn": "Ground Hole CCD Error"
+    },
+    {
+      "code": 811,
+      "descriptionZh": "地洞CCD異常(左前)",
+      "descriptionEn": "Ground Hole CCD Error(Left Front)"
+    },
+    {
+      "code": 812,
+      "descriptionZh": "地洞CCD異常(右前)",
+      "descriptionEn": "Ground Hole CCD Error(Right Front)"
+    },
+    {
+      "code": 813,
+      "descriptionZh": "地洞CCD異常(左後)",
+      "descriptionEn": "Ground Hole CCD Error(Left Rear)"
+    },
+    {
+      "code": 814,
+      "descriptionZh": "地洞CCD異常(右後)",
+      "descriptionEn": "Ground Hole CCD Error(Right Rear)"
+    },
+    {
+      "code": 820,
+      "descriptionZh": "煙霧偵測IO異常",
+      "descriptionEn": "Smoke IO Error"
+    },
+    {
+      "code": 830,
+      "descriptionZh": "N2偵測IO異常",
+      "descriptionEn": "N2 IO Error"
+    },
+    {
+      "code": 840,
+      "descriptionZh": "電池在席異常",
+      "descriptionEn": "Battery Exist Error"
+    },
+    {
+      "code": 841,
+      "descriptionZh": "電池1在席異常",
+      "descriptionEn": "Battery1 Exist Error"
+    },
+    {
+      "code": 842,
+      "descriptionZh": "電池2在席異常",
+      "descriptionEn": "Battery2 Exist Error"
+    },
+    {
+      "code": 850,
+      "descriptionZh": "電池低電量",
+      "descriptionEn": "Battery Low Volume"
+    },
+    {
+      "code": 851,
+      "descriptionZh": "電池1低電量",
+      "descriptionEn": "Battery1 Low Volume"
+    },
+    {
+      "code": 852,
+      "descriptionZh": "電池2低電量",
+      "descriptionEn": "Battery2 Low Volume"
+    },
+    {
+      "code": 860,
+      "descriptionZh": "電池電量差距過大",
+      "descriptionEn": "Battery Volume Gap"
+    },
+    {
+      "code": 861,
+      "descriptionZh": "電池1電量差距過大",
+      "descriptionEn": "Battery1 Volume Gap"
+    },
+    {
+      "code": 862,
+      "descriptionZh": "電池2電量差距過大",
+      "descriptionEn": "Battery2 Volume Gap"
+    },
+    {
+      "code": 870,
+      "descriptionZh": "超音波Sensor異常",
+      "descriptionEn": "Ultrasonic Sensor Error"
+    },
+    {
+      "code": 871,
+      "descriptionZh": "超音波Sensor異常(前)",
+      "descriptionEn": "Ultrasonic Sensor Error(Front)"
+    },
+    {
+      "code": 872,
+      "descriptionZh": "超音波Sensor異常(後)",
+      "descriptionEn": "Ultrasonic Sensor Error(Rear)"
+    },
+    {
+      "code": 873,
+      "descriptionZh": "超音波Sensor異常(左)",
+      "descriptionEn": "Ultrasonic Sensor Error(Left)"
+    },
+    {
+      "code": 874,
+      "descriptionZh": "超音波Sensor異常(右)",
+      "descriptionEn": "Ultrasonic Sensor Error(Right)"
+    },
+    {
+      "code": 880,
+      "descriptionZh": "超音波Sensor遠處障礙物",
+      "descriptionEn": "Ultrasonic Sensor Error"
+    },
+    {
+      "code": 881,
+      "descriptionZh": "超音波Sensor遠處障礙物(前)",
+      "descriptionEn": "Ultrasonic Sensor Error(Front)"
+    },
+    {
+      "code": 882,
+      "descriptionZh": "超音波Sensor遠處障礙物(後)",
+      "descriptionEn": "Ultrasonic Sensor Error(Rear)"
+    },
+    {
+      "code": 883,
+      "descriptionZh": "超音波Sensor遠處障礙物(左)",
+      "descriptionEn": "Ultrasonic Sensor Error(Left)"
+    },
+    {
+      "code": 884,
+      "descriptionZh": "超音波Sensor遠處障礙物(右)",
+      "descriptionEn": "Ultrasonic Sensor Error(Right)"
+    },
+    {
+      "code": 1000,
+      "descriptionZh": "AGV煞車旋鈕狀態異常",
+      "descriptionEn": "Switch Type Error"
+    },
+    {
+      "code": 1001,
+      "descriptionZh": "Z軸解煞車旋鈕異常",
+      "descriptionEn": "Vertical Switch Type Error"
+    },
+    {
+      "code": 1010,
+      "descriptionZh": "AGV前方近處障礙物",
+      "descriptionEn": "FrontProtection_Area3"
+    },
+    {
+      "code": 1020,
+      "descriptionZh": "AGV後方近處障礙物",
+      "descriptionEn": "BackProtection_Area3"
+    },
+    {
+      "code": 1030,
+      "descriptionZh": "AGV左方近處障礙物",
+      "descriptionEn": "LeftProtection_Area3"
+    },
+    {
+      "code": 1040,
+      "descriptionZh": "AGV右方近處障礙物",
+      "descriptionEn": "RightProtection_Area3"
+    },
+    {
+      "code": 1050,
+      "descriptionZh": "錯誤的狀態無法進行切換",
+      "descriptionEn": "Cant Change With Wrong State"
+    },
+    {
+      "code": 1060,
+      "descriptionZh": "螢幕開關異常",
+      "descriptionEn": "Monitor Switch Error"
+    },
+    {
+      "code": 1070,
+      "descriptionZh": "無法進行Online, AGV須停在Tag上",
+      "descriptionEn": "Cant Online Without Tag"
+    },
+    {
+      "code": 1071,
+      "descriptionZh": "無法進行Online, 目前Tag已設為禁止上線",
+      "descriptionEn": "Can't 'Online With Forbid Tag"
+    },
+    {
+      "code": 1072,
+      "descriptionZh": "無法在裝置內上線",
+      "descriptionEn": "Cant Online In Equipment"
+    },
+    {
+      "code": 1073,
+      "descriptionZh": "無法在虛擬點上線",
+      "descriptionEn": "Cant Online At Virtual Point"
+    },
+    {
+      "code": 1110,
+      "descriptionZh": "AGV前方遠處障礙物",
+      "descriptionEn": "FrontProtection_Area2"
+    },
+    {
+      "code": 1120,
+      "descriptionZh": "AGV後方遠處障礙物",
+      "descriptionEn": "BackProtection_Area2"
+    },
+    {
+      "code": 1130,
+      "descriptionZh": "AGV左方遠處障礙物",
+      "descriptionEn": "LeftProtection_Area2"
+    },
+    {
+      "code": 1140,
+      "descriptionZh": "AGV右方遠處障礙物",
+      "descriptionEn": "RightProtection_Area2"
+    },
+    {
+      "code": 1150,
+      "descriptionZh": "AGV下方遠處障礙物",
+      "descriptionEn": "BotProtection_Area2"
+    },
+    {
+      "code": 1200,
+      "descriptionZh": "側板未偵測",
+      "descriptionEn": "Side Sensor Undetected"
+    },
+    {
+      "code": 1500,
+      "descriptionZh": "車子狀態無法執行此任務",
+      "descriptionEn": "AGV State Cant do this Action"
+    },
+    {
+      "code": 1501,
+      "descriptionZh": "車子狀態不該移動",
+      "descriptionEn": "AGV State Cant Move"
+    },
+    {
+      "code": 1510,
+      "descriptionZh": "車子無法在工作站點內移動",
+      "descriptionEn": "Cant Move in Work Station"
+    },
+    {
+      "code": 1520,
+      "descriptionZh": "工作站點設定錯誤",
+      "descriptionEn": "Work Station Setting Fail"
+    },
+    {
+      "code": 1530,
+      "descriptionZh": "車子無法在有異物侵入時初始化",
+      "descriptionEn": "Cant Initial when Obstacle Invade"
+    },
+    {
+      "code": 1540,
+      "descriptionZh": "車子狀態不可自動復歸",
+      "descriptionEn": "AGV State Cant Auto Reset"
+    },
+    {
+      "code": 1550,
+      "descriptionZh": "移動完成但位置錯誤",
+      "descriptionEn": "Secondary Done But is Wrong Pos"
+    },
+    {
+      "code": 1551,
+      "descriptionZh": "AGV位置不在二次定位點",
+      "descriptionEn": "AGV Location Not Secondary"
+    },
+    {
+      "code": 1560,
+      "descriptionZh": "無法進行手動操作",
+      "descriptionEn": "Cant Manual Action"
+    },
+    {
+      "code": 1561,
+      "descriptionZh": "無法進行手動操作_1",
+      "descriptionEn": "Cant Manual Action_1"
+    },
+    {
+      "code": 1562,
+      "descriptionZh": "無法進行手動操作_2",
+      "descriptionEn": "Cant Manual Action_2"
+    },
+    {
+      "code": 1563,
+      "descriptionZh": "無法進行手動操作_3",
+      "descriptionEn": "Cant Manual Action_3"
+    },
+    {
+      "code": 1600,
+      "descriptionZh": "無法確認垂直馬達位置",
+      "descriptionEn": "Cant Check ZaxisPos"
+    },
+    {
+      "code": 1601,
+      "descriptionZh": "無法確認垂直馬達位置(IO)",
+      "descriptionEn": "Cant Check ZaxisPos(IO)"
+    },
+    {
+      "code": 1602,
+      "descriptionZh": "無法確認垂直馬達位置(Encoder)",
+      "descriptionEn": "Cant Check ZaxisPos(Encoder)"
+    },
+    {
+      "code": 1603,
+      "descriptionZh": "無法確認垂直馬達位置(Laser)",
+      "descriptionEn": "Cant Check ZaxisPos(Laser)"
+    },
+    {
+      "code": 1604,
+      "descriptionZh": "無法確認垂直馬達位置_1",
+      "descriptionEn": "Cant Check ZaxisPos_1"
+    },
+    {
+      "code": 1605,
+      "descriptionZh": "無法確認垂直馬達位置_2",
+      "descriptionEn": "Cant Check ZaxisPos_2"
+    },
+    {
+      "code": 1606,
+      "descriptionZh": "無法確認垂直馬達位置_3",
+      "descriptionEn": "Cant Check ZaxisPos_3"
+    },
+    {
+      "code": 1610,
+      "descriptionZh": "貨物傾斜異常",
+      "descriptionEn": "Cst Slope Error"
+    },
+    {
+      "code": 1611,
+      "descriptionZh": "貨物傾斜異常_1",
+      "descriptionEn": "Cst Slope Error_1"
+    },
+    {
+      "code": 1612,
+      "descriptionZh": "貨物傾斜異常_2",
+      "descriptionEn": "Cst Slope Error_2"
+    },
+    {
+      "code": 1613,
+      "descriptionZh": "貨物傾斜異常_3",
+      "descriptionEn": "Cst Slope Error_3"
+    },
+    {
+      "code": 1614,
+      "descriptionZh": "貨物傾斜異常_4",
+      "descriptionEn": "Cst Slope Error_4"
+    },
+    {
+      "code": 1615,
+      "descriptionZh": "貨物傾斜異常_5",
+      "descriptionEn": "Cst Slope Error_5"
+    },
+    {
+      "code": 1616,
+      "descriptionZh": "貨物傾斜異常_6",
+      "descriptionEn": "Cst Slope Error_6"
+    },
+    {
+      "code": 1620,
+      "descriptionZh": "夾爪與在席異常",
+      "descriptionEn": "Oh Cst Error"
+    },
+    {
+      "code": 1621,
+      "descriptionZh": "夾爪與在席異常_1",
+      "descriptionEn": "Oh Cst Error"
+    },
+    {
+      "code": 1630,
+      "descriptionZh": "無法確認電池狀況",
+      "descriptionEn": "Cant Check Battery"
+    },
+    {
+      "code": 1640,
+      "descriptionZh": "無法確認移動路徑",
+      "descriptionEn": "Cant Check Move Path"
+    },
+    {
+      "code": 1700,
+      "descriptionZh": "應該要有料卻無料",
+      "descriptionEn": "Has Job Without Cst"
+    },
+    {
+      "code": 1701,
+      "descriptionZh": "應該要有料卻無料_1",
+      "descriptionEn": "Has Job Without Cst_1"
+    },
+    {
+      "code": 1702,
+      "descriptionZh": "應該要有料卻無料_2",
+      "descriptionEn": "Has Job Without Cst_2"
+    },
+    {
+      "code": 1703,
+      "descriptionZh": "應該要有料卻無料_3",
+      "descriptionEn": "Has Job Without Cst_3"
+    },
+    {
+      "code": 1704,
+      "descriptionZh": "應該要有料卻無料_4",
+      "descriptionEn": "Has Job Without Cst_4"
+    },
+    {
+      "code": 1710,
+      "descriptionZh": "有料時不能清帳",
+      "descriptionEn": "Delete Job Data With Cst"
+    },
+    {
+      "code": 1711,
+      "descriptionZh": "有料時不能清帳_1",
+      "descriptionEn": "Delete Job Data With Cst_1"
+    },
+    {
+      "code": 1712,
+      "descriptionZh": "有料時不能清帳_2",
+      "descriptionEn": "Delete Job Data With Cst_2"
+    },
+    {
+      "code": 1713,
+      "descriptionZh": "有料時不能清帳_3",
+      "descriptionEn": "Delete Job Data With Cst_3"
+    },
+    {
+      "code": 1714,
+      "descriptionZh": "有料時不能清帳_4",
+      "descriptionEn": "Delete Job Data With Cst_4"
+    },
+    {
+      "code": 1720,
+      "descriptionZh": "不該有料卻有料",
+      "descriptionEn": "Has Cst Without Job"
+    },
+    {
+      "code": 1721,
+      "descriptionZh": "不該有料卻有料_1",
+      "descriptionEn": "Has Cst Without Job_1"
+    },
+    {
+      "code": 1722,
+      "descriptionZh": "不該有料卻有料_2",
+      "descriptionEn": "Has Cst Without Job_2"
+    },
+    {
+      "code": 1723,
+      "descriptionZh": "不該有料卻有料_3",
+      "descriptionEn": "Has Cst Without Job_3"
+    },
+    {
+      "code": 1724,
+      "descriptionZh": "不該有料卻有料_4",
+      "descriptionEn": "Has Cst Without Job_4"
+    },
+    {
+      "code": 1750,
+      "descriptionZh": "夾爪空取",
+      "descriptionEn": "Oh Action but Empty Take"
+    },
+    {
+      "code": 1800,
+      "descriptionZh": "放貨目的地被侵佔",
+      "descriptionEn": "Load But Occupy"
+    },
+    {
+      "code": 1850,
+      "descriptionZh": "卡夾ID讀取失敗",
+      "descriptionEn": "Read Cst ID Fail"
+    },
+    {
+      "code": 1851,
+      "descriptionZh": "讀取卡夾ID失敗,服務完成但主題無CSTID",
+      "descriptionEn": "Read Cst ID Fail Service Done But Topic No CSTID"
+    },
+    {
+      "code": 1852,
+      "descriptionZh": "讀取卡夾ID但貨物型別已知",
+      "descriptionEn": "Read Cst ID But Cargo Type Known"
+    },
+    {
+      "code": 1860,
+      "descriptionZh": "卡夾ID不相符",
+      "descriptionEn": "Cst ID Not Match"
+    },
+    {
+      "code": 1900,
+      "descriptionZh": "儀器異常",
+      "descriptionEn": "Instrument Error"
+    },
+    {
+      "code": 1901,
+      "descriptionZh": "儀器IO異常",
+      "descriptionEn": "Instrument IO Error"
+    },
+    {
+      "code": 1902,
+      "descriptionZh": "儀器模組異常",
+      "descriptionEn": "Instrument Module Error"
+    },
+    {
+      "code": 1903,
+      "descriptionZh": "儀器模組斷線",
+      "descriptionEn": "Instrument Module Disconnect"
+    },
+    {
+      "code": 1910,
+      "descriptionZh": "檢測失敗",
+      "descriptionEn": "Detection Fail"
+    },
+    {
+      "code": 1920,
+      "descriptionZh": "Bay封鎖",
+      "descriptionEn": "Bay Block"
+    },
+    {
+      "code": 1921,
+      "descriptionZh": "Bay封鎖_1",
+      "descriptionEn": "Bay Block_1"
+    },
+    {
+      "code": 1922,
+      "descriptionZh": "Bay封鎖_2",
+      "descriptionEn": "Bay Block_2"
+    },
+    {
+      "code": 1950,
+      "descriptionZh": "退出Bay失敗",
+      "descriptionEn": "Bay Move Out Fail"
+    },
+    {
+      "code": 1960,
+      "descriptionZh": "避災中",
+      "descriptionEn": "Escape"
+    },
+    {
+      "code": 2000,
+      "descriptionZh": "GPM控車迷航",
+      "descriptionEn": "GPM Motion control Tracking Error"
+    },
+    {
+      "code": 2010,
+      "descriptionZh": "控車任務訊息格式錯誤",
+      "descriptionEn": "Motion control Wrong Received Msg"
+    },
+    {
+      "code": 2020,
+      "descriptionZh": "控車派車生成路徑錯誤",
+      "descriptionEn": "Motion control Wrong Extend Path"
+    },
+    {
+      "code": 2030,
+      "descriptionZh": "控車轉向端點中脫離設定路徑",
+      "descriptionEn": "Motion control Out Of Line While Forwarding End"
+    },
+    {
+      "code": 2040,
+      "descriptionZh": "控車追端點中脫離設定路徑",
+      "descriptionEn": "Motion control Out Of Line While Tracking End Point"
+    },
+    {
+      "code": 2050,
+      "descriptionZh": "控車行進間脫離設定路徑",
+      "descriptionEn": "Motion control Out Of Line While Moving"
+    },
+    {
+      "code": 2060,
+      "descriptionZh": "控車二次定位中脫離設定路徑",
+      "descriptionEn": "Motion control Out Of Line While Secondary"
+    },
+    {
+      "code": 2070,
+      "descriptionZh": "控車端點上未掃描到QR Code",
+      "descriptionEn": "Motion control Missing Tag On End Point"
+    },
+    {
+      "code": 2080,
+      "descriptionZh": "控車行進間未掃描到QR Code",
+      "descriptionEn": "Motion control Missing Tag While Moving"
+    },
+    {
+      "code": 2090,
+      "descriptionZh": "控車二次定位中未掃描到QR Code",
+      "descriptionEn": "Motion control Missing Tag While Secondary"
+    },
+    {
+      "code": 2100,
+      "descriptionZh": "控車二次定位起始位置錯誤",
+      "descriptionEn": "Motion control Wrong Initial Position In Secondary"
+    },
+    {
+      "code": 2110,
+      "descriptionZh": "控車二次定位起始角度錯誤",
+      "descriptionEn": "Motion control Wrong Initial Angle In Secondary"
+    },
+    {
+      "code": 2120,
+      "descriptionZh": "控車原地旋轉目標點錯誤",
+      "descriptionEn": "Motion control Wrong Target To Pirouette"
+    },
+    {
+      "code": 2130,
+      "descriptionZh": "地圖辨識率過低",
+      "descriptionEn": "Map Recognition Rate Too Low"
+    },
+    {
+      "code": 2200,
+      "descriptionZh": "控車修正位置未讀到Tag與Tap",
+      "descriptionEn": "Motion control Tracking Tag Not On Tag Or Tap"
+    },
+    {
+      "code": 2210,
+      "descriptionZh": "控車修正位置起始位置錯誤",
+      "descriptionEn": "Motion control Wrong Position To Tracking Tag"
+    },
+    {
+      "code": 2220,
+      "descriptionZh": "控車修正位置失敗",
+      "descriptionEn": "Motion control Tracking Tag Fail"
+    },
+    {
+      "code": 2400,
+      "descriptionZh": "GPM控車異常Abort",
+      "descriptionEn": "GPM Motion control RunMove Abort"
+    },
+    {
+      "code": 2401,
+      "descriptionZh": "無法將任務傳遞給運動控制",
+      "descriptionEn": "Can not Pass Task to Motion Control"
+    },
+    {
+      "code": 2410,
+      "descriptionZh": "Action Server連線逾時",
+      "descriptionEn": "Action Server Not Ready"
+    },
+    {
+      "code": 2411,
+      "descriptionZh": "運動控制斷開連線",
+      "descriptionEn": "Motion control Disconnected"
+    },
+    {
+      "code": 2500,
+      "descriptionZh": "任務路徑道路封閉",
+      "descriptionEn": "Task Path Road Closed"
+    },
+    {
+      "code": 3000,
+      "descriptionZh": "AGV Alive異常",
+      "descriptionEn": "AGV Alive Check Fail"
+    },
+    {
+      "code": 3040,
+      "descriptionZh": "向派車上線失敗",
+      "descriptionEn": "Registration Reject"
+    },
+    {
+      "code": 3050,
+      "descriptionZh": "向派車上線逾時",
+      "descriptionEn": "Registration Timeout"
+    },
+    {
+      "code": 3070,
+      "descriptionZh": "向派車下線失敗",
+      "descriptionEn": "Unregistration Reject"
+    },
+    {
+      "code": 3080,
+      "descriptionZh": "向派車下線逾時",
+      "descriptionEn": "Unregistration Timeout"
+    },
+    {
+      "code": 3200,
+      "descriptionZh": "交握失敗",
+      "descriptionEn": "Handshake Fail"
+    },
+    {
+      "code": 3201,
+      "descriptionZh": "交握失敗-EQ_L_REQ 訊號逾時",
+      "descriptionEn": "Handshake Fail(EQ_L_REQ)"
+    },
+    {
+      "code": 3202,
+      "descriptionZh": "交握失敗-EQ_U_REQ 訊號逾時",
+      "descriptionEn": "Handshake Fail(EQ_U_REQ)"
+    },
+    {
+      "code": 3203,
+      "descriptionZh": "交握失敗-EQ_READY 訊號關閉",
+      "descriptionEn": "Handshake Fail(EQ_READY)"
+    },
+    {
+      "code": 3204,
+      "descriptionZh": "交握失敗(EQ_READY_UP)",
+      "descriptionEn": "Handshake Fail(EQ_READY_UP)"
+    },
+    {
+      "code": 3205,
+      "descriptionZh": "交握失敗(EQ_READY_LOW)",
+      "descriptionEn": "Handshake Fail(EQ_READY_LOW)"
+    },
+    {
+      "code": 3206,
+      "descriptionZh": "交握失敗(EQ_GO)",
+      "descriptionEn": "Handshake Fail(EQ_GO)"
+    },
+    {
+      "code": 3207,
+      "descriptionZh": "因人為交握失敗(EQ_GO)",
+      "descriptionEn": "Handshake Fail Because Person(EQ_GO)"
+    },
+    {
+      "code": 3208,
+      "descriptionZh": "機臺內交握失敗(EQ_GO)",
+      "descriptionEn": "Handshake Fail Inside EQ(EQ_GO)"
+    },
+    {
+      "code": 3210,
+      "descriptionZh": "交握逾時",
+      "descriptionEn": "Handshake Timeout"
+    },
+    {
+      "code": 3211,
+      "descriptionZh": "交握逾時 TA2 EQ READY 未開啟",
+      "descriptionEn": "Handshake Timeout TA2 EQ READY Not On"
+    },
+    {
+      "code": 3212,
+      "descriptionZh": "交握逾時 TA3 EQ BUSY 未開啟",
+      "descriptionEn": "Handshake Timeout TA3 EQ BUSY Not ON"
+    },
+    {
+      "code": 3213,
+      "descriptionZh": "交握逾時 TA5 EQ READY 未關閉",
+      "descriptionEn": "Handshake Timeout TA5 EQ READY Not OFF"
+    },
+    {
+      "code": 3214,
+      "descriptionZh": "交握逾時 TA1 EQ L REQ 未開啟",
+      "descriptionEn": "Handshake Timeout TA1 EQ L REQ Not On"
+    },
+    {
+      "code": 3215,
+      "descriptionZh": "交握逾時 TA1 EQ U REQ 未開啟",
+      "descriptionEn": "Handshake Timeout TA1 EQ U REQ Not On"
+    },
+    {
+      "code": 3216,
+      "descriptionZh": "交握逾時 TA4 EQ BUSY 未關閉",
+      "descriptionEn": "Handshake Timeout TA4 EQ BUSY Not OFF"
+    },
+    {
+      "code": 3217,
+      "descriptionZh": "交握逾時 TA5 EQ L REQ 未關閉",
+      "descriptionEn": "Handshake Timeout TA5 EQ L REQ Not OFF"
+    },
+    {
+      "code": 3218,
+      "descriptionZh": "交握逾時 TA5 EQ U REQ 未關閉",
+      "descriptionEn": "Handshake Timeout TA5 EQ U REQ Not OFF"
+    },
+    {
+      "code": 3219,
+      "descriptionZh": "交握失敗 AGV DOWN",
+      "descriptionEn": "Handshake Fail AGV DOWN"
+    },
+    {
+      "code": 3220,
+      "descriptionZh": "交握事前檢查訊號錯誤(X20~X28)",
+      "descriptionEn": "Precheck IO Fail(X20~X28)"
+    },
+    {
+      "code": 3221,
+      "descriptionZh": "交握事前檢查訊號錯誤(EQ_L_REQ)",
+      "descriptionEn": "Precheck IO Fail(EQ_L_REQ)"
+    },
+    {
+      "code": 3222,
+      "descriptionZh": "交握事前檢查訊號錯誤(EQ_U_REQ)",
+      "descriptionEn": "Precheck IO Fail(EQ_U_REQ)"
+    },
+    {
+      "code": 3223,
+      "descriptionZh": "交握事前檢查訊號錯誤(EQ_READY)",
+      "descriptionEn": "Precheck IO Fail(EQ_READY)"
+    },
+    {
+      "code": 3224,
+      "descriptionZh": "交握事前檢查訊號錯誤(EQ_READY_UP)",
+      "descriptionEn": "Precheck IO Fail(EQ_READY_UP)"
+    },
+    {
+      "code": 3225,
+      "descriptionZh": "交握事前檢查訊號錯誤(EQ_READY_LOW)",
+      "descriptionEn": "Precheck IO Fail(EQ_READY_LOW)"
+    },
+    {
+      "code": 3226,
+      "descriptionZh": "交握事前檢查訊號錯誤(EQ_GO)",
+      "descriptionEn": "Precheck IO Fail(EQ_GO)"
+    },
+    {
+      "code": 3227,
+      "descriptionZh": "裝置PIO狀態尚未復歸",
+      "descriptionEn": "Precheck IO Fail(STATE IO NOT RESET)"
+    },
+    {
+      "code": 3231,
+      "descriptionZh": "交握失敗-等待裝置_EQ_BUSY OFF逾時",
+      "descriptionEn": "Handshake_Fail_EQ_BUSY_OFF"
+    },
+    {
+      "code": 3232,
+      "descriptionZh": "交握失敗-AGV發生異常",
+      "descriptionEn": "Handshake_Fail_AGV_DOWN"
+    },
+    {
+      "code": 3235,
+      "descriptionZh": "交握失敗-等待裝置_EQ_BUSY ON逾時",
+      "descriptionEn": "Handshake_Fail_EQ_BUSY_NOT_ON"
+    },
+    {
+      "code": 3236,
+      "descriptionZh": "交握失敗-等待裝置_EQ_BUSY ON逾時",
+      "descriptionEn": "Handshake_Fail_EQ_BUSY_NOT_OFF"
+    },
+    {
+      "code": 3280,
+      "descriptionZh": "交握失敗 BAT EXG EQ VALID 訊號未開啟",
+      "descriptionEn": "Handshake_Fail_BAT_EXG_EQ_VALID_NOT_ON"
+    },
+    {
+      "code": 3281,
+      "descriptionZh": "交握失敗 BAT EXG EQ VALID 訊號未關閉",
+      "descriptionEn": "Handshake_Fail_BAT_EXG_EQ_VALID_NOT_OFF"
+    },
+    {
+      "code": 3282,
+      "descriptionZh": "交握失敗 BAT EXG EQ TR_REQ 訊號未開啟",
+      "descriptionEn": "Handshake_Fail_BAT_EXG_EQ_TRREQ_NOT_ON"
+    },
+    {
+      "code": 3283,
+      "descriptionZh": "交握失敗 BAT EXG EQ TR_REQ 訊號未關閉",
+      "descriptionEn": "Handshake_Fail_BAT_EXG_EQ_TRREQ_NOT_OFF"
+    },
+    {
+      "code": 3284,
+      "descriptionZh": "交握失敗 BAT EXG EQ COMPT 訊號未開啟",
+      "descriptionEn": "Handshake_Fail_BAT_EXG_EQ_COMPT_NOT_ON"
+    },
+    {
+      "code": 3285,
+      "descriptionZh": "交握失敗 BAT EXG EQ COMPT 訊號未關閉",
+      "descriptionEn": "Handshake_Fail_BAT_EXG_EQ_COMPT_NOT_OFF"
+    },
+    {
+      "code": 3286,
+      "descriptionZh": "交握失敗 BAT EXG EQ 檢查結果未開啟",
+      "descriptionEn": "Handshake Fail BAT EXG EQ Check Result NOT ON"
+    },
+    {
+      "code": 3287,
+      "descriptionZh": "交握失敗 BAT EXG EQ 檢查結果未關閉",
+      "descriptionEn": "Handshake Fail BAT EXG EQ Check Result NOT OFF"
+    },
+    {
+      "code": 3288,
+      "descriptionZh": "交握失敗 BAT EXG EQ 檢查準備未開啟",
+      "descriptionEn": "Handshake Fail BAT EXG EQ Check Ready NOT ON"
+    },
+    {
+      "code": 3289,
+      "descriptionZh": "交握失敗 BAT EXG EQ 檢查準備未關閉",
+      "descriptionEn": "Handshake Fail BAT EXG EQ Check Ready NOT OFF"
+    },
+    {
+      "code": 3290,
+      "descriptionZh": "交握失敗 BAT EXG EQ BUSY 關閉超時",
+      "descriptionEn": "Handshake Fail BAT EXG EQ BUSY OFF TIMEOUT"
+    },
+    {
+      "code": 3291,
+      "descriptionZh": "交握失敗 BAT 移除超時",
+      "descriptionEn": "Handshake Fail BAT Remove Timeout"
+    },
+    {
+      "code": 3292,
+      "descriptionZh": "交握失敗 BAT 安裝超時",
+      "descriptionEn": "Handshake Fail BAT Install Timeout"
+    },
+    {
+      "code": 3293,
+      "descriptionZh": "交握失敗 BAT EXG EQ VALID 在交握時關閉",
+      "descriptionEn": "Handshake Fail BAT EXG EQ VALID OFF WHEN HANDSHAKING"
+    },
+    {
+      "code": 3300,
+      "descriptionZh": "詢問機臺在席狀況失敗",
+      "descriptionEn": "Ask Remote Cst Status Fail"
+    },
+    {
+      "code": 3310,
+      "descriptionZh": "詢問機臺在席狀況逾時",
+      "descriptionEn": "Ask Remote Cst Status Timeout"
+    },
+    {
+      "code": 3500,
+      "descriptionZh": "派車取消任務即停",
+      "descriptionEn": "AGVs Abort Task"
+    },
+    {
+      "code": 3501,
+      "descriptionZh": "與派車Alive Check 逾時",
+      "descriptionEn": "AGVS_ALIVE_CHECK_TIMEOUT"
+    },
+    {
+      "code": 3502,
+      "descriptionZh": "與派車系統斷線",
+      "descriptionEn": "AGVs_Disconnected"
+    },
+    {
+      "code": 3503,
+      "descriptionZh": "與派車系統通訊Ping失敗",
+      "descriptionEn": "AGVS_PING_FAIL"
+    },
+    {
+      "code": 3504,
+      "descriptionZh": "向派車上報任務狀態逾時(T1)",
+      "descriptionEn": "Task Status Feedback To AGVS T1 Timeout"
+    },
+    {
+      "code": 3505,
+      "descriptionZh": "向派車查詢上線狀態逾時(T1)",
+      "descriptionEn": "Online Mode Query From AGVS T1 Timeout"
+    },
+    {
+      "code": 3506,
+      "descriptionZh": "AGV狀態上報派車逾時(T1)",
+      "descriptionEn": "Running Status Report To AGVS T1 Timeout"
+    },
+    {
+      "code": 3507,
+      "descriptionZh": "AGVS 離開工作站響應超時",
+      "descriptionEn": "AGVS Leave Workstation Response Timeout"
+    },
+    {
+      "code": 4010,
+      "descriptionZh": "馬達低電壓保護",
+      "descriptionEn": "Under-voltage protection"
+    },
+    {
+      "code": 4011,
+      "descriptionZh": "垂直馬達低電壓保護",
+      "descriptionEn": "Under-voltage protection_Action"
+    },
+    {
+      "code": 4012,
+      "descriptionZh": "輪子馬達低電壓保護_1",
+      "descriptionEn": "Under-voltage protection_1"
+    },
+    {
+      "code": 4013,
+      "descriptionZh": "輪子馬達低電壓保護_2",
+      "descriptionEn": "Under-voltage protection_2"
+    },
+    {
+      "code": 4014,
+      "descriptionZh": "輪子馬達低電壓保護_3",
+      "descriptionEn": "Under-voltage protection_3"
+    },
+    {
+      "code": 4015,
+      "descriptionZh": "輪子馬達低電壓保護_4",
+      "descriptionEn": "Under-voltage protection_4"
+    },
+    {
+      "code": 4020,
+      "descriptionZh": "馬達低電流保護",
+      "descriptionEn": "Under-current protection"
+    },
+    {
+      "code": 4021,
+      "descriptionZh": "垂直馬達低電流保護",
+      "descriptionEn": "Under-current protection_Action"
+    },
+    {
+      "code": 4022,
+      "descriptionZh": "輪子馬達低電流保護_1",
+      "descriptionEn": "Under-current protection_1"
+    },
+    {
+      "code": 4023,
+      "descriptionZh": "輪子馬達低電流保護_2",
+      "descriptionEn": "Under-current protection_2"
+    },
+    {
+      "code": 4024,
+      "descriptionZh": "輪子馬達低電流保護_3",
+      "descriptionEn": "Under-current protection_3"
+    },
+    {
+      "code": 4025,
+      "descriptionZh": "輪子馬達低電流保護_4",
+      "descriptionEn": "Under-current protection_4"
+    },
+    {
+      "code": 4030,
+      "descriptionZh": "馬達過電壓保護",
+      "descriptionEn": "Over-voltage protection"
+    },
+    {
+      "code": 4031,
+      "descriptionZh": "垂直馬達過電壓保護",
+      "descriptionEn": "Over-voltage protection_Action"
+    },
+    {
+      "code": 4032,
+      "descriptionZh": "輪子馬達過電壓保護_1",
+      "descriptionEn": "Over-voltage protection_1"
+    },
+    {
+      "code": 4033,
+      "descriptionZh": "輪子馬達過電壓保護_2",
+      "descriptionEn": "Over-voltage protection_2"
+    },
+    {
+      "code": 4034,
+      "descriptionZh": "輪子馬達過電壓保護_3",
+      "descriptionEn": "Over-voltage protection_3"
+    },
+    {
+      "code": 4035,
+      "descriptionZh": "輪子馬達過電壓保護_4",
+      "descriptionEn": "Over-voltage protection_4"
+    },
+    {
+      "code": 4040,
+      "descriptionZh": "馬達過電流保護",
+      "descriptionEn": "Over-current protection"
+    },
+    {
+      "code": 4041,
+      "descriptionZh": "垂直馬達過電流保護",
+      "descriptionEn": "Over-current protection_Action"
+    },
+    {
+      "code": 4042,
+      "descriptionZh": "輪子馬達過電流保護_1",
+      "descriptionEn": "Over-current protection_1"
+    },
+    {
+      "code": 4043,
+      "descriptionZh": "輪子馬達過電流保護_2",
+      "descriptionEn": "Over-current protection_2"
+    },
+    {
+      "code": 4044,
+      "descriptionZh": "輪子馬達過電流保護_3",
+      "descriptionEn": "Over-current protection_3"
+    },
+    {
+      "code": 4045,
+      "descriptionZh": "輪子馬達過電流保護_4",
+      "descriptionEn": "Over-current protection_4"
+    },
+    {
+      "code": 4050,
+      "descriptionZh": "馬達過熱保護",
+      "descriptionEn": "Over-heat protection"
+    },
+    {
+      "code": 4051,
+      "descriptionZh": "垂直馬達過熱保護",
+      "descriptionEn": "Over-heat protection_Action"
+    },
+    {
+      "code": 4052,
+      "descriptionZh": "輪子馬達過熱保護_1",
+      "descriptionEn": "Over-heat protection_1"
+    },
+    {
+      "code": 4053,
+      "descriptionZh": "輪子馬達過熱保護_2",
+      "descriptionEn": "Over-heat protection_2"
+    },
+    {
+      "code": 4054,
+      "descriptionZh": "輪子馬達過熱保護_3",
+      "descriptionEn": "Over-heat protection_3"
+    },
+    {
+      "code": 4055,
+      "descriptionZh": "輪子馬達過熱保護_4",
+      "descriptionEn": "Over-heat protection_4"
+    },
+    {
+      "code": 4060,
+      "descriptionZh": "馬達過負載保護",
+      "descriptionEn": "Over-load protection"
+    },
+    {
+      "code": 4061,
+      "descriptionZh": "垂直馬達過負載保護",
+      "descriptionEn": "Over-load protection_Action"
+    },
+    {
+      "code": 4062,
+      "descriptionZh": "輪子馬達過負載保護_1",
+      "descriptionEn": "Over-load protection_1"
+    },
+    {
+      "code": 4063,
+      "descriptionZh": "輪子馬達過負載保護_2",
+      "descriptionEn": "Over-load protection_2"
+    },
+    {
+      "code": 4064,
+      "descriptionZh": "輪子馬達過負載保護_3",
+      "descriptionEn": "Over-load protection_3"
+    },
+    {
+      "code": 4065,
+      "descriptionZh": "輪子馬達過負載保護_4",
+      "descriptionEn": "Over-load protection_4"
+    },
+    {
+      "code": 4070,
+      "descriptionZh": "馬達再生過負載保護",
+      "descriptionEn": "Over-regeneration load protection"
+    },
+    {
+      "code": 4071,
+      "descriptionZh": "垂直馬達再生過負載保護",
+      "descriptionEn": "Over-regeneration load protection_Action"
+    },
+    {
+      "code": 4072,
+      "descriptionZh": "輪子馬達再生過負載保護_1",
+      "descriptionEn": "Over-regeneration load protection_2"
+    },
+    {
+      "code": 4073,
+      "descriptionZh": "輪子馬達再生過負載保護_2",
+      "descriptionEn": "Over-regeneration load protection_3"
+    },
+    {
+      "code": 4074,
+      "descriptionZh": "輪子馬達再生過負載保護_3",
+      "descriptionEn": "Over-regeneration load protection_4"
+    },
+    {
+      "code": 4075,
+      "descriptionZh": "輪子馬達再生過負載保護_4",
+      "descriptionEn": "Over-regeneration load protection_5"
+    },
+    {
+      "code": 4080,
+      "descriptionZh": "馬達過速度保護",
+      "descriptionEn": "Over-speed protection"
+    },
+    {
+      "code": 4081,
+      "descriptionZh": "垂直馬達過速度保護",
+      "descriptionEn": "Over-speed protection_Action"
+    },
+    {
+      "code": 4082,
+      "descriptionZh": "輪子馬達過速度保護_1",
+      "descriptionEn": "Over-speed protection_1"
+    },
+    {
+      "code": 4083,
+      "descriptionZh": "輪子馬達過速度保護_2",
+      "descriptionEn": "Over-speed protection_2"
+    },
+    {
+      "code": 4084,
+      "descriptionZh": "輪子馬達過速度保護_3",
+      "descriptionEn": "Over-speed protection_3"
+    },
+    {
+      "code": 4085,
+      "descriptionZh": "輪子馬達過速度保護_4",
+      "descriptionEn": "Over-speed protection_4"
+    },
+    {
+      "code": 4090,
+      "descriptionZh": "馬達偏差過大保護",
+      "descriptionEn": "Deviation excess protection"
+    },
+    {
+      "code": 4091,
+      "descriptionZh": "垂直馬達偏差過大保護",
+      "descriptionEn": "Deviation excess protection_Action"
+    },
+    {
+      "code": 4092,
+      "descriptionZh": "輪子馬達偏差過大保護_1",
+      "descriptionEn": "Deviation excess protection_1"
+    },
+    {
+      "code": 4093,
+      "descriptionZh": "輪子馬達偏差過大保護_2",
+      "descriptionEn": "Deviation excess protection_2"
+    },
+    {
+      "code": 4094,
+      "descriptionZh": "輪子馬達偏差過大保護_3",
+      "descriptionEn": "Deviation excess protection_3"
+    },
+    {
+      "code": 4095,
+      "descriptionZh": "輪子馬達偏差過大保護_4",
+      "descriptionEn": "Deviation excess protection_4"
+    },
+    {
+      "code": 4100,
+      "descriptionZh": "馬達線路異常",
+      "descriptionEn": "Connection error protection"
+    },
+    {
+      "code": 4101,
+      "descriptionZh": "垂直馬達線路異常",
+      "descriptionEn": "Connection error protection_Action"
+    },
+    {
+      "code": 4102,
+      "descriptionZh": "輪子馬達線路異常_1",
+      "descriptionEn": "Connection error protection_1"
+    },
+    {
+      "code": 4103,
+      "descriptionZh": "輪子馬達線路異常_2",
+      "descriptionEn": "Connection error protection_2"
+    },
+    {
+      "code": 4104,
+      "descriptionZh": "輪子馬達線路異常_3",
+      "descriptionEn": "Connection error protection_3"
+    },
+    {
+      "code": 4105,
+      "descriptionZh": "輪子馬達線路異常_4",
+      "descriptionEn": "Connection error protection_4"
+    },
+    {
+      "code": 4110,
+      "descriptionZh": "馬達運轉狀態錯誤",
+      "descriptionEn": "Status Error"
+    },
+    {
+      "code": 4111,
+      "descriptionZh": "垂直馬達運轉狀態錯誤",
+      "descriptionEn": "Status Error_Action"
+    },
+    {
+      "code": 4112,
+      "descriptionZh": "輪子馬達運轉狀態錯誤_1",
+      "descriptionEn": "Status Error_1"
+    },
+    {
+      "code": 4113,
+      "descriptionZh": "輪子馬達運轉狀態錯誤_2",
+      "descriptionEn": "Status Error_2"
+    },
+    {
+      "code": 4114,
+      "descriptionZh": "輪子馬達運轉狀態錯誤_3",
+      "descriptionEn": "Status Error_3"
+    },
+    {
+      "code": 4115,
+      "descriptionZh": "輪子馬達運轉狀態錯誤_4",
+      "descriptionEn": "Status Error_4"
+    },
+    {
+      "code": 4120,
+      "descriptionZh": "馬達通訊異常",
+      "descriptionEn": "Communication error"
+    },
+    {
+      "code": 4121,
+      "descriptionZh": "垂直馬達通訊異常",
+      "descriptionEn": "Communication error_Action"
+    },
+    {
+      "code": 4122,
+      "descriptionZh": "輪子馬達通訊異常_1",
+      "descriptionEn": "Communication error_1"
+    },
+    {
+      "code": 4123,
+      "descriptionZh": "輪子馬達通訊異常_2",
+      "descriptionEn": "Communication error_2"
+    },
+    {
+      "code": 4124,
+      "descriptionZh": "輪子馬達通訊異常_3",
+      "descriptionEn": "Communication error_3"
+    },
+    {
+      "code": 4125,
+      "descriptionZh": "輪子馬達通訊異常_4",
+      "descriptionEn": "Communication error_4"
+    },
+    {
+      "code": 4130,
+      "descriptionZh": "馬達強制警報輸入",
+      "descriptionEn": "Alarm input protection"
+    },
+    {
+      "code": 4131,
+      "descriptionZh": "垂直馬達強制警報輸入",
+      "descriptionEn": "Alarm input protection_Action"
+    },
+    {
+      "code": 4132,
+      "descriptionZh": "輪子馬達強制警報輸入_1",
+      "descriptionEn": "Alarm input protection_1"
+    },
+    {
+      "code": 4133,
+      "descriptionZh": "輪子馬達強制警報輸入_2",
+      "descriptionEn": "Alarm input protection_2"
+    },
+    {
+      "code": 4134,
+      "descriptionZh": "輪子馬達強制警報輸入_3",
+      "descriptionEn": "Alarm input protection_3"
+    },
+    {
+      "code": 4135,
+      "descriptionZh": "輪子馬達強制警報輸入_4",
+      "descriptionEn": "Alarm input protection_4"
+    },
+    {
+      "code": 4140,
+      "descriptionZh": "馬達指令異常",
+      "descriptionEn": "Command error"
+    },
+    {
+      "code": 4141,
+      "descriptionZh": "垂直馬達指令異常",
+      "descriptionEn": "Command error_Action"
+    },
+    {
+      "code": 4142,
+      "descriptionZh": "輪子馬達指令異常_1",
+      "descriptionEn": "Command error_1"
+    },
+    {
+      "code": 4143,
+      "descriptionZh": "輪子馬達指令異常_2",
+      "descriptionEn": "Command error_2"
+    },
+    {
+      "code": 4144,
+      "descriptionZh": "輪子馬達指令異常_3",
+      "descriptionEn": "Command error_3"
+    },
+    {
+      "code": 4145,
+      "descriptionZh": "輪子馬達指令異常_4",
+      "descriptionEn": "Command error_4"
+    },
+    {
+      "code": 4150,
+      "descriptionZh": "馬達過重異常",
+      "descriptionEn": "Overtorque"
+    },
+    {
+      "code": 4151,
+      "descriptionZh": "垂直馬達過重異常",
+      "descriptionEn": "Overtorque_Action"
+    },
+    {
+      "code": 4152,
+      "descriptionZh": "輪子馬達過重異常_1",
+      "descriptionEn": "Overtorque_1"
+    },
+    {
+      "code": 4153,
+      "descriptionZh": "輪子馬達過重異常_2",
+      "descriptionEn": "Overtorque_2"
+    },
+    {
+      "code": 4154,
+      "descriptionZh": "輪子馬達過重異常_3",
+      "descriptionEn": "Overtorque_3"
+    },
+    {
+      "code": 4155,
+      "descriptionZh": "輪子馬達過重異常_4",
+      "descriptionEn": "Overtorque_4"
+    },
+    {
+      "code": 4160,
+      "descriptionZh": "馬達其他異常",
+      "descriptionEn": "Other error"
+    },
+    {
+      "code": 4161,
+      "descriptionZh": "垂直馬達其他異常",
+      "descriptionEn": "Other error_Action"
+    },
+    {
+      "code": 4162,
+      "descriptionZh": "輪子馬達其他異常_1",
+      "descriptionEn": "Other error_1"
+    },
+    {
+      "code": 4163,
+      "descriptionZh": "輪子馬達其他異常_2",
+      "descriptionEn": "Other error_2"
+    },
+    {
+      "code": 4164,
+      "descriptionZh": "輪子馬達其他異常_3",
+      "descriptionEn": "Other error_3"
+    },
+    {
+      "code": 4165,
+      "descriptionZh": "輪子馬達其他異常_4",
+      "descriptionEn": "Other error_4"
+    },
+    {
+      "code": 4166,
+      "descriptionZh": "馬達無法起動",
+      "descriptionEn": "Motor Activ Error"
+    },
+    {
+      "code": 4167,
+      "descriptionZh": "馬達回授訊號錯誤",
+      "descriptionEn": "Motor Feedback Signal Error"
+    },
+    {
+      "code": 4168,
+      "descriptionZh": "馬達資料錯誤 EEP 內部資料錯誤",
+      "descriptionEn": "Motor EEP Error"
+    },
+    {
+      "code": 4169,
+      "descriptionZh": "馬達驅動器的溫度高於可承受的上限",
+      "descriptionEn": "Motor Driver Over Heat"
+    },
+    {
+      "code": 4170,
+      "descriptionZh": "馬達轉速超過所設定的上限",
+      "descriptionEn": "Motor Over Speed Error"
+    },
+    {
+      "code": 4171,
+      "descriptionZh": "馬達Encoder訊號錯誤",
+      "descriptionEn": "Motor Encoder Error"
+    },
+    {
+      "code": 4172,
+      "descriptionZh": "馬達初期運轉禁止",
+      "descriptionEn": "Motor Run Forbid"
+    },
+    {
+      "code": 4173,
+      "descriptionZh": "馬達外部停止",
+      "descriptionEn": "Motor Extern Stop"
+    },
+    {
+      "code": 4174,
+      "descriptionZh": "馬達霍爾序列錯誤",
+      "descriptionEn": "Motor Hall Sequence Error"
+    },
+    {
+      "code": 4175,
+      "descriptionZh": "馬達引數設定錯誤",
+      "descriptionEn": "Motor Parameters Error"
+    },
+    {
+      "code": 5000,
+      "descriptionZh": "電池狀態異常",
+      "descriptionEn": "Battery Status Error"
+    },
+    {
+      "code": 5001,
+      "descriptionZh": "電池狀態異常_1",
+      "descriptionEn": "Battery Status Error_1"
+    },
+    {
+      "code": 5002,
+      "descriptionZh": "電池狀態異常_2",
+      "descriptionEn": "Battery Status Error_2"
+    },
+    {
+      "code": 5010,
+      "descriptionZh": "電池過壓",
+      "descriptionEn": "Over Voltage"
+    },
+    {
+      "code": 5011,
+      "descriptionZh": "電池過壓_1",
+      "descriptionEn": "Over Voltage_1"
+    },
+    {
+      "code": 5012,
+      "descriptionZh": "電池過壓_2",
+      "descriptionEn": "Over Voltage_2"
+    },
+    {
+      "code": 5020,
+      "descriptionZh": "電池欠壓",
+      "descriptionEn": "Under Voltage"
+    },
+    {
+      "code": 5021,
+      "descriptionZh": "電池欠壓_1",
+      "descriptionEn": "Under Voltage_1"
+    },
+    {
+      "code": 5022,
+      "descriptionZh": "電池欠壓_2",
+      "descriptionEn": "Under Voltage_2"
+    },
+    {
+      "code": 5030,
+      "descriptionZh": "電池充電過電流",
+      "descriptionEn": "Over Current Charge"
+    },
+    {
+      "code": 5031,
+      "descriptionZh": "電池充電過電流_1",
+      "descriptionEn": "Over Current Charge_1"
+    },
+    {
+      "code": 5032,
+      "descriptionZh": "電池充電過電流_2",
+      "descriptionEn": "Over Current Charge_2"
+    },
+    {
+      "code": 5040,
+      "descriptionZh": "電池放電過電流",
+      "descriptionEn": "Over Current Discharge"
+    },
+    {
+      "code": 5041,
+      "descriptionZh": "電池放電過電流_1",
+      "descriptionEn": "Over Current Discharge_1"
+    },
+    {
+      "code": 5042,
+      "descriptionZh": "電池放電過電流_2",
+      "descriptionEn": "Over Current Discharge_2"
+    },
+    {
+      "code": 5050,
+      "descriptionZh": "電池充電低電流",
+      "descriptionEn": "Under Current Charge"
+    },
+    {
+      "code": 5051,
+      "descriptionZh": "電池充電低電流_1",
+      "descriptionEn": "Under Current Charge_1"
+    },
+    {
+      "code": 5052,
+      "descriptionZh": "電池充電低電流_2",
+      "descriptionEn": "Under Current Charge_2"
+    },
+    {
+      "code": 5060,
+      "descriptionZh": "電池放電低電流",
+      "descriptionEn": "Under Current Discharge"
+    },
+    {
+      "code": 5061,
+      "descriptionZh": "電池放電低電流_1",
+      "descriptionEn": "Under Current Discharge_1"
+    },
+    {
+      "code": 5062,
+      "descriptionZh": "電池放電低電流_2",
+      "descriptionEn": "Under Current Discharge_2"
+    },
+    {
+      "code": 5070,
+      "descriptionZh": "電池過溫",
+      "descriptionEn": "Over Temperature"
+    },
+    {
+      "code": 5071,
+      "descriptionZh": "電池過溫_1",
+      "descriptionEn": "Over Temperature_1"
+    },
+    {
+      "code": 5072,
+      "descriptionZh": "電池過溫_2",
+      "descriptionEn": "Over Temperature_2"
+    },
+    {
+      "code": 5080,
+      "descriptionZh": "電池低溫",
+      "descriptionEn": "Under Temperature"
+    },
+    {
+      "code": 5081,
+      "descriptionZh": "電池低溫_1",
+      "descriptionEn": "Under Temperature_1"
+    },
+    {
+      "code": 5082,
+      "descriptionZh": "電池低溫_2",
+      "descriptionEn": "Under Temperature_2"
+    },
+    {
+      "code": 5083,
+      "descriptionZh": "電池短路",
+      "descriptionEn": "Battery Short Circuit"
+    },
+    {
+      "code": 7000,
+      "descriptionZh": "雷射偵測到裝置Port內有障礙物",
+      "descriptionEn": "EQP_PORT_HAS_OBSTACLE_BY_LSR"
+    },
+    {
+      "code": 8000,
+      "descriptionZh": "自動門輸出未定義",
+      "descriptionEn": "Auto Door Ouput Not Defined"
+    },
+    {
+      "code": 9990,
+      "descriptionZh": "授權碼錯誤",
+      "descriptionEn": "License Error"
+    },
+    {
+      "code": 9991,
+      "descriptionZh": "授權碼錯誤(0x0000NOF)",
+      "descriptionEn": "License Error(0x0000NOF)"
+    },
+    {
+      "code": 9992,
+      "descriptionZh": "授權碼錯誤(0x0000NRD)",
+      "descriptionEn": "License Error(0x0000NRD)"
+    },
+    {
+      "code": 9993,
+      "descriptionZh": "授權碼錯誤(0x00000M1)",
+      "descriptionEn": "License Error(0x00000M1)"
+    },
+    {
+      "code": 9994,
+      "descriptionZh": "授權碼錯誤(0x00000D1)",
+      "descriptionEn": "License Error(0x00000D1)"
+    },
+    {
+      "code": 10000,
+      "descriptionZh": "等待機臺端交握訊號",
+      "descriptionEn": "Waiting EQ Handshake"
+    },
+    {
+      "code": 10010,
+      "descriptionZh": "雷射組數數值錯誤(雷射IN/CIN Output數值寫入錯誤)",
+      "descriptionEn": "Laser Mode value fail"
+    },
+    {
+      "code": 10011,
+      "descriptionZh": "系統程式碼錯誤",
+      "descriptionEn": "Code Error In System"
+    },
+    {
+      "code": 10012,
+      "descriptionZh": "訂閱 ROS 主題錯誤",
+      "descriptionEn": "Subscribe ROS Topic Err"
+    },
+    {
+      "code": 10013,
+      "descriptionZh": "ROS Bridge Server 斷開",
+      "descriptionEn": "ROS Bridge server Disconnect"
+    },
+    {
+      "code": 10014,
+      "descriptionZh": "AGV 姿態角度與 Sick 角度不匹配",
+      "descriptionEn": "AGV Pose Angle Not Match To Sick Angle"
+    },
+    {
+      "code": 10015,
+      "descriptionZh": "使用者按下 SoftwareEMO 但發生異常",
+      "descriptionEn": "USER Press SoftwareEMO But Exception Occur"
+    },
+    {
+      "code": 10016,
+      "descriptionZh": "準備向裝置載入貨物但有障礙物",
+      "descriptionEn": "EQP LOAD BUT EQP HAS OBSTACLE"
+    },
+    {
+      "code": 10017,
+      "descriptionZh": "準備從裝置取出貨物但裝置無貨物",
+      "descriptionEn": "EQP UNLOAD BUT EQP HAS NO CARGO"
+    },
+    {
+      "code": 10018,
+      "descriptionZh": "變更ONLINE模式時發生程式內部錯誤",
+      "descriptionEn": "Cant Change Online Mode Code Error"
+    },
+    {
+      "code": 10019,
+      "descriptionZh": "無法將任務轉移到 AGVC",
+      "descriptionEn": "Cant TransferTask TO AGVC"
+    },
+    {
+      "code": 10020,
+      "descriptionZh": "車控Motion Control發生未知程式碼",
+      "descriptionEn": "Motion control Wrong Unknown Code"
+    },
+    {
+      "code": 10021,
+      "descriptionZh": "使用者中止初始化過程",
+      "descriptionEn": "UserAbort Initialize Process"
+    },
+    {
+      "code": 10022,
+      "descriptionZh": "Sick 雷射雷達通訊錯誤",
+      "descriptionEn": "Sick Lidar Communication Error"
+    },
+    {
+      "code": 10023,
+      "descriptionZh": "Tag未定義牙叉高度教點資料",
+      "descriptionEn": "Fork WorkStation Teach Data Not Found Tag"
+    },
+    {
+      "code": 10024,
+      "descriptionZh": "未定義的牙叉高度層",
+      "descriptionEn": "Fork WorkStation Teach Data Not Found layer"
+    },
+    {
+      "code": 10025,
+      "descriptionZh": "牙叉伸縮臂位置錯誤",
+      "descriptionEn": "Fork Arm Pose Error"
+    },
+    {
+      "code": 10026,
+      "descriptionZh": "目標點是虛擬點",
+      "descriptionEn": "Destine Point Is Virtual Point"
+    },
+    {
+      "code": 10027,
+      "descriptionZh": "牙叉前端有障礙物",
+      "descriptionEn": "Fork Frontend has Obstacle"
+    },
+    {
+      "code": 10028,
+      "descriptionZh": "牙叉有貨物但初始化正在執行",
+      "descriptionEn": "Fork Has Cargo But Initialize Running"
+    },
+    {
+      "code": 10029,
+      "descriptionZh": "牙叉已停用",
+      "descriptionEn": "Fork Disabled"
+    },
+    {
+      "code": 10030,
+      "descriptionZh": "牙叉停用時 AGV 無法前往工作站",
+      "descriptionEn": "AGV Cant Goto Workstation When Fork Is Disabled"
+    },
+    {
+      "code": 10031,
+      "descriptionZh": "牙叉初始化過程中斷",
+      "descriptionEn": "Fork Initialize Process Interupt"
+    },
+    {
+      "code": 10032,
+      "descriptionZh": "牙叉初始化過程發生錯誤",
+      "descriptionEn": "Fork Initialize Process Error Occur"
+    },
+    {
+      "code": 10033,
+      "descriptionZh": "牙叉初始化完成但Z軸原點檢知訊號未ON",
+      "descriptionEn": "Fork Initialized But Home Input Not ON"
+    },
+    {
+      "code": 10034,
+      "descriptionZh": "牙叉回原點但Z軸原點檢知訊號錯誤",
+      "descriptionEn": "Fork Go Home But Home Sensor Signal Error"
+    },
+    {
+      "code": 10035,
+      "descriptionZh": "牙叉已初始化但驅動器位置不為零",
+      "descriptionEn": "Fork Initialized But Driver Position Not ZERO"
+    },
+    {
+      "code": 10036,
+      "descriptionZh": "雷射模式切換失敗 DO 寫入失敗",
+      "descriptionEn": "Laser Mode Switch Fail DO Write Fail"
+    },
+    {
+      "code": 10037,
+      "descriptionZh": "雷射模式切換失敗異常",
+      "descriptionEn": "Laser Mode Switch Fail Exception"
+    },
+    {
+      "code": 10038,
+      "descriptionZh": "雷射模式切換超時",
+      "descriptionEn": "Laser Mode Switch Fail Timeout"
+    },
+    {
+      "code": 10039,
+      "descriptionZh": "雷射模式切換但 SICK 輸出未更新",
+      "descriptionEn": "Laser Mode Switch But SICK OUPUT NOT UPDATE"
+    },
+    {
+      "code": 10040,
+      "descriptionZh": "定位失敗",
+      "descriptionEn": "Localization Fail"
+    },
+    {
+      "code": 10041,
+      "descriptionZh": "測量結果上報失敗",
+      "descriptionEn": "Measure Result Data Report Fail"
+    },
+    {
+      "code": 10042,
+      "descriptionZh": "AGVC AGVS 任務重置中止時發生異常",
+      "descriptionEn": "Exception When AGVC AGVS Task Reset Abort"
+    },
+    {
+      "code": 10043,
+      "descriptionZh": "AGVC AGVS 任務重置迴圈停止時發生異常",
+      "descriptionEn": "Exception When AGVC AGVS Task Reset CycleStop"
+    },
+    {
+      "code": 10044,
+      "descriptionZh": "獲取虛擬 ID 失敗",
+      "descriptionEn": "GetVirtualIDFail"
+    },
+    {
+      "code": 10045,
+      "descriptionZh": "AGV Barcode Reader讀值與目的地Tag不匹配",
+      "descriptionEn": "AGV BarcodeReader Not Match Tag of Destination"
+    },
+    {
+      "code": 10046,
+      "descriptionZh": "AGV 停車位置離目的地Tag太遠",
+      "descriptionEn": "AGV Park Position Too Far From Tag Of Destination"
+    },
+    {
+      "code": 10047,
+      "descriptionZh": "牙叉動作超時",
+      "descriptionEn": "Fork Arm Action Timeout"
+    },
+    {
+      "code": 10048,
+      "descriptionZh": "牙叉動作錯誤",
+      "descriptionEn": "Fork Arm Action Error"
+    },
+    {
+      "code": 10049,
+      "descriptionZh": "重新規劃路徑",
+      "descriptionEn": "Replan"
+    },
+    {
+      "code": 10050,
+      "descriptionZh": "車體限位開關感應器觸發",
+      "descriptionEn": "Limit Switch Sensor Trigger"
+    },
+    {
+      "code": 10051,
+      "descriptionZh": "向AGV傳送走行任務但AGV正在取消任務",
+      "descriptionEn": "Send Goal to AGV But AGVS Cancel Req Raised"
+    },
+    {
+      "code": 10052,
+      "descriptionZh": "牙叉教點資料錯誤",
+      "descriptionEn": "Fork Slot Teach Data ERROR"
+    },
+    {
+      "code": 10053,
+      "descriptionZh": "電池電量低車載電腦自動關機",
+      "descriptionEn": "Battery Low Level Auto PC Shutdown"
+    },
+    {
+      "code": 10054,
+      "descriptionZh": "充電時電池過壓",
+      "descriptionEn": "Battery Over Voltage When Charging"
+    },
+    {
+      "code": 10055,
+      "descriptionZh": "拒絕 AGVS 任務",
+      "descriptionEn": "Reject AGVS Task"
+    },
+    {
+      "code": 10056,
+      "descriptionZh": "牙叉無法於非主幹道TAG位置進行回原點動作",
+      "descriptionEn": "Fork Cannot Go Home At Non Normal Point"
+    },
+    {
+      "code": 40400,
+      "descriptionZh": "未知錯誤",
+      "descriptionEn": "Unknown"
+    }
+  ]
+}

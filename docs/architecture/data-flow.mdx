@@ -52,7 +52,7 @@ stateDiagram-v2
 | 階段 | 負責服務 | 動作 |
 |------|----------|------|
 | 任務接收 | SECS Middleware → AGVS | MCS 任務轉換並寫入資料庫 |
-| 派車決策 | AGVS → VMS | AGVS 確認任務可執行，交由 VMS 調度 |
+| 派車決策 | AGVS → VMS | AGVS 確認任務可執行，交由 VMS 排程 |
 | 車輛執行 | VMS ↔ AGV | 下達移動指令、交管、接收狀態回報 |
 | 結果回報 | AGVS → SECS Middleware → MCS | 任務完成事件沿原路徑回傳 |
 

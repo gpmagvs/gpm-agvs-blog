@@ -1,0 +1,904 @@
+{
+  "entries": [
+    {
+      "code": 0,
+      "descriptionZh": "無",
+      "descriptionEn": "None"
+    },
+    {
+      "code": 1,
+      "descriptionZh": "找不到註冊碼",
+      "descriptionEn": "License Err"
+    },
+    {
+      "code": 2,
+      "descriptionZh": "執行階段錯誤",
+      "descriptionEn": "Run Time Err"
+    },
+    {
+      "code": 10,
+      "descriptionZh": "載入主設定檔時發生錯誤",
+      "descriptionEn": "Reload Logic.ini Err"
+    },
+    {
+      "code": 11,
+      "descriptionZh": "沒有選擇或是無法辨識任務命令類別",
+      "descriptionEn": "NoActionType"
+    },
+    {
+      "code": 12,
+      "descriptionZh": "沒有選擇任務起點",
+      "descriptionEn": "EmptySourcePort"
+    },
+    {
+      "code": 13,
+      "descriptionZh": "沒有定義或無法辨識任務起點點位",
+      "descriptionEn": "NoDefineSourcePort"
+    },
+    {
+      "code": 14,
+      "descriptionZh": "沒有選擇任務終點",
+      "descriptionEn": "EmptyDestPort"
+    },
+    {
+      "code": 15,
+      "descriptionZh": "沒有定義或無法辨識任務終點點位",
+      "descriptionEn": "NoDefineDestPort"
+    },
+    {
+      "code": 16,
+      "descriptionZh": "起點的站點種類與任務命令類別匹配錯誤",
+      "descriptionEn": "WrongTypeOfSourcePort"
+    },
+    {
+      "code": 17,
+      "descriptionZh": "起點無法找到有效之二次定位點",
+      "descriptionEn": "WrongTargetOfSourcePort"
+    },
+    {
+      "code": 19,
+      "descriptionZh": "終點的站點種類與任務命令類別匹配錯誤",
+      "descriptionEn": "WrongTypeOfDestPort"
+    },
+    {
+      "code": 20,
+      "descriptionZh": "找不到異常碼設定檔",
+      "descriptionEn": "Miss Alarm.ini"
+    },
+    {
+      "code": 21,
+      "descriptionZh": "設定檔找不到指定的異常碼",
+      "descriptionEn": "Not Found Alarm Code"
+    },
+    {
+      "code": 22,
+      "descriptionZh": "設定檔找不到指定的異常碼描述",
+      "descriptionEn": "Not Found Alarm Text"
+    },
+    {
+      "code": 26,
+      "descriptionZh": "起點指定的車子與任務指定的車子不同",
+      "descriptionEn": "WrongAssignVehilceID"
+    },
+    {
+      "code": 28,
+      "descriptionZh": "起點為車子但無卡匣存在",
+      "descriptionEn": "WrongVehicleCSTStatus"
+    },
+    {
+      "code": 29,
+      "descriptionZh": "檢查任務資料異常",
+      "descriptionEn": "DownloadTaskDataWrong"
+    },
+    {
+      "code": 50,
+      "descriptionZh": "沒有指定或指定的車子ID不存在",
+      "descriptionEn": "NoAssignVehicle"
+    },
+    {
+      "code": 55,
+      "descriptionZh": "任務沒有指定的CarrierID",
+      "descriptionEn": "DownloadTaskNoCarrierID"
+    },
+    {
+      "code": 60,
+      "descriptionZh": "交管系統註冊路徑回傳引數找不到指定車載",
+      "descriptionEn": "Traffic Booking Task Cannot Find Vehicle"
+    },
+    {
+      "code": 61,
+      "descriptionZh": "系統在地圖上找不到充電站",
+      "descriptionEn": "Cannot Find Charge Station In Map"
+    },
+    {
+      "code": 62,
+      "descriptionZh": "系統在地圖上找不到 Idle Point",
+      "descriptionEn": "Cannot Find Idle Point In Map"
+    },
+    {
+      "code": 64,
+      "descriptionZh": "系統在地圖上找不到 Parking Point",
+      "descriptionEn": "Cannot Find Parking Point In Map"
+    },
+    {
+      "code": 100,
+      "descriptionZh": "交管異常停止",
+      "descriptionEn": "Task Failure Because Traffic Error"
+    },
+    {
+      "code": 132,
+      "descriptionZh": "AGV貨物狀態與目前任務不符",
+      "descriptionEn": "AGV Cargo Status Not Match With Current Task"
+    },
+    {
+      "code": 140,
+      "descriptionZh": "AGV與VMS斷線",
+      "descriptionEn": "AGV Disconnect"
+    },
+    {
+      "code": 145,
+      "descriptionZh": "等待車輛上報Action Finish 逾時",
+      "descriptionEn": "Wait Action Finish Reported By Vehicle Timeout"
+    },
+    {
+      "code": 210,
+      "descriptionZh": "派車系統發生程式上的Crash造成",
+      "descriptionEn": "CreateCommandFail"
+    },
+    {
+      "code": 220,
+      "descriptionZh": "終點無法找到有效之二次定位點",
+      "descriptionEn": "WrongTargetOfDestPort"
+    },
+    {
+      "code": 221,
+      "descriptionZh": "任務資料儲存至資料庫錯誤",
+      "descriptionEn": "SaveDBFail"
+    },
+    {
+      "code": 260,
+      "descriptionZh": "於資料庫中找不到指定欲取消的任務",
+      "descriptionEn": "CannotFindCommand"
+    },
+    {
+      "code": 262,
+      "descriptionZh": "於錯誤的狀態下取消任務",
+      "descriptionEn": "WrongStatus"
+    },
+    {
+      "code": 500,
+      "descriptionZh": "Host連線異常",
+      "descriptionEn": "Host Communication Error"
+    },
+    {
+      "code": 603,
+      "descriptionZh": "交管請求車輛避讓但找不到避讓點",
+      "descriptionEn": "No available avoid point for traffic control request"
+    },
+    {
+      "code": 604,
+      "descriptionZh": "等待其他車輛釋放取放貨Port位逾時",
+      "descriptionEn": "Wait Other Vehicle Release Port TIMOUT"
+    },
+    {
+      "code": 605,
+      "descriptionZh": "產生避讓任務時發生寫入資料庫異常",
+      "descriptionEn": "Add Avoid Task To Database ERROR"
+    },
+    {
+      "code": 606,
+      "descriptionZh": "交管請求車輛釋放取放貨Port位但該車未上線",
+      "descriptionEn": "Cannot Release Port When Vehicle Not ONLINE"
+    },
+    {
+      "code": 607,
+      "descriptionZh": "交管請求車輛釋放取放貨Port位但該車已無法離開",
+      "descriptionEn": "Cannot Release Port When Vehicle Down"
+    },
+    {
+      "code": 608,
+      "descriptionZh": "等待車輛釋放取放貨Port的過程中被手動取消任務",
+      "descriptionEn": "Task Canceled By Manual When Leave Vehicles Release Ports"
+    },
+    {
+      "code": 1003,
+      "descriptionZh": "AGVS 與 VMS 斷開連線",
+      "descriptionEn": "AGVS Disconnect With VMS"
+    },
+    {
+      "code": 1004,
+      "descriptionZh": "收到AGV上線請求但AGV已斷線",
+      "descriptionEn": "Get Online Req But AGV Disconnect"
+    },
+    {
+      "code": 1005,
+      "descriptionZh": "收到AGV下線請求但AGV已斷線",
+      "descriptionEn": "Get Offline Req But AGV Disconnect"
+    },
+    {
+      "code": 1006,
+      "descriptionZh": "收到AGV上線請求但AGV狀態為DOWN",
+      "descriptionEn": "Get Online Req But AGV State Error"
+    },
+    {
+      "code": 1007,
+      "descriptionZh": "交通阻塞沒有路線可供AGV行走",
+      "descriptionEn": "Traffic Blocked No Path For Navigator"
+    },
+    {
+      "code": 1008,
+      "descriptionZh": "沒有可用的充電樁",
+      "descriptionEn": "No Available Charge Pile"
+    },
+    {
+      "code": 1009,
+      "descriptionZh": "檢查導航路徑時交通控制中心異常",
+      "descriptionEn": "Traffic Control Center Exception When Check Navigator Path"
+    },
+    {
+      "code": 1010,
+      "descriptionZh": "收到充電任務但 AGV 已在充電",
+      "descriptionEn": "Get Charge Task But AGV Charging Already"
+    },
+    {
+      "code": 1011,
+      "descriptionZh": "CST狀態檢查失敗",
+      "descriptionEn": "CST Status Check Fail"
+    },
+    {
+      "code": 1012,
+      "descriptionZh": "與終端裝置的連線尚未建立",
+      "descriptionEn": "Endpoint EQ Not Connected"
+    },
+    {
+      "code": 1014,
+      "descriptionZh": "裝置沒有入料請求",
+      "descriptionEn": "EQ Load Request Is Not On"
+    },
+    {
+      "code": 1015,
+      "descriptionZh": "裝置沒有出料請求",
+      "descriptionEn": "EQ Unload Request Is Not On"
+    },
+    {
+      "code": 1016,
+      "descriptionZh": "轉移任務到 VMS 時發生錯誤",
+      "descriptionEn": "Transfer Task To VMS But Error Occur"
+    },
+    {
+      "code": 1017,
+      "descriptionZh": "目的地TAG設定格式錯誤",
+      "descriptionEn": "Destin Tag Is Invalid Format"
+    },
+    {
+      "code": 1018,
+      "descriptionZh": "無法自動搜尋出非充電站或停車點的目的地",
+      "descriptionEn": "Station Type Cannot Use Auto Search"
+    },
+    {
+      "code": 1019,
+      "descriptionZh": "沒有可用的停車點",
+      "descriptionEn": "No Available Park Station"
+    },
+    {
+      "code": 1020,
+      "descriptionZh": "建立導航任務連結時出錯",
+      "descriptionEn": "Error When Create Navigation Jobs Link"
+    },
+    {
+      "code": 1021,
+      "descriptionZh": "裝置出料請求但所設定的TAG在圖資中不存在",
+      "descriptionEn": "EQ Unload Request On But Tag Not Exist On Map"
+    },
+    {
+      "code": 1022,
+      "descriptionZh": "裝置發起取貨請求但在圖資中被非設為裝置",
+      "descriptionEn": "EQ Unload Request On But Station Type Setting Is Not EQ"
+    },
+    {
+      "code": 1023,
+      "descriptionZh": "查詢站點TAG時發生錯誤",
+      "descriptionEn": "Error When Find Tag Of Station"
+    },
+    {
+      "code": 1024,
+      "descriptionZh": "站點沒有可行走的下一點",
+      "descriptionEn": "Map Point No Targets"
+    },
+    {
+      "code": 1025,
+      "descriptionZh": "將AGV狀態寫入資料庫時發生錯誤",
+      "descriptionEn": "Error When AGV Status Write To DB"
+    },
+    {
+      "code": 1026,
+      "descriptionZh": "交通中止",
+      "descriptionEn": "Traffic Abort"
+    },
+    {
+      "code": 1027,
+      "descriptionZh": "收到AGV上線請求但AGV位置距離過遠",
+      "descriptionEn": "Get Online Req But AGV Location Is Too Far From Point"
+    },
+    {
+      "code": 1028,
+      "descriptionZh": "收到AGV上線請求但AGV所在位置不存在於當前地圖",
+      "descriptionEn": "Get Online Req But AGV Location Is Not Exist On Map"
+    },
+    {
+      "code": 1036,
+      "descriptionZh": "AGV回報的任務ID與執行中任務ID不匹配",
+      "descriptionEn": "AGV Task Feedback But Task Name Not Match"
+    },
+    {
+      "code": 1037,
+      "descriptionZh": "系統錯誤",
+      "descriptionEn": "System Error"
+    },
+    {
+      "code": 1038,
+      "descriptionZh": "當 AGV 有貨物時無法排程進入工作站的任務",
+      "descriptionEn": "Cannot Dispatch Into Workstation Task When AGV Has Cargo"
+    },
+    {
+      "code": 1039,
+      "descriptionZh": "當目的地是工作站時無法排程正常移動任務",
+      "descriptionEn": "Cannot Dispatch Normal Move Task When Destine Is Workstation"
+    },
+    {
+      "code": 1040,
+      "descriptionZh": "裝置標籤在當前地圖中不存在",
+      "descriptionEn": "EQ Tag Not Exist In Current Map"
+    },
+    {
+      "code": 1041,
+      "descriptionZh": "子任務佇列為空但嘗試下載任務到 AGV",
+      "descriptionEn": "SubTask Queue Empty But Try Download Task To AGV"
+    },
+    {
+      "code": 1042,
+      "descriptionZh": "AGV 狀態異常",
+      "descriptionEn": "AGV Status Down"
+    },
+    {
+      "code": 1043,
+      "descriptionZh": "無法排程非法狀態的任務",
+      "descriptionEn": "Cannot Dispatch Task With Illegal Status"
+    },
+    {
+      "code": 1044,
+      "descriptionZh": "AGV電量過低",
+      "descriptionEn": "AGV Battery Low Level"
+    },
+    {
+      "code": 1045,
+      "descriptionZh": "AGV工作站資料未設定",
+      "descriptionEn": "AGV Workstation Data Not Setting"
+    },
+    {
+      "code": 1046,
+      "descriptionZh": "AGV位於位知的TAG位置",
+      "descriptionEn": "AGV At Unknown Tag Location"
+    },
+    {
+      "code": 1047,
+      "descriptionZh": "無法將任務狀態變更結果儲存至資料庫",
+      "descriptionEn": "Task Status Can't Save To Database"
+    },
+    {
+      "code": 1048,
+      "descriptionZh": "任務取消失敗",
+      "descriptionEn": "Task Cancel Fail"
+    },
+    {
+      "code": 1049,
+      "descriptionZh": "將任務新增到資料庫失敗",
+      "descriptionEn": "Task Add To Database Fail"
+    },
+    {
+      "code": 1050,
+      "descriptionZh": "AGV TCP/IP 斷開連線",
+      "descriptionEn": "AGV TCP/IP Disconnect"
+    },
+    {
+      "code": 1051,
+      "descriptionZh": "儲存測量資料至資料庫失敗",
+      "descriptionEn": "Save Measure Data to DB Fail"
+    },
+    {
+      "code": 1052,
+      "descriptionZh": "區域內沒有AGV可被指派任務",
+      "descriptionEn": "Region Has No AGV To Dispatch Task"
+    },
+    {
+      "code": 1053,
+      "descriptionZh": "當AGV車上有貨物時無法指派搬運任務",
+      "descriptionEn": "Cannot Dispatch Carry Task When AGV Has Cargo"
+    },
+    {
+      "code": 1054,
+      "descriptionZh": "無法排程本地自動轉移任務",
+      "descriptionEn": "Cannot Dispatch Local Auto Transfer Task"
+    },
+    {
+      "code": 1055,
+      "descriptionZh": "來源裝置出料請求已關閉",
+      "descriptionEn": "Source EQ Unload Request Off"
+    },
+    {
+      "code": 1056,
+      "descriptionZh": "目的地裝置入料請求已關閉",
+      "descriptionEn": "Destine EQ Load Request Off"
+    },
+    {
+      "code": 1057,
+      "descriptionZh": "來源裝置狀態為當機",
+      "descriptionEn": "Source EQ Status Down"
+    },
+    {
+      "code": 1058,
+      "descriptionZh": "目的地裝置狀態為當機",
+      "descriptionEn": "Destine EQ Status Down"
+    },
+    {
+      "code": 1059,
+      "descriptionZh": "當AGV有貨物時無法自動停車",
+      "descriptionEn": "Cannot Auto Parking When AGV Has Cargo"
+    },
+    {
+      "code": 1060,
+      "descriptionZh": "目的地裝置已經有任務執行",
+      "descriptionEn": "Destine EQ Already Has Task To Execute"
+    },
+    {
+      "code": 1061,
+      "descriptionZh": "目的地裝置已有AGV停駐",
+      "descriptionEn": "Destine EQ Has AGV"
+    },
+    {
+      "code": 1062,
+      "descriptionZh": "目的地裝置已被註冊",
+      "descriptionEn": "Destine EQ Has Registered"
+    },
+    {
+      "code": 1063,
+      "descriptionZh": "AGV已取貨但在席檢知無貨物",
+      "descriptionEn": "Unload But AGV No Cargo Mounted"
+    },
+    {
+      "code": 1064,
+      "descriptionZh": "AGV已取貨但在席檢知無貨物",
+      "descriptionEn": "Unload But Cargo ID Empty"
+    },
+    {
+      "code": 1065,
+      "descriptionZh": "AGV已取貨但回報之貨物ID與任務指派的ID不匹配",
+      "descriptionEn": "Unload But Cargo ID Not Matched"
+    },
+    {
+      "code": 1066,
+      "descriptionZh": "任務下載資料非法",
+      "descriptionEn": "Task Download Data Illegal"
+    },
+    {
+      "code": 1067,
+      "descriptionZh": "AGV 任務回報錯誤",
+      "descriptionEn": "AGV TaskFeedback Error"
+    },
+    {
+      "code": 1068,
+      "descriptionZh": "裝置斷開連線",
+      "descriptionEn": "EQ Disconnect"
+    },
+    {
+      "code": 1069,
+      "descriptionZh": "任務狀態變更修改資料庫時發生錯誤",
+      "descriptionEn": "Error When Task Status Change DB"
+    },
+    {
+      "code": 1070,
+      "descriptionZh": "目的地點位已指派AGV前往",
+      "descriptionEn": "Destine Normal Station Has Task To Reach"
+    },
+    {
+      "code": 1071,
+      "descriptionZh": "目的地裝置已指派AGV前往停車",
+      "descriptionEn": "Destine EQ Station Has Task To Park"
+    },
+    {
+      "code": 1072,
+      "descriptionZh": "目的地充電站有 AGV",
+      "descriptionEn": "Destine Charge Station Has AGV"
+    },
+    {
+      "code": 1074,
+      "descriptionZh": "下載任務到 AGV 失敗",
+      "descriptionEn": "Download Task To AGV Fail"
+    },
+    {
+      "code": 1075,
+      "descriptionZh": "裝置入料請求但裝置有貨物",
+      "descriptionEn": "EQ Load Request On But Has Cargo"
+    },
+    {
+      "code": 1076,
+      "descriptionZh": "裝置出料請求但裝置沒有貨物",
+      "descriptionEn": "EQ Unload Request On But No Cargo"
+    },
+    {
+      "code": 1077,
+      "descriptionZh": "裝置出料請求但框為滿框或空框狀態未知",
+      "descriptionEn": "EQ Unload Req But Rack Full Or Empty Is Unknown"
+    },
+    {
+      "code": 1078,
+      "descriptionZh": "裝置入料請求但框為滿框或空框狀態未知",
+      "descriptionEn": "EQ Load Req But Rack Full Or Empty Is Unknown"
+    },
+    {
+      "code": 1079,
+      "descriptionZh": "來源裝置不允許該AGV車款執行任務",
+      "descriptionEn": "AGV Type Is Not Allow To Execute Task At Source Equipment"
+    },
+    {
+      "code": 1080,
+      "descriptionZh": "目的地裝置不允許該AGV車款執行任務",
+      "descriptionEn": "AGV Type Is Not Allow To Execute Task At Destine Equipment"
+    },
+    {
+      "code": 1081,
+      "descriptionZh": "裝置狀態訊號INPUT輸入長度不足",
+      "descriptionEn": "EQ Input Data Not Enough"
+    },
+    {
+      "code": 1082,
+      "descriptionZh": "AGV已經有充電任務",
+      "descriptionEn": "AGV Already Has Charge Task"
+    },
+    {
+      "code": 1083,
+      "descriptionZh": "充電站已經有任務分配",
+      "descriptionEn": "Charge Station Already Has Task Assigned"
+    },
+    {
+      "code": 1084,
+      "descriptionZh": "充電站已經有AGV停駐",
+      "descriptionEn": "Charge Station Already Has AGV Parked"
+    },
+    {
+      "code": 1085,
+      "descriptionZh": "站點已停用",
+      "descriptionEn": "Station Disabled"
+    },
+    {
+      "code": 1086,
+      "descriptionZh": "下載任務到 AGV 失敗-AGV狀態Down",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL AGV STATUS DOWN"
+    },
+    {
+      "code": 1087,
+      "descriptionZh": "下載任務到 AGV 失敗",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL"
+    },
+    {
+      "code": 1088,
+      "descriptionZh": "下載任務到 AGV 失敗-AGV當前位置不在TAG上",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL AGV NOT ON TAG"
+    },
+    {
+      "code": 1089,
+      "descriptionZh": "下載任務到 AGV 失敗-工作站尚未設定",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL WORKSTATION NOT SETTING YET"
+    },
+    {
+      "code": 1090,
+      "descriptionZh": "下載任務到 AGV 失敗-AGV電量過低",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL AGV BATTERY LOW LEVEL"
+    },
+    {
+      "code": 1091,
+      "descriptionZh": "下載任務到 AGV 失敗-不可使用一般走行命令AGV移動至工作站",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL AGV CANNOT GO TO WORKSTATION WITH NORMAL MOVE ACTION"
+    },
+    {
+      "code": 1092,
+      "descriptionZh": "下載任務到 AGV 失敗-任務資料包含不合法的內容",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL TASK DOWNLOAD DATA ILLEGAL"
+    },
+    {
+      "code": 1093,
+      "descriptionZh": "下載任務到 AGV 失敗-系統異常",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL SYSTEM EXCEPTION"
+    },
+    {
+      "code": 1094,
+      "descriptionZh": "下載任務到 AGV 失敗-無路徑可供AGV行走",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL NO PATH FOR NAVIGATION"
+    },
+    {
+      "code": 1095,
+      "descriptionZh": "下載任務到 AGV 失敗-任務已取消",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL TASK CANCEL"
+    },
+    {
+      "code": 1096,
+      "descriptionZh": "下載任務到 AGV 失敗-任務下載超時",
+      "descriptionEn": "TASK DOWNLOAD TO AGV FAIL TASK DOWN LOAD TIMEOUT"
+    },
+    {
+      "code": 1097,
+      "descriptionZh": "任務已取消",
+      "descriptionEn": "Task Canceled"
+    },
+    {
+      "code": 1098,
+      "descriptionZh": "無法為巡檢AGV搜尋充電站",
+      "descriptionEn": "CANT AUTO SEARCH STATION TYPE IS NOT EXCHANGE FOR INSPECTION AGV"
+    },
+    {
+      "code": 1099,
+      "descriptionZh": "沒有可用的電池交換站",
+      "descriptionEn": "NO AVAILABLE BAT EXCHANGER USABLE"
+    },
+    {
+      "code": 1100,
+      "descriptionZh": "將區域註冊到 PARTS 系統失敗",
+      "descriptionEn": "REGIST REGIONS TO PARTS SYSTEM FAIL"
+    },
+    {
+      "code": 1101,
+      "descriptionZh": "裝置管理模組初始化失敗並出現異常",
+      "descriptionEn": "SYSTEM EQP MANAGEMENT INITIALIZE FAIL WITH EXCEPTION"
+    },
+    {
+      "code": 1102,
+      "descriptionZh": "無效的充電站",
+      "descriptionEn": "INVALID CHARGE STATION"
+    },
+    {
+      "code": 1103,
+      "descriptionZh": "無法在 AGV OFFLINE 狀態下派送命令給AGV",
+      "descriptionEn": "Commands won't send while AGV is offline"
+    },
+    {
+      "code": 1200,
+      "descriptionZh": "VMS向AGVS上報搬運任務狀態Timeout",
+      "descriptionEn": "VMS Report Order Status Timeout"
+    },
+    {
+      "code": 1201,
+      "descriptionZh": "VMS向AGVS上報搬運任務狀態失敗",
+      "descriptionEn": "VMS Report Order Status Fail"
+    },
+    {
+      "code": 1202,
+      "descriptionZh": "VMS向AGVS上報搬運任務狀態但AGVS發生錯誤例外",
+      "descriptionEn": "VMS Report Order Status But AGVS Has Exception"
+    },
+    {
+      "code": 1203,
+      "descriptionZh": "儲格已被停用",
+      "descriptionEn": "Port Of Rack is Disabled"
+    },
+    {
+      "code": 2000,
+      "descriptionZh": "來源Rack儲位沒有貨物",
+      "descriptionEn": "Source Rack Port Not Has Cargo"
+    },
+    {
+      "code": 2001,
+      "descriptionZh": "目標Rack儲位有貨物",
+      "descriptionEn": "Destine Rack Port Has Cargo"
+    },
+    {
+      "code": 2002,
+      "descriptionZh": "目標儲架已滿",
+      "descriptionEn": "Destine Rack Is Full"
+    },
+    {
+      "code": 2003,
+      "descriptionZh": "來源Rack儲位的在席Sensor並未全部觸發",
+      "descriptionEn": "Source Rack Port Not all cargo sensors are triggered"
+    },
+    {
+      "code": 2004,
+      "descriptionZh": "來源Rack儲位無法確認貨物為Tray或是Rack",
+      "descriptionEn": "Source Rack Port Cannot identify if cargo is Tray or Rack"
+    },
+    {
+      "code": 2005,
+      "descriptionZh": "RACK 架內有障礙物",
+      "descriptionEn": "Obstacle detected inside the rack"
+    },
+    {
+      "code": 2006,
+      "descriptionZh": "來源料架找不到該 Carrier ID",
+      "descriptionEn": "Can not found carrier in the rack"
+    },
+    {
+      "code": 2007,
+      "descriptionZh": "儲架來源儲格存在重複載具ID",
+      "descriptionEn": "Rack Source Port Exis _Multipl _Same Carrier Id"
+    },
+    {
+      "code": 2009,
+      "descriptionZh": "儲格有帳無料",
+      "descriptionEn": "Rack Port Has ID But No Cargo Exist"
+    },
+    {
+      "code": 3029,
+      "descriptionZh": "收到AGV上線請求但該AGV尚未被派車系統繫結",
+      "descriptionEn": "Get Online Req But AGV Is Not Registered"
+    },
+    {
+      "code": 3030,
+      "descriptionZh": "當AGV位於工作站時無法指派移動任務",
+      "descriptionEn": "Cannot Dispatch Move Task In Workstation"
+    },
+    {
+      "code": 3031,
+      "descriptionZh": "站點非裝置將無法指派放貨任務",
+      "descriptionEn": "Cannot Dispatch Load Task To Not EQ Station"
+    },
+    {
+      "code": 3032,
+      "descriptionZh": "當AGV沒有貨物時無法指派放貨任務",
+      "descriptionEn": "Cannot Dispatch Load Task When AGV No Cargo"
+    },
+    {
+      "code": 3033,
+      "descriptionZh": "當AGV有貨物時無法指派取貨任務",
+      "descriptionEn": "Cannot Dispatch Unload Task When AGV Has Cargo"
+    },
+    {
+      "code": 3034,
+      "descriptionZh": "站點非裝置將無法指派取貨任務",
+      "descriptionEn": "Cannot Dispatch Unload Task To Not EQ Station"
+    },
+    {
+      "code": 3035,
+      "descriptionZh": "站點非充電站將無法指派充電任務",
+      "descriptionEn": "Cannot Dispatch Charge Task To Not Chargeable Station"
+    },
+    {
+      "code": 3036,
+      "descriptionZh": "因AGV電量異常無法指派任務",
+      "descriptionEn": "Cannot Dispatch Order By AGV BAT Status Check"
+    },
+    {
+      "code": 3037,
+      "descriptionZh": "電池未連線",
+      "descriptionEn": "Battery Not Connect"
+    },
+    {
+      "code": 3038,
+      "descriptionZh": "料架 Sensor 閃爍",
+      "descriptionEn": "Rack Port Sensor Flash"
+    },
+    {
+      "code": 3039,
+      "descriptionZh": "未找到轉換站TAG",
+      "descriptionEn": "Transfer Tags Not Found"
+    },
+    {
+      "code": 3040,
+      "descriptionZh": "無轉換站可供使用",
+      "descriptionEn": "No Transfer Station To Work"
+    },
+    {
+      "code": 3041,
+      "descriptionZh": "任務中止",
+      "descriptionEn": "Task Aborted"
+    },
+    {
+      "code": 3043,
+      "descriptionZh": "車輛軌跡衝突",
+      "descriptionEn": "Vehicles Trajectory Conflict"
+    },
+    {
+      "code": 3044,
+      "descriptionZh": "區域不可進入",
+      "descriptionEn": "REGION_NOT_ENTERABLE"
+    },
+    {
+      "code": 3045,
+      "descriptionZh": "轉移任務的起點和終點錯誤",
+      "descriptionEn": "From_To_Of_Transfer_Task_Is_Incorrectly"
+    },
+    {
+      "code": 3046,
+      "descriptionZh": "AGV 無貨物，無法從 AGV 轉移貨物至目標",
+      "descriptionEn": "AGV_NO_Carge_Cannot_Transfer_Cargo_From_AGV_To_Desinte"
+    },
+    {
+      "code": 3052,
+      "descriptionZh": "導航路徑包含被設為禁止通行或抵達的點位",
+      "descriptionEn": "Navigation Path Contain Forbidden Point"
+    },
+    {
+      "code": 3053,
+      "descriptionZh": "AGV貨物ID不存在，無法指派來源為AGV的搬運任務",
+      "descriptionEn": "Carrier ID not exist on AGV, cannot assign a transport task with AGV as the source"
+    },
+    {
+      "code": 3054,
+      "descriptionZh": "派車因 AGV遇障礙物停止過久而終止任務",
+      "descriptionEn": "Order Aborted Because AGV Stopped For Too Long Due To Obstacle Detection"
+    },
+    {
+      "code": 7000,
+      "descriptionZh": "充電站EMO",
+      "descriptionEn": "Charger EMO"
+    },
+    {
+      "code": 7001,
+      "descriptionZh": "充電站氣壓異常",
+      "descriptionEn": "Charger Air Pressure Abnormal"
+    },
+    {
+      "code": 7002,
+      "descriptionZh": "充電站偵煙異常",
+      "descriptionEn": "Charger Smoke Detected"
+    },
+    {
+      "code": 7003,
+      "descriptionZh": "充電樁溫度過高",
+      "descriptionEn": "Charge Station Temperature Too High"
+    },
+    {
+      "code": 7004,
+      "descriptionZh": "充電站極頭伸出異常",
+      "descriptionEn": "Charger Connector Reach Out Error"
+    },
+    {
+      "code": 7005,
+      "descriptionZh": "充電站極頭縮回異常",
+      "descriptionEn": "Charger Connector Back To Error"
+    },
+    {
+      "code": 7010,
+      "descriptionZh": "充電站IO模組連線異常",
+      "descriptionEn": "Charger IO Moduble Connection Error"
+    },
+    {
+      "code": 7011,
+      "descriptionZh": "充電站未正常對電池進行充電",
+      "descriptionEn": "Charging station not charging the battery"
+    },
+    {
+      "code": 7012,
+      "descriptionZh": "充電器嘗試重啟後仍未正常對電池進行充電",
+      "descriptionEn": "Charger still not charging after restart"
+    },
+    {
+      "code": 7013,
+      "descriptionZh": "充電站因 EMO 觸發中無法為 AGV 充電",
+      "descriptionEn": "Charge station cannot charge the AGV because the EMO is active"
+    },
+    {
+      "code": 9000,
+      "descriptionZh": "GPM SECS Platform 運轉異常",
+      "descriptionEn": "GPM SECS Platform Is Not Running"
+    },
+    {
+      "code": 10761,
+      "descriptionZh": "裝置出料請求但撈爪非位於上點位",
+      "descriptionEn": "EQ Unload Request On But Pose Not Up"
+    },
+    {
+      "code": 10762,
+      "descriptionZh": "裝置入料請求但撈爪非位於下點位",
+      "descriptionEn": "EQ Load Request On But Pose Not Down"
+    },
+    {
+      "code": 10769,
+      "descriptionZh": "AGV取貨完成後貨物ID讀取失敗",
+      "descriptionEn": "Cargo ID Read Fail When Unload"
+    },
+    {
+      "code": 10770,
+      "descriptionZh": "派車輸出訊號寫入裝置IO模組失敗",
+      "descriptionEn": "Write AGVS Signal To IO Module Of Equipment Fail"
+    }
+  ]
+}

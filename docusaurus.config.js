@@ -27,8 +27,8 @@ const config = {
   onBrokenLinks: 'throw',
 
   i18n: {
-    defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans'],
+    defaultLocale: 'zh-Hant',
+    locales: ['zh-Hant'],
   },
 
   markdown: {

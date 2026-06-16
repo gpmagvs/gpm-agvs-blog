@@ -19,7 +19,7 @@ VMS 提供給 AGV 端呼叫的 API，Base URL 為 `http://{VMS_HOST}/api/AGV`。
 GET /api/AGV/OnlineMode?AGVName={AGVName}&Model={Model}&isRestartFlag={isRestartFlag}
 ```
 
-| 參數            | 類型   | 必填 | 說明                                     |
+| 引數            | 型別   | 必填 | 說明                                     |
 | --------------- | ------ | :--: | ---------------------------------------- |
 | `AGVName`       | string |  ✓   | AGV 名稱                                 |
 | `Model`         | int    |      | AGV 車型，預設 `999`（Any）              |
@@ -54,7 +54,7 @@ AGV 請求上線。VMS 驗證 Tag 位置後，將 AGV 標記為 ONLINE。
 POST /api/AGV/OnlineReq?AGVName={AGVName}&tag={tag}
 ```
 
-| 參數      | 類型   | 必填 | 說明          |
+| 引數      | 型別   | 必填 | 說明          |
 | --------- | ------ | :--: | ------------- |
 | `AGVName` | string |  ✓   | AGV 名稱      |
 | `tag`     | int    |  ✓   | 上線 Tag 編號 |
@@ -93,7 +93,7 @@ AGV 請求下線，VMS 將 AGV 標記為 OFFLINE。
 POST /api/AGV/OfflineReq?AGVName={AGVName}
 ```
 
-| 參數      | 類型   | 必填 | 說明     |
+| 引數      | 型別   | 必填 | 說明     |
 | --------- | ------ | :--: | -------- |
 | `AGVName` | string |  ✓   | AGV 名稱 |
 
@@ -115,7 +115,7 @@ POST /api/AGV/OfflineReq?AGVName={AGVName}
 
 ## POST /AGVStatus
 
-週期性上報 AGV 即時運行狀態，VMS 更新該 AGV 的 `states`。
+週期性上報 AGV 即時執行狀態，VMS 更新該 AGV 的 `states`。
 
 **請求**
 
@@ -124,7 +124,7 @@ POST /api/AGV/AGVStatus?AGVName={AGVName}&Model={Model}
 Content-Type: application/json
 ```
 
-| 參數      | 類型   | 必填 | 說明                                                       |
+| 引數      | 型別   | 必填 | 說明                                                       |
 | --------- | ------ | :--: | ---------------------------------------------------------- |
 | `AGVName` | string |  ✓   | AGV 名稱                                                   |
 | `Model`   | int    |  ✓   | AGV 車型（0=FORK, 1=YUNTECH_FORK_AGV, 2=INSPECTION_AGV …） |
@@ -198,7 +198,7 @@ POST /api/AGV/TaskFeedback?AGVName={AGVName}&Model={Model}
 Content-Type: application/json
 ```
 
-| 參數      | 類型   | 必填 | 說明     |
+| 引數      | 型別   | 必填 | 說明     |
 | --------- | ------ | :--: | -------- |
 | `AGVName` | string |  ✓   | AGV 名稱 |
 | `Model`   | int    |  ✓   | AGV 車型 |
@@ -245,7 +245,7 @@ POST /api/AGV/ReportMeasure?AGVName={AGVName}&Model={Model}
 Content-Type: application/json
 ```
 
-| 參數      | 類型   | 必填 | 說明     |
+| 引數      | 型別   | 必填 | 說明     |
 | --------- | ------ | :--: | -------- |
 | `AGVName` | string |  ✓   | AGV 名稱 |
 | `Model`   | int    |  ✓   | AGV 車型 |
@@ -299,11 +299,11 @@ Content-Type: application/json
 GET /api/AGV/CarrierVirtualID?AGVName={AGVName}&Model={Model}&CstType={CstType}
 ```
 
-| 參數      | 類型   | 必填 | 說明                                     |
+| 引數      | 型別   | 必填 | 說明                                     |
 | --------- | ------ | :--: | ---------------------------------------- |
 | `AGVName` | string |  ✓   | AGV 名稱                                 |
 | `Model`   | int    |      | 預設 `999`（Any）                        |
-| `CstType` | int    |      | 載具類型，預設 `200`（Tray）；`201`=Rack |
+| `CstType` | int    |      | 載具型別，預設 `200`（Tray）；`201`=Rack |
 
 **回應**
 
@@ -314,7 +314,7 @@ GET /api/AGV/CarrierVirtualID?AGVName={AGVName}&Model={Model}&CstType={CstType}
 }
 ```
 
-`Tray` / `Rack` 分別從 AGVS 設定取得 Unknown Flow ID。AGV 不存在時拋出例外（HTTP 500）。
+`Tray` / `Rack` 分別從 AGVS 設定取得 Unknown Flow ID。AGV 不存在時丟擲例外（HTTP 500）。
 
 ---
 
@@ -328,7 +328,7 @@ VCR **讀取失敗**時，向 VMS 取得 Virtual ID。
 GET /api/AGV/GetReadFailCarrierVirtualID?AGVName={AGVName}&CargoType={CargoType}
 ```
 
-| 參數        | 類型   | 必填 | 說明                                 |
+| 引數        | 型別   | 必填 | 說明                                 |
 | ----------- | ------ | :--: | ------------------------------------ |
 | `AGVName`   | string |  ✓   | AGV 名稱                             |
 | `CargoType` | int    |      | 預設 `200`（Tray）；非 200 視為 Rack |
@@ -356,7 +356,7 @@ VCR **讀取不匹配**時，向 VMS 取得 Virtual ID。
 GET /api/AGV/GetReadMissMatchCarrierVirtualID?AGVName={AGVName}&CargoType={CargoType}
 ```
 
-| 參數        | 類型   | 必填 | 說明                                 |
+| 引數        | 型別   | 必填 | 說明                                 |
 | ----------- | ------ | :--: | ------------------------------------ |
 | `AGVName`   | string |  ✓   | AGV 名稱                             |
 | `CargoType` | int    |      | 預設 `200`（Tray）；非 200 視為 Rack |
@@ -384,10 +384,10 @@ AGV 請求離開工作站，由 `TrafficControlCenter` 審核是否放行。
 POST /api/AGV/LeaveWorkStationRequest?AGVName={AGVName}&EQTag={EQTag}
 ```
 
-| 參數      | 類型   | 必填 | 說明          |
+| 引數      | 型別   | 必填 | 說明          |
 | --------- | ------ | :--: | ------------- |
 | `AGVName` | string |  ✓   | AGV 名稱      |
-| `EQTag`   | int    |  ✓   | 設備 Tag 編號 |
+| `EQTag`   | int    |  ✓   | 裝置 Tag 編號 |
 
 **回應**
 

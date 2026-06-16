@@ -9,7 +9,7 @@ export default function SopPdfViewer({filename}) {
   if (!item) {
     return (
       <div className={styles.emptyState}>
-        <p>找不到 SOP 文件：<code>{filename}</code></p>
+        <p>找不到 SOP 檔案：<code>{filename}</code></p>
       </div>
     );
   }
