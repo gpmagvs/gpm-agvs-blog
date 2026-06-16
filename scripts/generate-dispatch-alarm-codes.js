@@ -17,9 +17,11 @@ function resolveAlarmDir() {
       return candidate;
     }
   }
-  throw new Error(
-    `找不到 AlarmCodeTable.cs，已嘗試：\n${ALARM_SOURCE_CANDIDATES.join('\n')}`,
-  );
+  return null;
+}
+
+function outputsExist() {
+  return fs.existsSync(OUTPUT) && fs.existsSync(JSON_OUTPUT);
 }
 
 function parseEnumValues(enumSource) {
@@ -84,6 +86,19 @@ function buildJson(entries) {
 
 function main() {
   const alarmDir = resolveAlarmDir();
+  if (!alarmDir) {
+    if (outputsExist()) {
+      console.warn(
+        '警告：找不到 AlarmCodeTable.cs，已跳過派車系統 Alarm Code 生成，沿用現有輸出。\n' +
+          `已嘗試：\n${ALARM_SOURCE_CANDIDATES.join('\n')}`,
+      );
+      return;
+    }
+    throw new Error(
+      `找不到 AlarmCodeTable.cs，且缺少現有輸出檔，已嘗試：\n${ALARM_SOURCE_CANDIDATES.join('\n')}`,
+    );
+  }
+
   const tableSource = fs.readFileSync(path.join(alarmDir, 'AlarmCodeTable.cs'), 'utf8');
   const enumSource = fs.readFileSync(path.join(alarmDir, 'AlarmEnums.cs'), 'utf8');
 

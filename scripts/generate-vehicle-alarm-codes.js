@@ -35,9 +35,11 @@ function resolveAlarmListPath() {
       return candidate;
     }
   }
-  throw new Error(
-    `找不到 AlarmList.json，已嘗試：\n${ALARM_LIST_CANDIDATES.join('\n')}`,
-  );
+  return null;
+}
+
+function outputsExist() {
+  return fs.existsSync(OUTPUT) && fs.existsSync(JSON_OUTPUT);
 }
 
 function buildMdx() {
@@ -66,6 +68,19 @@ function buildJson(entries) {
 
 function main() {
   const sourcePath = resolveAlarmListPath();
+  if (!sourcePath) {
+    if (outputsExist()) {
+      console.warn(
+        '警告：找不到 AlarmList.json，已跳過車載系統 Alarm Code 生成，沿用現有輸出。\n' +
+          `已嘗試：\n${ALARM_LIST_CANDIDATES.join('\n')}`,
+      );
+      return;
+    }
+    throw new Error(
+      `找不到 AlarmList.json，且缺少現有輸出檔，已嘗試：\n${ALARM_LIST_CANDIDATES.join('\n')}`,
+    );
+  }
+
   const raw = fs.readFileSync(sourcePath, 'utf8');
   const entries = JSON.parse(raw);
 
