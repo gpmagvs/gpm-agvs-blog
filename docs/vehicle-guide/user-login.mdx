@@ -1,0 +1,123 @@
+---
+sidebar_position: 2
+title: 用戶登入
+---
+
+# 用戶登入
+
+對應前端模組：`Login.vue`、`UserStore`、`UserAPI`
+
+## 功能概述
+
+車載 HMI 預設以 **訪客（Visitor）** 身分操作，頂部狀態列顯示 `OPERATOR`。部分功能（如 [操作](/docs/vehicle-guide/operations) 分頁的手動控制、[設備交握](/docs/vehicle-guide/equipment-handshake) 訊號修改等）需登入後才能使用。
+
+登入以 **對話框** 形式覆蓋在 [主畫面](/docs/vehicle-guide/main-screen) 上方，並搭配底部 **螢幕鍵盤** 供觸控輸入帳號與密碼。驗證成功後依後端回傳的角色開放權限；登出後恢復為訪客狀態。
+
+## 進入方式
+
+1. 於 [側邊操作區](/docs/vehicle-guide/side-panel) 點選 **登入** 按鈕
+2. 或於 Version2 介面 [底部狀態列](/docs/vehicle-guide/bottom-status-bar) 點選登入圖示
+
+登入成功後，[頂部狀態列](/docs/vehicle-guide/top-status-bar) 的 **使用者** 欄位會由 `OPERATOR` 改為目前帳號名稱。
+
+## 畫面說明
+
+![登入對話框](/img/vcs_webui/login-dialog.png)
+
+登入對話框開啟時，主畫面仍可见但背景略微變暗；對話框下方為全寬 **QWERTY 螢幕鍵盤**，方便觸控螢幕操作。
+
+### 登入對話框
+
+| 區域 | 說明 |
+|------|------|
+| Login | 對話框標題 |
+| \* Account | 必填；輸入帳號，Placeholder 為 `Account` |
+| \* Password | 必填；輸入密碼，Placeholder 為 `Password`（可顯示／隱藏） |
+| Login | 藍色大按鈕，送出登入請求 |
+| Cancel | 灰色大按鈕，關閉對話框且不變更登入狀態 |
+
+已登入狀態下再次開啟對話框時，**Account** 顯示目前使用者名稱，**Password** 顯示 `********`，主按鈕改為 **Logout**（紅色）。
+
+### 螢幕鍵盤
+
+| 按鍵 | 說明 |
+|------|------|
+| 字母／數字 | 輸入目前聚焦欄位（Account 或 Password） |
+| tab | 切換輸入焦點 |
+| caps | 大小寫切換 |
+| shift | 輸入大寫或符號 |
+| backspace | 刪除前一字元 |
+| enter | Account 欄位：切換至 Password；Password 欄位：送出登入 |
+| .com / @ | 快捷輸入常用字串 |
+
+點選 **Account** 或 **Password** 輸入框時，鍵盤會同步更新至該欄位內容。
+
+### 背景主畫面（登入前）
+
+對話框後方可見 [主畫面](/docs/vehicle-guide/main-screen) 各區域，例如：
+
+| 項目 | 說明 |
+|------|------|
+| 頂部 | 車型 GPM FORK AGV、AGV 編號、OPERATOR、版本、電池狀態 |
+| 左側 | 初始化、異常復歸、Online／Auto 模式等 |
+| 中央頁籤 | 狀態、異常紀錄、操作、設備交握、地圖顯示 |
+| 底部 | CPU／RAM／磁碟等系統資訊 |
+
+登入完成前，上述區域多數僅供 **檢視**；進階操作需先通過登入驗證。
+
+### 使用者角色
+
+登入成功後，系統依後端回傳的 `Role` 設定權限：
+
+| Role | 角色 | 說明 |
+|------|------|------|
+| 0 | Visitor（訪客） | 未登入，頂部顯示 `OPERATOR` |
+| 1 | Engineer | 工程人員 |
+| 2 | Developer | 開發人員 |
+| 3 | God | 最高權限（含 God Mode、維護選單、Log 等） |
+
+## 操作步驟
+
+### 登入
+
+1. 於 [側邊操作區](/docs/vehicle-guide/side-panel) 點選 **登入**，開啟 Login 對話框
+2. 點選 **Account** 欄位，以底部螢幕鍵盤輸入帳號
+3. 按 **enter** 或點選 **Password** 欄位，輸入密碼
+4. 點選 **Login**（或於 Password 欄位按 **enter**）
+5. 驗證成功後對話框自動關閉，頂部 **使用者** 更新為登入帳號
+
+若 Account 或 Password 為空，對話框下方以紅字提示（如「請輸入 Account」）。登入失敗時同樣以紅字顯示後端回傳的錯誤訊息。
+
+### 取消登入
+
+1. 尚未完成輸入時，點選 **Cancel**
+2. 對話框關閉，維持訪客（OPERATOR）狀態
+
+### 登出
+
+**方式一（側邊按鈕）**
+
+1. 已登入時，側邊按鈕改為 **Logout**（紅色）
+2. 點選後出現 **Logout Confirm** 確認對話框
+3. 確認後恢復為訪客，頂部再次顯示 `OPERATOR`
+
+**方式二（登入對話框）**
+
+1. 已登入狀態下開啟 Login 對話框
+2. 點選 **Logout** 直接登出（無二次確認）
+
+## 權限與操作限制
+
+- 多數 **手動操作**（[操作](/docs/vehicle-guide/operations) 分頁）需同時滿足：**已登入**、**Offline**、**Manual** 模式
+- **God** 角色（Role 3）不受 Online／Auto 模式限制，並可存取額外頁籤（如 Log、Alarm Table 編輯）
+- [設備交握](/docs/vehicle-guide/equipment-handshake) 等部分功能僅 GPM 登入使用者可修改
+- IO 手動切換等進階功能需 **Developer**（Role ≥ 2）以上
+
+## 注意事項
+
+- 帳號與密碼請向系統管理員取得；請勿在公用觸控螢幕上留存密碼
+- 登入資訊會寫入瀏覽器 `localStorage`，重載頁面後可能仍保留登入狀態
+- 後端連線中斷時，側邊 **登入** 按鈕可能被禁用
+- 登入對話框介面為英文（Login / Account / Password），與主畫面中文並存屬正常現象
+- 車載登入與 [派車系統登入](/docs/guide/basics/login) 為不同系統，帳號與 API 端點不一定通用
+- 登入僅變更操作權限，**不會**自動切換 Online／Auto 模式；手動操作前請確認模式為 Offline／Manual

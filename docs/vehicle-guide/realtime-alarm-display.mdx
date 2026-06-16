@@ -1,0 +1,93 @@
+---
+sidebar_position: 6
+title: 即時警報顯示
+---
+
+# 即時警報顯示
+
+對應前端模組：`App.vue`（`#vcs-alarms`）、`AGVStatusStore`（`AlarmCodes` / `AlarmGroup`）
+
+## 功能概述
+
+即時警報顯示為車載 HMI **全畫面固定浮層**，當 AGV 目前存在未清除的 Alarm 或 Warning 時，於畫面 **右下方** 以警示卡片堆疊呈現，無需切換頁籤即可掌握當前異常。
+
+與 [異常紀錄](/docs/vehicle-guide/alarm-records) 的差異：
+
+| 項目 | 即時警報顯示 | 異常紀錄 |
+|------|--------------|----------|
+| 位置 | 畫面右下方浮層 | 主畫面 **異常紀錄** 頁籤 |
+| 資料 | 目前作用中的警報 | 可查詢、分頁的歷史列表 |
+| 用途 | 現場即時察知 | 追溯、篩選、清除紀錄 |
+
+## 進入方式
+
+有未清除警報時 **自動顯示**，各車載頁面均會出現，無需手動進入。切換狀態、操作、地圖等中央頁籤時，浮層仍保持可見。
+
+## 畫面說明
+
+![即時警報顯示](/img/vcs_webui/realtime-alarms-display.png)
+
+截圖中 AGV SubState 為 **DOWN**，右下方同時顯示四筆即時警報。每筆警報以 `el-alert` 卡片呈現，右側有 **X** 關閉按鈕。
+
+### 警示卡片欄位
+
+| 欄位 | 說明 |
+|------|------|
+| 圖示 | 紅色 ✕（Alarm）或黃色 !（Warning） |
+| Alarm Code | 異常碼，如 `Alarm Code=10` |
+| 時間 | 警報發生時間，如 `[2026-06-16 10:45:28]` |
+| 描述 | 中文（CN）與英文（Description），格式如 `軟體EMS(SoftwareEMS)` |
+
+### 截圖範例
+
+| 異常碼 | 等級 | 描述 |
+|--------|------|------|
+| 10 | Alarm（紅） | 軟體EMS（SoftwareEMS） |
+| 20 | Alarm（紅） | EMS觸發（EMS） |
+| 40 | Alarm（紅） | AGV衝撞（前後膠條）（Bumper） |
+| 3504 | Warning（黃） | 向派車上報任務狀態逾時（T1）（Task Status Feedback To AGVS T1 Timeout） |
+
+### 等級色標
+
+| 等級 | 色標 | 條件 |
+|------|------|------|
+| Warning | 黃色（warning） | `ELevel == 0` |
+| Alarm | 紅色（error） | `ELevel != 0` |
+
+若存在任一 Alarm 等級警報，應用程式外框可能顯示 **紅色邊框**；僅 Warning 時可能顯示 **金色邊框**。
+
+### 與其他區域的關聯
+
+| 區域 | 截圖狀態 | 說明 |
+|------|----------|------|
+| 狀態分頁 SubState | DOWN（紅） | 與 EMS／Bumper 等 Alarm 一致 |
+| 側邊 派車系統 | ● 紅 | 可能伴隨 Warning 3504（上報逾時） |
+| 側邊 車控系統／IO | ● 綠 | 車載後端與 IO 仍連線 |
+
+## 操作步驟
+
+### 查看即時警報
+
+1. 留意畫面 **右下方** 是否出現警示卡片堆疊
+2. **Alarm（紅）** 優先於 **Warning（黃）** 處理
+3. 記下 **異常碼** 與描述；詳細歷史至 [異常紀錄](/docs/vehicle-guide/alarm-records) 查詢
+
+### 清除單筆警報
+
+1. 點選對應警示卡片（或右側 **X**）
+2. 系統呼叫 `clear_alarm_with_code` 清除該異常碼的即時警報
+3. 若根因未排除，警報可能再次出現
+
+### 批次異常復歸
+
+1. 依 SOP 排除 EMS、Bumper 等根因
+2. 於 [側邊操作區](/docs/vehicle-guide/side-panel) 點選 **異常排除**（Reset Alarm）
+3. 必要時點選 **蜂鳴器關閉** 停止聲音
+
+## 注意事項
+
+- 即時警報顯示與 [異常紀錄](/docs/vehicle-guide/alarm-records) 為不同介面；清除浮層不代表歷史紀錄已清除
+- EMS（10、20）與 Bumper（40）等 Alarm 通常需依 SOP 物理復歸後才能完全排除
+- Warning 3504 常與 **派車系統連線** 或上報逾時有關，請一併檢查 [側邊操作區](/docs/vehicle-guide/side-panel) 連線狀態
+- 後端連線中斷時，主畫面底部可能另顯示 **後端伺服器錯誤** 提示，與本節警報列不同
+- `BackendExceptionMessageDisplay`、`SystemErrorNotify` 以獨立對話框顯示，不屬於 `#vcs-alarms` 警示列

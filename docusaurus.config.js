@@ -86,7 +86,12 @@ const config = {
           },
           {
             to: '/docs/category/guide',
-            label: '網頁操作',
+            label: '派車系統網頁操作',
+            position: 'left',
+          },
+          {
+            to: '/docs/category/vehicle-guide',
+            label: '車載系統網頁操作',
             position: 'left',
           },
           {
@@ -110,8 +115,12 @@ const config = {
                 to: '/docs/architecture/overview',
               },
               {
-                label: '網頁操作',
+                label: '派車系統網頁操作',
                 to: '/docs/category/guide',
+              },
+              {
+                label: '車載系統網頁操作',
+                to: '/docs/category/vehicle-guide',
               },
               {
                 label: 'API 概覽',
